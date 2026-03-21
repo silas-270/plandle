@@ -12,8 +12,9 @@ export default function QuizBoard() {
         guesses,
         isGameOver,
         hasWon,
+        remainingAttempts,
         submitGuess,
-        resetGame
+        resetGame,
     } = useGameState();
 
     // 1. Fetch data FIRST so we can use it for default states
@@ -74,6 +75,14 @@ export default function QuizBoard() {
         return <div className="flex h-screen items-center justify-center text-red-500 font-bold text-xl">Flight cancelled (Connection error).</div>;
     }
 
+    let imageScale = 1; // Default to fully zoomed out
+    if (!isGameOver) {
+        if (guesses.length === 0) imageScale = 3.5;      // Start very zoomed in
+        else if (guesses.length === 1) imageScale = 2.5; // Zoom out a bit after 1st guess
+        else if (guesses.length === 2) imageScale = 1.5; // Zoom out more after 2nd guess
+        // After 3 guesses (or if the game is over), it defaults to 1 (fully zoomed out)
+    }
+
     // --- Main Game UI ---
     return (
         <div className="min-h-screen bg-slate-100 flex flex-col items-center py-8 px-4 sm:px-6">
@@ -82,7 +91,7 @@ export default function QuizBoard() {
             <div className="w-full max-w-4xl bg-white rounded-2xl shadow-xl overflow-hidden">
 
                 {/* 1. The Big Image */}
-                <div className="w-full h-64 sm:h-96 bg-gray-200 relative">
+                <div className="w-full h-64 sm:h-96 bg-gray-200 relative overflow-hidden">
                     {status === 'buffering' ? (
                         <div className="absolute inset-0 flex items-center justify-center bg-gray-100/80 z-10 text-blue-600 font-bold animate-pulse">
                             Loading next aircraft...
@@ -94,7 +103,8 @@ export default function QuizBoard() {
                             key={currentCard.image.src}
                             src={currentCard.image.src}
                             alt="Guess the aircraft"
-                            className="object-cover w-full h-full"
+                            className="object-contain w-full h-full transition-transform duration-700 ease-in-out"
+                            style={{ transform: `scale(${imageScale})` }}
                         />
                     )}
                 </div>
@@ -168,7 +178,7 @@ export default function QuizBoard() {
                                     onClick={handleNextAircraft}
                                     className="w-full py-4 text-lg font-bold text-white bg-green-600 rounded-xl hover:bg-green-700 shadow-lg transition-transform active:scale-95"
                                 >
-                                    Next Aircraft →
+                                    Next Aircraft
                                 </button>
                             </div>
                         ) : (
@@ -177,7 +187,7 @@ export default function QuizBoard() {
                                 disabled={status === 'buffering'}
                                 className="w-full py-4 text-lg font-bold text-white bg-blue-600 rounded-xl hover:bg-blue-700 disabled:bg-gray-300 transition-colors shadow-sm"
                             >
-                                {status === 'buffering' ? 'Loading Next...' : 'Make Guess'}
+                                {status === 'buffering' ? 'Loading Next...' : `Make Guess - ${remainingAttempts} left`}
                             </button>
                         )}
                     </div>
