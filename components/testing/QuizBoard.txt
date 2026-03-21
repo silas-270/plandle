@@ -1,0 +1,89 @@
+"use client";
+
+import { useState, useRef } from 'react';
+import { useQuestionQueue } from '../hooks/useQuestionQueue';
+
+export default function QuizBoard() {
+    const { currentCard, status, nextQuestion, cardsRemaining } = useQuestionQueue();
+
+    // --- Performance Tracking State ---
+    const clickTimeRef = useRef<number>(0);
+    const [imageLoadTime, setImageLoadTime] = useState<number | null>(null);
+
+    // Wrapper for nextQuestion to start the timer
+    const handleNextClick = () => {
+        clickTimeRef.current = performance.now();
+        setImageLoadTime(null); // Reset the timer display
+        nextQuestion();
+    };
+
+    if (status === 'initializing') {
+        return <div className="flex h-screen items-center justify-center">Loading initial batch...</div>;
+    }
+
+    if (status === 'error' || !currentCard) {
+        return <div className="flex h-screen items-center justify-center text-red-500">Connection error.</div>;
+    }
+
+    return (
+        <div className="flex flex-col h-screen items-center justify-center bg-gray-50 p-4">
+            
+            <div className="mb-4 text-sm font-mono text-gray-500">
+                Queue Status: {status} | Cards in Queue: {cardsRemaining}
+            </div>
+
+            <div className="bg-white p-6 rounded-xl shadow-lg max-w-sm w-full">
+                
+                {status === 'buffering' ? (
+                    <div className="h-64 flex items-center justify-center text-blue-500">Buffering...</div>
+                ) : (
+                    <>
+                        {/* The Image Container */}
+                        <div className="w-full h-48 bg-gray-200 rounded-lg mb-6 overflow-hidden flex items-center justify-center relative">
+                            {currentCard.image?.src ? (
+                                <img 
+                                    // React uses the key to know this is a completely new image element
+                                    key={currentCard.image.src}
+                                    src={currentCard.image.src} 
+                                    alt="Quiz" 
+                                    className="object-cover w-full h-full"
+                                    // This event fires the moment the image finishes downloading and painting
+                                    onLoad={() => {
+                                        if (clickTimeRef.current > 0) {
+                                            const loadDuration = performance.now() - clickTimeRef.current;
+                                            setImageLoadTime(loadDuration);
+                                        }
+                                    }}
+                                />
+                            ) : (
+                                <span className="text-gray-400">No Image</span>
+                            )}
+                        </div>
+
+                        <div className="space-y-2 mb-8">
+                            <p><strong>Manufacturer:</strong> {currentCard.answer.manufacturer}</p>
+                            <p><strong>Type:</strong> {currentCard.answer.type}</p>
+                            <p><strong>Airline:</strong> {currentCard.answer.airline}</p>
+                        </div>
+                    </>
+                )}
+
+                <button 
+                    onClick={handleNextClick}
+                    disabled={status === 'buffering'}
+                    className="w-full py-3 rounded-lg font-bold text-white bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300"
+                >
+                    Next Question
+                </button>
+
+                {/* --- Performance Metrics Display --- */}
+                <div className="mt-4 text-xs font-mono text-center text-gray-400 h-4">
+                    {imageLoadTime !== null && (
+                        <span>Image loaded in: <strong className={imageLoadTime > 100 ? "text-red-400" : "text-green-500"}>{imageLoadTime.toFixed(0)}ms</strong></span>
+                    )}
+                </div>
+
+            </div>
+        </div>
+    );
+}
