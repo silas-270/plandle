@@ -49,12 +49,12 @@ export const AIRCRAFT_DATABASE: AircraftDB = [
     {
         "manufacturer": "Airbus",
         "type": "A319",
-        "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "easyJet", "Lufthansa", "British Airways"]
+        "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "EasyJet", "Lufthansa", "British Airways"]
     },
     {
         "manufacturer": "Airbus",
         "type": "A320",
-        "airlines": ["American Airlines", "easyJet", "Lufthansa", "China Eastern Airlines", "IndiGo", "All Nippon Airways"]
+        "airlines": ["American Airlines", "EasyJet", "Lufthansa", "China Eastern Airlines", "IndiGo", "All Nippon Airways"]
     },
     {
         "manufacturer": "Airbus",
