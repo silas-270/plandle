@@ -321,13 +321,31 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
 
                         {/* Miles earned banner */}
                         {hasWon && milesEarned > 0 && (
-                            <div className="mx-7 mb-3 flex items-center justify-between px-4 py-2.5 bg-warning-muted border border-warning-light rounded-2xl"
-                                style={{ animation: 'header-pop 0.5s 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) both' }}
-                            >
-                                <span className="text-sm font-bold text-warning-dark">Miles earned</span>
-                                <span className="flex items-center gap-1.5 text-sm font-black text-warning-base">
+                            <div className="relative overflow-hidden mx-7 mb-3 flex items-center justify-between px-4 py-2.5 bg-warning-muted border border-warning-light rounded-2xl">
+                                <span className="relative z-10 text-sm font-bold text-warning-dark">Miles earned</span>
+                                <span className="relative z-10 flex items-center gap-1.5 text-sm font-black text-warning-base">
                                     <span>✈️</span> +{milesEarned.toLocaleString()} mi
                                 </span>
+
+                                {/* Flying Plane Effect */}
+                                <div
+                                    className="absolute pointer-events-none z-20 overflow-visible"
+                                    style={{
+                                        top: '50%',
+                                        left: '-15%',
+                                        transform: 'translateY(-50%)',
+                                        animation: 'plane-fly-across 1.2s 0.4s ease-in both',
+                                        width: '56px',
+                                        height: '56px',
+                                        filter: 'drop-shadow(0 12px 8px rgba(0,0,0,0.3))'
+                                    }}
+                                >
+                                    <img
+                                        src="/images/plane-top.png"
+                                        alt="plane"
+                                        className="w-full h-full object-contain"
+                                    />
+                                </div>
                             </div>
                         )}
 
@@ -415,6 +433,10 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                 @keyframes header-pop {
                     from { transform: scale(0.5) rotate(-15deg); opacity: 0; }
                     to   { transform: scale(1)   rotate(0deg);   opacity: 1; }
+                }
+                @keyframes plane-fly-across {
+                    0%   { left: -15%; transform: translateY(-50%); }
+                    100% { left: 115%; transform: translateY(-50%); }
                 }
             `}</style>
         </div>

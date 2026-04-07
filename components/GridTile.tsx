@@ -6,16 +6,17 @@ interface GridTileProps {
 }
 
 export default function GridTile({ text, status }: GridTileProps) {
+
     // Green for correct, a neutral slate-gray for incorrect
     return (
-        <div 
+        <div
             className={`
                 flex items-center justify-center px-2 rounded-lg border-b-2 font-bold text-[10px] sm:text-xs uppercase tracking-tight transition-all duration-300
-                ${status === 'correct' 
-                    ? 'bg-success-base border-success-dark text-white shadow-sm' 
+                ${status === 'correct'
+                    ? 'bg-success-base border-success-dark text-white shadow-sm'
                     : status === 'partial'
-                    ? 'bg-warning-base border-warning-dark text-warning-dark shadow-sm'
-                    : 'bg-bg-soft border-border-strong text-text-secondary'
+                        ? 'bg-warning-base border-warning-dark text-warning-dark shadow-sm'
+                        : 'bg-bg-soft border-border-strong text-text-secondary'
                 }
             `}
             title={text} // Shows full text on hover if truncated
@@ -25,4 +26,4 @@ export default function GridTile({ text, status }: GridTileProps) {
             </span>
         </div>
     );
-}
+} 
