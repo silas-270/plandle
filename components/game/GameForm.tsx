@@ -51,13 +51,15 @@ export default function GameForm({
             {/* Sticky on mobile, inline on desktop */}
             <div className="fixed sm:relative bottom-0 left-0 right-0 sm:mt-4 p-4 sm:p-0 bg-bg-main sm:bg-transparent border-t border-border-muted sm:border-none z-20">
                 <div className="flex flex-col gap-3">
-                    <button
-                        onClick={onGuess}
-                        disabled={isGameOver || isBuffering}
-                        className="w-full py-4 text-lg font-bold text-white bg-bg-inverse rounded-xl hover:opacity-90 disabled:bg-bg-soft transition-colors shadow-sm active:scale-95"
-                    >
-                        {isBuffering ? 'Loading Next...' : `Make Guess — ${remainingAttempts} left`}
-                    </button>
+                    {!isGameOver && (
+                        <button
+                            onClick={onGuess}
+                            disabled={isBuffering}
+                            className="w-full py-4 text-lg font-bold text-white bg-bg-inverse rounded-xl hover:opacity-90 disabled:bg-bg-soft transition-colors shadow-sm active:scale-95"
+                        >
+                            {isBuffering ? 'Loading Next...' : `Make Guess — ${remainingAttempts} left`}
+                        </button>
+                    )}
                     {extraActions}
                 </div>
             </div>

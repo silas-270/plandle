@@ -123,6 +123,18 @@ export default function EndlessPage() {
         </button>
     ) : null;
 
+    const nextButton = isGameOver ? (
+        <button
+            onClick={handleNext}
+            className={`w-full py-4 rounded-xl font-bold text-lg tracking-wide active:scale-95 transition-all shadow-lg ${hasWon
+                ? 'bg-brand-base hover:opacity-90 text-white'
+                : 'bg-bg-inverse hover:opacity-90 text-white'
+                }`}
+        >
+            Next Aircraft ✈️
+        </button>
+    ) : null;
+
     return (
         <>
             <StatsModal
@@ -168,7 +180,7 @@ export default function EndlessPage() {
                         isGameOver={isGameOver}
                         remainingAttempts={remainingAttempts}
                         onGuess={handleGuess}
-                        extraActions={skipButton}
+                        extraActions={<>{skipButton}{nextButton}</>}
                     />
                     <GameHistory guesses={guesses} fields={fields} />
                 </div>

@@ -177,6 +177,14 @@ export default function DailyPage() {
                         isGameOver={isGameOver}
                         remainingAttempts={remainingAttempts}
                         onGuess={handleGuess}
+                        extraActions={isGameOver ? (
+                            <Link
+                                href="/endless"
+                                className="w-full py-4 text-center rounded-xl font-bold text-lg tracking-wide active:scale-95 transition-all shadow-lg bg-brand-base hover:opacity-90 text-white"
+                            >
+                                Play Endless Mode 🔄
+                            </Link>
+                        ) : null}
                     />
                     <GameHistory guesses={guesses} fields={fields} />
                 </div>

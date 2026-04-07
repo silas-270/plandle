@@ -96,6 +96,17 @@ export default function TriviaPage() {
                         isGameOver={isGameOver}
                         remainingAttempts={remainingAttempts}
                         onGuess={handleGuess}
+                        extraActions={isGameOver ? (
+                            <button
+                                onClick={handleNext}
+                                className={`w-full py-4 rounded-xl font-bold text-lg tracking-wide active:scale-95 transition-all shadow-lg ${hasWon
+                                    ? 'bg-brand-base hover:opacity-90 text-white'
+                                    : 'bg-bg-inverse hover:opacity-90 text-white'
+                                    }`}
+                            >
+                                Next Question ✈️
+                            </button>
+                        ) : null}
                     />
                     
                     {/* The same History viewer, but auto-adapts to 1 column */}
