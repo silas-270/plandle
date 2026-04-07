@@ -1,0 +1,12 @@
+[
+    { "fact": "I am the oldest airline in the world still operating under my original name. I was founded in 1919.", "answer": { "airline": "KLM" } },
+    { "fact": "My headquarters is in Atlanta, Georgia, and I operate the world's largest fleet of passenger aircraft.", "answer": { "airline": "Delta Air Lines" } },
+    { "fact": "I am known for the 'Flying Kangaroo' logo and I'm the flag carrier of Australia.", "answer": { "airline": "Qantas" } },
+    { "fact": "I have the largest fleet of Airbus A380s in the world by a massive margin.", "answer": { "airline": "Emirates" } },
+    { "fact": "I am Europe's largest low-cost airline and primarily fly Boeing 737-800s in a distinctive blue and yellow livery.", "answer": { "airline": "Ryanair" } },
+    { "fact": "I am the flag carrier of Germany and my logo features a stylized crane in a circle.", "answer": { "airline": "Lufthansa" } },
+    { "fact": "I am a major US airline headquartered in Chicago and once had a merger with Continental Airlines.", "answer": { "airline": "United Airlines" } },
+    { "fact": "Based in Hong Kong, I am named after a legendary kingdom and known for the 'brushwing' livery.", "answer": { "airline": "Cathay Pacific" } },
+    { "fact": "I am the largest airline in the world by passengers carried and I'm headquartered in Fort Worth, Texas.", "answer": { "airline": "American Airlines" } },
+    { "fact": "I am the world's largest low-cost carrier and I only fly Boeing 737 aircraft.", "answer": { "airline": "Southwest Airlines" } }
+]

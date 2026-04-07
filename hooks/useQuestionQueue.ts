@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { QuizCard, QueueStatus } from '../types/quiz';
-import { getRandomPlane, aircraft } from '@/data/aircraft';
+import { getRandomPlane, getPlaneBySeed, aircraft } from '@/data/aircraft';
 
 const QUEUE_TARGET_LENGTH = 5;
 
@@ -14,16 +14,34 @@ const preloadImage = (src: string): Promise<void> => {
     });
 };
 
-export function useQuestionQueue() {
+export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
     const [queue, setQueue] = useState<QuizCard[]>([]);
     const [status, setStatus] = useState<QueueStatus>('initializing');
     const hasInitialized = useRef(false);
+    const modeRef = useRef(mode);
+
+    // Sync mode change if necessary (useful if we toggle modes)
+    useEffect(() => {
+        if (modeRef.current !== mode) {
+            modeRef.current = mode;
+            setQueue([]); // Reset queue on mode toggle
+            hasInitialized.current = false;
+        }
+    }, [mode]);
 
     // 1. The Helper: Fetches a single card with a built-in retry loop
-    const fetchWithRetry = async (maxRetries = 3): Promise<QuizCard | null> => {
+    const fetchWithRetry = async (maxRetries = 3, isDaily = false): Promise<QuizCard | null> => {
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                const airplane: aircraft = getRandomPlane();
+                // Determine which plane to fetch
+                let airplane: aircraft;
+                if (isDaily) {
+                    const today = new Date().toISOString().split('T')[0];
+                    airplane = getPlaneBySeed(today);
+                } else {
+                    airplane = getRandomPlane();
+                }
+
                 const params = new URLSearchParams(airplane);
 
                 const res = await fetch(`/api/plane-images?${params}`);
@@ -53,70 +71,79 @@ export function useQuestionQueue() {
         return null;
     };
 
-    // 2. The Refill: Fetches one card and appends it to the queue
+    // 2. The Refill: Fetches one card and appends it to the queue (only for practice)
     const enqueueCard = useCallback(async () => {
-        const newCard = await fetchWithRetry(3); // Try up to 3 times
+        if (modeRef.current === 'daily') return;
+
+        const newCard = await fetchWithRetry(3, false);
 
         setQueue(prevQueue => {
             if (newCard) {
                 const updatedQueue = [...prevQueue, newCard];
-                // Wake up the UI if it was buffering
                 if (updatedQueue.length > 0) {
                     setStatus(prevStatus => prevStatus === 'buffering' ? 'ready' : prevStatus);
                 }
                 return updatedQueue;
             } else {
-                // THE APP GIVES UP HAHA:
-                // If we failed to get a card AND the queue is empty, trigger the error state
-                if (prevQueue.length === 0) {
-                    setStatus('error');
-                }
-                return prevQueue; // Queue stays exactly as it was
+                if (prevQueue.length === 0) setStatus('error');
+                return prevQueue;
             }
         });
     }, []);
 
-    // 3. The Cold Start: Fires exactly once on mount
+    // 3. The Cold Start: Fires on mount or mode change
     useEffect(() => {
         if (hasInitialized.current) return;
         hasInitialized.current = true;
 
         setStatus('initializing');
 
-        // Instead of waiting for all 5 to finish (which blocks the fast ones),
-        // we fire 5 independent workers. As soon as ONE finishes its image download, 
-        // the game starts!
-        for (let i = 0; i < QUEUE_TARGET_LENGTH; i++) {
-            fetchWithRetry(3).then(newCard => {
+        if (mode === 'daily') {
+            // Fetch exactly one for daily
+            fetchWithRetry(3, true).then(newCard => {
                 if (newCard) {
-                    setQueue(prevQueue => {
-                        const updatedQueue = [...prevQueue, newCard];
-                        // If this is the very first card to arrive, wake up the UI immediately!
-                        if (updatedQueue.length === 1) {
-                            setStatus('ready');
-                        }
-                        return updatedQueue;
-                    });
+                    setQueue([newCard]);
+                    setStatus('ready');
+                } else {
+                    setStatus('error');
                 }
             });
+        } else {
+            // Endless mode: Fetch initial batch
+            for (let i = 0; i < QUEUE_TARGET_LENGTH; i++) {
+                fetchWithRetry(3, false).then(newCard => {
+                    if (newCard) {
+                        setQueue(prevQueue => {
+                            const updatedQueue = [...prevQueue, newCard];
+                            if (updatedQueue.length === 1) setStatus('ready');
+                            return updatedQueue;
+                        });
+                    }
+                });
+            }
         }
-    }, []);
+    }, [mode]);
 
     // 4. The Action
     const nextQuestion = useCallback(() => {
+        if (mode === 'daily') {
+            // In daily mode, we don't have a "next" question in the same queue
+            // The UI should handle what happens when the game is over
+            return;
+        }
+
         setQueue(prevQueue => {
             const newQueue = prevQueue.slice(1);
             if (newQueue.length === 0) setStatus('buffering');
             return newQueue;
         });
         enqueueCard();
-    }, [enqueueCard]);
+    }, [mode, enqueueCard]);
 
-    // Expose only what the UI needs
     return {
         currentCard: queue[0] || null,
         status,
         nextQuestion,
-        cardsRemaining: queue.length // Helpful for debugging!
+        cardsRemaining: queue.length
     };
 }

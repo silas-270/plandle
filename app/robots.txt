@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://plandle.vercel.app/sitemap.xml

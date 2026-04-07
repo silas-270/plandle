@@ -55,10 +55,12 @@ export const GET = async (request: NextRequest) => {
             );
         }
 
-        const pageArray = Object.values(pages);
-        // Cast as 'any' to avoid strict TS errors on the Wikimedia response shape, 
-        // or define an interface if you prefer strict typing.
-        const randomPage: any = pageArray[Math.floor(Math.random() * pageArray.length)];
+        interface WikimediaPage {
+            imageinfo?: Array<{ url: string }>;
+        }
+
+        const pageArray = Object.values(pages) as WikimediaPage[];
+        const randomPage = pageArray[Math.floor(Math.random() * pageArray.length)];
         const imageUrl = randomPage.imageinfo?.[0]?.url;
 
         if (imageUrl) {

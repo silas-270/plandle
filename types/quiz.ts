@@ -10,7 +10,7 @@ export type QuizCard = {
 export type QueueStatus = 'initializing' | 'ready' | 'buffering' | 'error';
 
 
-export type AttributeResult = 'correct' | 'incorrect';
+export type AttributeResult = 'correct' | 'incorrect' | 'partial';
 
 export type Guess = {
     manufacturer: string;
