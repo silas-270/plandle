@@ -3,8 +3,8 @@
 import { useState, useEffect, useCallback } from 'react';
 
 const STORAGE_KEY = 'plandle_miles_v1';
-export const SKIP_COST = 1250;
-export const DAILY_MILES = 400;
+export const SKIP_COST = 250;
+export const DAILY_MILES = 1000;
 
 function loadMiles(): number {
     try {
