@@ -17,7 +17,7 @@ import StatsModal from '@/components/StatsModal';
 import { FieldConfig } from '@/types/genericGame';
 
 // Daily is always Economy difficulty
-const config = DIFFICULTY_CONFIGS['Economy'];
+const config = DIFFICULTY_CONFIGS['Business'];
 
 const aircraftGrader: Grader = (selection, actual) => {
     return {
