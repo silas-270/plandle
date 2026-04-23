@@ -1,3 +1,5 @@
+import { getCurrentTier } from '@/data/ranks';
+
 type Props = {
     miles: number;
     modeLabel: string;
@@ -5,14 +7,15 @@ type Props = {
 };
 
 export default function GameNavbar({ miles, modeLabel, onStatsClick }: Props) {
+    const tier = getCurrentTier(miles);
+
     return (
         <div className="flex flex-row items-center justify-between px-4 sm:px-6 pt-4 sm:pt-6 pb-4 border-b border-border-muted">
 
             {/* Miles Badge */}
-            <div className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 bg-warning-muted border border-warning-light rounded-full">
-                <span className="text-sm sm:text-base">✈️</span>
-                <span className="text-xs font-black text-warning-dark tabular-nums">{miles.toLocaleString()}</span>
-                <span className="text-xs font-semibold text-warning-base">mi</span>
+            <div className={`flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-full border ${tier.bgClass} ${tier.borderClass}`}>
+                <span className={`text-xs font-black tabular-nums ${tier.colorClass}`}>{miles.toLocaleString()}</span>
+                <span className={`text-xs font-semibold opacity-80 ${tier.colorClass}`}>mi</span>
             </div>
 
             {/* Mode Label */}

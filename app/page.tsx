@@ -1,8 +1,32 @@
+'use client';
+
 import Link from "next/link";
+import { useState } from "react";
+import StatsModal from "@/components/StatsModal";
+import { useStats } from "@/hooks/useStats";
+import { useMiles } from "@/hooks/useMiles";
 
 export default function HomePage() {
+    const { stats, getWinRate } = useStats();
+    const { miles } = useMiles();
+    const [isStatsOpen, setIsStatsOpen] = useState(false);
+
     return (
         <div className="min-h-screen bg-bg-subtle flex flex-col items-center justify-center px-4 py-16">
+            
+            <StatsModal
+                stats={stats['practice'] || { played: 0, wins: 0, currentStreak: 0, maxStreak: 0, guessDistribution: [] }} 
+                allStats={stats}
+                winRate={getWinRate('practice')}
+                getWinRate={getWinRate}
+                hasWon={false}
+                isOpen={isStatsOpen}
+                variant="overview"
+                guessCount={0}
+                maxAttempts={0}
+                miles={miles}
+                onClose={() => setIsStatsOpen(false)}
+            />
 
             {/* Hero */}
             <div className="text-center mb-12">
@@ -18,14 +42,29 @@ export default function HomePage() {
             {/* Mode Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl">
 
+                {/* Player Stats Card - Compact minimalist design */}
+                <button
+                    onClick={() => setIsStatsOpen(true)}
+                    className="col-span-1 sm:col-span-2 lg:col-span-3 relative bg-bg-main rounded-2xl shadow-sm border border-border-muted p-5 flex items-center justify-start hover:shadow-md hover:bg-bg-subtle transition-all duration-200 overflow-hidden"
+                >
+                    {/* SVG Light Gray Background - Left aligned */}
+                    <div className="absolute inset-0 flex items-center justify-start pointer-events-none px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-[8rem] h-[8rem] text-text-main opacity-[0.04]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+
+                    <h2 className="relative z-10 text-lg font-black text-text-main tracking-wide uppercase px-2">
+                        Your Career Stats
+                    </h2>
+                </button>
+
                 {/* Daily Challenge */}
                 <Link
                     href="/daily"
                     className="group relative bg-bg-main rounded-3xl shadow-lg border border-border-muted p-7 flex flex-col gap-3 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
                 >
-                    {/* Background accent */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-light to-accent-teal rounded-t-3xl" />
-
                     <div className="text-4xl">📅</div>
                     <div>
                         <h2 className="text-xl font-black text-text-main tracking-tight">Daily Challenge</h2>
@@ -33,15 +72,11 @@ export default function HomePage() {
                             One aircraft per day, same for everyone. Come back daily to keep your streak alive.
                         </p>
                     </div>
-                    <div className="flex items-center gap-2 mt-auto pt-2">
+                    <div className="flex items-center gap-2 mt-auto pt-2 flex-wrap">
                         <span className="text-xs font-bold text-brand-base bg-brand-muted px-2.5 py-1 rounded-full">Economy · 6 attempts</span>
-                        <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+400 mi</span>
+                        <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+2000 mi</span>
                     </div>
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 text-bg-soft group-hover:text-brand-muted transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17 12H7m10 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                        </svg>
-                    </div>
+
                 </Link>
 
                 {/* Endless Mode */}
@@ -49,9 +84,7 @@ export default function HomePage() {
                     href="/endless"
                     className="group relative bg-bg-main rounded-3xl shadow-lg border border-border-muted p-7 flex flex-col gap-3 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
                 >
-                    {/* Background accent */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-accent-violet to-brand-light rounded-t-3xl" />
-
                     <div className="text-4xl">🔄</div>
                     <div>
                         <h2 className="text-xl font-black text-text-main tracking-tight">Endless Mode</h2>
@@ -61,13 +94,9 @@ export default function HomePage() {
                     </div>
                     <div className="flex items-center gap-2 mt-auto pt-2 flex-wrap">
                         <span className="text-xs font-bold text-accent-violet bg-bg-muted px-2.5 py-1 rounded-full">Economy / Business / First</span>
-                        <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+150–600 mi</span>
+                        <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+125–500 mi</span>
                     </div>
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 text-bg-soft group-hover:text-accent-pink transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17 12H7m10 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                        </svg>
-                    </div>
+
                 </Link>
 
                 {/* Trivia Mode */}
@@ -75,9 +104,7 @@ export default function HomePage() {
                     href="/trivia"
                     className="group relative bg-bg-main rounded-3xl shadow-lg border border-border-muted p-7 flex flex-col gap-3 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
                 >
-                    {/* Background accent */}
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-success-stats to-accent-teal rounded-t-3xl" />
-
                     <div className="text-4xl">🧠</div>
                     <div>
                         <h2 className="text-xl font-black text-text-main tracking-tight">Trivia (Beta)</h2>
@@ -89,11 +116,7 @@ export default function HomePage() {
                         <span className="text-xs font-bold text-success-stats bg-bg-muted px-2.5 py-1 rounded-full">3 attempts</span>
                         <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+100 mi</span>
                     </div>
-                    <div className="absolute right-6 top-1/2 -translate-y-1/2 text-bg-soft group-hover:text-success-base transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17 12H7m10 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                        </svg>
-                    </div>
+
                 </Link>
 
             </div>

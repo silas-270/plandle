@@ -7,6 +7,7 @@ export type ModeStats = {
     wins: number;
     currentStreak: number;
     maxStreak: number;
+    recentResults?: boolean[];
 };
 
 export type GameStats = Record<string, ModeStats>;
@@ -18,6 +19,7 @@ const DEFAULT_MODE_STATS: ModeStats = {
     wins: 0,
     currentStreak: 0,
     maxStreak: 0,
+    recentResults: [],
 };
 
 const DEFAULT_STATS: GameStats = {
@@ -72,6 +74,7 @@ export function useStats() {
                 wins: hasWon ? currentModeStats.wins + 1 : currentModeStats.wins,
                 currentStreak: newStreak,
                 maxStreak: Math.max(currentModeStats.maxStreak, newStreak),
+                recentResults: [hasWon, ...(currentModeStats.recentResults || [])].slice(0, 100),
             };
 
             const next: GameStats = {
@@ -86,6 +89,14 @@ export function useStats() {
 
     const getWinRate = (mode: string) => {
         const mStats = stats[mode] || { ...DEFAULT_MODE_STATS };
+        const results = mStats.recentResults || [];
+        
+        if (results.length > 0) {
+            const recentWins = results.filter(r => r).length;
+            return Math.round((recentWins / results.length) * 100);
+        }
+        
+        // Fallback for players before the update (all-time win rate)
         return mStats.played > 0
             ? Math.round((mStats.wins / mStats.played) * 100)
             : 0;

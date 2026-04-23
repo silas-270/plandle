@@ -1,0 +1,2664 @@
+[
+  {
+    "searchQuery": "Bombardier CRJ-200 SkyWest Airlines",
+    "testCase": {
+      "manufacturer": "Bombardier",
+      "type": "CRJ-200",
+      "airline": "SkyWest Airlines"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "25907261": {
+            "pageid": 25907261,
+            "ns": 6,
+            "title": "File:Skywest CRJ-200 N498CA (8069499834) (2).jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Skywest_CRJ-200_N498CA_%288069499834%29_%282%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Skywest_CRJ-200_N498CA_(8069499834)_(2).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=25907261",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2013-05-05 02:34:45",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Skywest CRJ-200 N498CA (8069499834) (2)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Nikon D700|Flickr images reviewed by File Upload Bot (Magnus Manske)|Photographs by Brian Bukowski|Files with coordinates missing SDC location of creation|CRJ200 at Phoenix Sky Harbor International Airport|N498CA (aircraft)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "GPSLatitude": {
+                    "value": "33.437851",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSLongitude": {
+                    "value": "-111.998062",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSMapDatum": {
+                    "value": "WGS-84",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Rare to see a regional in house colous. Used as a spare aircraft across airlines. Taxing at PHX",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2012-10-08 13:03",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/bribri/8069499834/\">Skywest CRJ-200 N498CA</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/40563877@N00\">BriYYZ</a> from Toronto, Canada",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "74638654": {
+            "pageid": 74638654,
+            "ns": 6,
+            "title": "File:Delta N438SW Bombardier CRJ-200 (22147920216).jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Delta_N438SW_Bombardier_CRJ-200_%2822147920216%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Delta_N438SW_Bombardier_CRJ-200_(22147920216).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=74638654",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2018-11-25 01:54:37",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Delta N438SW Bombardier CRJ-200 (22147920216)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "CRJ200 of DeltaConnection|Flickr images reviewed by FlickreviewR 2|Airline files uploaded by Tyler de Noche",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Operated by SkyWest Airlines for Delta Connection; I think this is the last time I saw this Delta livery (called \"Colors in Motion\") in use. The flight was headed to Minneapolis, but I was holding out for my flight back to Detroit.",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2012-01-13 16:31",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/formulanone/22147920216/\">Delta N438SW: Bombardier CRJ-200</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/30552029@N00\">formulanone</a> from Huntsville, United States",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "74638787": {
+            "pageid": 74638787,
+            "ns": 6,
+            "title": "File:Delta N437SW Bombardier CRJ-200 (35923129444).jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Delta_N437SW_Bombardier_CRJ-200_%2835923129444%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Delta_N437SW_Bombardier_CRJ-200_(35923129444).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=74638787",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2018-11-25 01:58:51",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Delta N437SW Bombardier CRJ-200 (35923129444)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "CRJ200 of DeltaConnection|Flickr images reviewed by FlickreviewR 2|Airline files uploaded by Tyler de Noche",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "<p>Getting a tow in Atlanta - February 2014\n</p>\nOperated by SkyWest Airlines.",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2014-02-08 10:03",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/formulanone/35923129444/\">Delta N437SW: Bombardier CRJ-200</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/30552029@N00\">formulanone</a> from Huntsville, United States",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "Airbus A340 Mahan Air",
+    "testCase": {
+      "manufacturer": "Airbus",
+      "type": "A340",
+      "airline": "Mahan Air"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "43567539": {
+            "pageid": 43567539,
+            "ns": 6,
+            "title": "File:Mahan Air Airbus A340-642 at Beijing Capital.jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/1/12/Mahan_Air_Airbus_A340-642_at_Beijing_Capital.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Mahan_Air_Airbus_A340-642_at_Beijing_Capital.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=43567539",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2015-09-23 19:15:44",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Mahan Air Airbus A340-642 at Beijing Capital",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "GFDL-1.2|Items with VRTS permission confirmed|EP-MMH (aircraft)|2015 at Beijing Capital International Airport|Airbus A340 at night|Photos by Allen Zhao|Airbus A340 of Mahan Air at Beijing Capital International Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Mahan Air Airbus A340-642 at Beijing Capital",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2015-09",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external free\" href=\"http://www.airliners.net/photo/Mahan-Air/Airbus-A340-642/2705874/L/\">http://www.airliners.net/photo/Mahan-Air/Airbus-A340-642/2705874/L/</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "Allen Zhao",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "GFDL 1.2",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "GNU Free Documentation License 1.2",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "http://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "48165330": {
+            "pageid": 48165330,
+            "ns": 6,
+            "title": "File:Up Boeing 737-800 and Mahan Air Airbus A340-300 at Kyiv Boryspil Airport.jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Up_Boeing_737-800_and_Mahan_Air_Airbus_A340-300_at_Kyiv_Boryspil_Airport.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Up_Boeing_737-800_and_Mahan_Air_Airbus_A340-300_at_Kyiv_Boryspil_Airport.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=48165330",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2016-04-13 10:50:40",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Up Boeing 737-800 and Mahan Air Airbus A340-300 at Kyiv Boryspil Airport",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "GFDL-1.2|Mahan Air|EP-MMA (aircraft)|Items with VRTS permission confirmed|4X-EKT (aircraft)|2016 at Boryspil International Airport|Photographs by Oleg Belyakov|Airbus A340 at Boryspil International Airport|Boeing 737 of Up at Boryspil International Airport|Mahan Air aircraft at Boryspil International Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Up! Boeing 737-800 and Mahan Air Airbus A340-300 at Kyiv Boryspil Airport",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2016-03-20",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external free\" href=\"http://spotters.net.ua/file/?id=108173&amp;size=large\">http://spotters.net.ua/file/?id=108173&amp;size=large</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "Oleg Belyakov",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 3.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-3.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "177458217": {
+            "pageid": 177458217,
+            "ns": 6,
+            "title": "File:Mahan Air, EP-MJF, Airbus A340-313 (54076792630).jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/e/ef/Mahan_Air%2C_EP-MJF%2C_Airbus_A340-313_%2854076792630%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Mahan_Air,_EP-MJF,_Airbus_A340-313_(54076792630).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=177458217",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2025-10-27 16:37:23",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Mahan Air, EP-MJF, Airbus A340-313 (54076792630)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Airbus A340-300 in 2024|Flickr images reviewed by FlickreviewR 2|2024 at Istanbul Airport|Photographs by Anna Zvereva|Airbus A340-300 of Mahan Air at Istanbul Airport|EP-MJF (aircraft)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Mahan Air, EP-MJF, Airbus A340-313",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2024-10-14 10:33",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/130961247@N06/54076792630/\">Mahan Air, EP-MJF, Airbus A340-313</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/130961247@N06\">Anna Zvereva</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "ATR ATR 42 Loganair",
+    "testCase": {
+      "manufacturer": "ATR",
+      "type": "ATR 42",
+      "airline": "Loganair"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "97573898": {
+            "pageid": 97573898,
+            "ns": 6,
+            "title": "File:ATR 42 G-LMRC MG 0555.jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/ATR_42_G-LMRC_MG_0555.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:ATR_42_G-LMRC_MG_0555.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97573898",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2020-12-14 23:34:08",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "ATR 42 G-LMRC MG 0555",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Canon EOS 700D|G-LMRC (aircraft)|2020 at Sumburgh Airport|Flickr images reviewed by FlickreviewR 2|ATR 42 take offs|Photographs by Ronnie Robertson|ATR 42 of Loganair at Sumburgh Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "..runway 33 departure from Sumburgh",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2020-11-19 16:45:21",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/16633132@N04/50642488671/\">https://www.flickr.com/photos/16633132@N04/50642488671/</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "Ronnie Robertson",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "97573900": {
+            "pageid": 97573900,
+            "ns": 6,
+            "title": "File:ATR 42 G-LMRC MG 0552.jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/f/fb/ATR_42_G-LMRC_MG_0552.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:ATR_42_G-LMRC_MG_0552.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97573900",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2020-12-14 23:34:13",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "ATR 42 G-LMRC MG 0552",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Canon EOS 700D|G-LMRC (aircraft)|2020 at Sumburgh Airport|Flickr images reviewed by FlickreviewR 2|ATR 42 take offs|Photographs by Ronnie Robertson|ATR 42 of Loganair at Sumburgh Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "..runway 33 departure from Sumburgh",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2020-11-19 16:45:17",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/16633132@N04/50641727698/\">https://www.flickr.com/photos/16633132@N04/50641727698/</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "Ronnie Robertson",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "97573901": {
+            "pageid": 97573901,
+            "ns": 6,
+            "title": "File:ATR 42 G-LMRC MG 0549.jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/ATR_42_G-LMRC_MG_0549.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:ATR_42_G-LMRC_MG_0549.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=97573901",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2020-12-14 23:34:13",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "ATR 42 G-LMRC MG 0549",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Canon EOS 700D|G-LMRC (aircraft)|2020 at Sumburgh Airport|Flickr images reviewed by FlickreviewR 2|ATR 42 take offs|Photographs by Ronnie Robertson|ATR 42 of Loganair at Sumburgh Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "..runway 33 departure from Sumburgh",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2020-11-19 16:44:24",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/16633132@N04/50642486636/\">https://www.flickr.com/photos/16633132@N04/50642486636/</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "Ronnie Robertson",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "Boeing 747 Lufthansa",
+    "testCase": {
+      "manufacturer": "Boeing",
+      "type": "747",
+      "airline": "Lufthansa"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "74792547": {
+            "pageid": 74792547,
+            "ns": 6,
+            "title": "File:Lufthansa B744, Berlin (IMG 8937).jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/8/87/Lufthansa_B744%2C_Berlin_%28IMG_8937%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lufthansa_B744,_Berlin_(IMG_8937).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=74792547",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2018-12-01 22:55:27",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Lufthansa B744, Berlin (IMG 8937)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Canon EOS 7D|D-ABTL (aircraft)|Taken with Tamron SP 70-300 mm F4-5.6 Di VC USD|Uploaded with LrMediaWiki|User MB-one supported by Wikimedia Deutschland/Lightroom|Boeing 747-400 of Lufthansa at Berlin-Tegel Airport|November 2017 at Berlin-Tegel Airport|Views from Berlin-Tegel Airport - observation decks|Parked Boeing 747|Lufthansa aircraft on the ground",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "quality",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "GPSLatitude": {
+                    "value": "52.555100",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSLongitude": {
+                    "value": "13.289900",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSMapDatum": {
+                    "value": "WGS-84",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Lufthansa Boeing 747-400 (D-ABTL) at Tegel Airport providing additional domestic passenger capacity after the Air Berlin grounding in November 2017",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2017-11-20",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/wiki/User:MB-one\" title=\"User:MB-one\">Matti Blume</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 4.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-4.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "128702705": {
+            "pageid": 128702705,
+            "ns": 6,
+            "title": "File:Lufthansa Boeing 747-8 20180513 3719.jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/5/56/Lufthansa_Boeing_747-8_20180513_3719.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lufthansa_Boeing_747-8_20180513_3719.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=128702705",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2023-02-14 06:20:59",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Lufthansa Boeing 747-8 20180513 3719",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Self-published work|2018 at Frankfurt Airport|Boeing 747-8 of Lufthansa at Frankfurt Airport|D-ABYH (Boeing 747-8)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Lufthansa Boeing 747-830 D-ABYH at Frankfurt Airport",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2018-05-13 12:21:57",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Premkudva\" title=\"User:Premkudva\">Premkudva</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 4.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-4.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "164992369": {
+            "pageid": 164992369,
+            "ns": 6,
+            "title": "File:Lufthansa Boeing 747-8 D-ABYI IAD VA1.jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Lufthansa_Boeing_747-8_D-ABYI_IAD_VA1.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Lufthansa_Boeing_747-8_D-ABYI_IAD_VA1.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=164992369",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2025-05-11 16:29:13",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Lufthansa Boeing 747-8 D-ABYI IAD VA1",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Self-published work|D-ABYI (aircraft)|2025 at Washington Dulles International Airport|Taken with Canon EOS R5 and Canon RF 100-500mm F4.5-7.1L IS USM|April 2025 in Virginia|Boeing 747-8 in 2025|Aircraft in the United States photographed in 2025|Aircraft on final approach at Washington Dulles International Airport|Boeing 747 of Lufthansa at Washington Dulles International Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "quality",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Lufthansa Boeing 747-8 D-ABYI on final approach at Washington Dulles International Airport, Virginia, USA",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2025-04-30",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Acroterion\" title=\"User:Acroterion\">Acroterion</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 4.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-4.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "De Havilland Dash 8 Q400 Porter Airlines",
+    "testCase": {
+      "manufacturer": "De Havilland",
+      "type": "Dash 8 Q400",
+      "airline": "Porter Airlines"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "29592365": {
+            "pageid": 29592365,
+            "ns": 6,
+            "title": "File:Porter Dash 8 - Q400 (4559947842).jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/Porter_Dash_8_-_Q400_%284559947842%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Porter_Dash_8_-_Q400_(4559947842).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=29592365",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2013-11-13 01:54:45",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Porter Dash 8 - Q400 (4559947842)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Canon EOS 450D|Photographs by Shawn Roberts|Aviation files (check needed)|Flickr images reviewed by File Upload Bot (Magnus Manske)|De Havilland Canada DHC-8-400 of Porter Airlines",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Runway 11 in St John's. RVR around 2000 - 3000",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2010-04-27 15:49",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/cdnav8r/4559947842/\">Porter Dash 8 - Q400</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/44389375@N00\">Shawn</a> from Airdrie, Canada",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "41256225": {
+            "pageid": 41256225,
+            "ns": 6,
+            "title": "File:Porter Airlines, Bombardier Dash-8 Q400, C-GLQN (18512982883).jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/c/c1/Porter_Airlines%2C_Bombardier_Dash-8_Q400%2C_C-GLQN_%2818512982883%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Porter_Airlines,_Bombardier_Dash-8_Q400,_C-GLQN_(18512982883).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=41256225",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2015-06-28 23:20:53",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Porter Airlines, Bombardier Dash-8 Q400, C-GLQN (18512982883)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Flickr images reviewed by FlickreviewR|Photographs by Brian Bukowski|2015 at Ottawa Macdonald-Cartier International Airport|De Havilland Canada DHC-8-400 take offs|June 2015 in Ottawa|De Havilland Canada DHC-8-400 of Porter Airlines at Ottawa Macdonald-Cartier International Airport|Aircraft take offs at Ottawa Macdonald International Airport|Files uploaded by Helmy oved|C-GLQN (aircraft)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Departing YOW",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2015-06-14 09:38",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/bribri/18512982883/\">Porter Bombardier Dash-8 Q400 C-GLQN</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/40563877@N00\">BriYYZ</a> from Toronto, Canada",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "61718421": {
+            "pageid": 61718421,
+            "ns": 6,
+            "title": "File:Bombardier Dash 8 Q400, Porter Airlines, Montréal.jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Bombardier_Dash_8_Q400%2C_Porter_Airlines%2C_Montr%C3%A9al.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bombardier_Dash_8_Q400,_Porter_Airlines,_Montr%C3%A9al.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=61718421",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2017-08-16 14:29:30",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Bombardier Dash 8 Q400, Porter Airlines, Montréal",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Self-published work|Photographs and images by Yann Forget|Information field template with formatting|De Havilland Canada DHC-8-400 of Porter Airlines|Uploaded with Mobile/Android|2017 at Montréal-Pierre Elliott Trudeau International Airport|Photographs taken on 2017-08-15|De Havilland Canada DHC-8-400 of Porter Airlines at Montréal-Pierre Elliott Trudeau International Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Bombardier Dash 8 Q400, Montréal International Airport.",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "15 August 2017 (according to <span lang=\"en\" dir=\"ltr\"><a href=\"https://en.wikipedia.org/wiki/Exif\" class=\"extiw\" title=\"en:Exif\">Exif</a></span> data)",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Yann\" title=\"User:Yann\">Yann Forget</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Attribution": {
+                    "value": "This file is not in the public domain. Therefore you are requested to use the following next to the image if you reuse this file: © <a href=\"//commons.wikimedia.org/wiki/User:Yann\" title=\"User:Yann\">Yann Forget</a> / <a class=\"external text\" href=\"https://commons.wikimedia.org\">Wikimedia Commons</a>",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY 4.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution 4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by/4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-4.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "Embraer E170 Envoy Air",
+    "testCase": {
+      "manufacturer": "Embraer",
+      "type": "E170",
+      "airline": "Envoy Air"
+    },
+    "responseData": {
+      "batchcomplete": ""
+    }
+  },
+  {
+    "searchQuery": "Bombardier CRJ-700 HOP!",
+    "testCase": {
+      "manufacturer": "Bombardier",
+      "type": "CRJ-700",
+      "airline": "HOP!"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "50929573": {
+            "pageid": 50929573,
+            "ns": 6,
+            "title": "File:HOP! Bombardier CRJ-700 F-GRZN (28937926865).jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/0/0b/HOP%21_Bombardier_CRJ-700_F-GRZN_%2828937926865%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:HOP!_Bombardier_CRJ-700_F-GRZN_(28937926865).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=50929573",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2016-08-28 03:13:27",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "HOP! Bombardier CRJ-700 F-GRZN (28937926865)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Flickr images reviewed by FlickreviewR|Photographs by Brian Bukowski|2015 at Amsterdam Airport Schiphol|Netherlands photographs taken on 2015-09-10|Aircraft in the Netherlands photographed in 2015|CRJ700 in 2015|CRJ700 of Hop! at Amsterdam Airport Schiphol|F-GRZN (Hop!)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "GPSLatitude": {
+                    "value": "52.285566",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSLongitude": {
+                    "value": "4.735107",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSMapDatum": {
+                    "value": "WGS-84",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Arriving AMS",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2015-09-10 13:21",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/bribri/28937926865/\">HOP! Bombardier CRJ-700 F-GRZN</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/40563877@N00\">BriYYZ</a> from Toronto, Canada",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "64131421": {
+            "pageid": 64131421,
+            "ns": 6,
+            "title": "File:Bombardier CRJ 700 HOP (32914489562).jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/Bombardier_CRJ_700_HOP_%2832914489562%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Bombardier_CRJ_700_HOP_(32914489562).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=64131421",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2017-11-17 19:56:32",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Bombardier CRJ 700 HOP (32914489562)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "CC-Zero|Flickr images reviewed by FlickreviewR 2|Photographs by Dylan Agbagni|F-GRZG (Hop!)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Bombardier CRJ 700 HOP",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2017-02-19 18:35",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/dylan33/32914489562/\">Bombardier CRJ 700 HOP</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/138328445@N03\">Dylan Agbagni (No copyrights)</a> from Bayonne, France",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Zero, Public Domain Dedication",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "false",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "114139670": {
+            "pageid": 114139670,
+            "ns": 6,
+            "title": "File:F-GRZH HOP! Bombardier CRJ-700, Schiphol.jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/3/33/F-GRZH_HOP%21_Bombardier_CRJ-700%2C_Schiphol.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:F-GRZH_HOP!_Bombardier_CRJ-700,_Schiphol.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=114139670",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2022-01-09 15:03:53",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "F-GRZH HOP! Bombardier CRJ-700, Schiphol",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "CC-Zero|Self-published work|2019 at Amsterdam Airport Schiphol|Aircraft in the Netherlands photographed in 2019|CRJ700 in 2019|CRJ700 of Hop! at Amsterdam Airport Schiphol|F-GRZH (Hop!)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Photographed at Schiphol.",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2019-08-18 18:55:41",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Alfvanbeem\" title=\"User:Alfvanbeem\">Alf van Beem</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Zero, Public Domain Dedication",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "false",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "Boeing 777 Swiss",
+    "testCase": {
+      "manufacturer": "Boeing",
+      "type": "777",
+      "airline": "Swiss"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "26644078": {
+            "pageid": 26644078,
+            "ns": 6,
+            "title": "File:Asiana Airlines Boeing 777-200ER; HL7742@HKG;31.07.2011 614fz (6052589349).jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Asiana_Airlines_Boeing_777-200ER%3B_HL7742%40HKG%3B31.07.2011_614fz_%286052589349%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Asiana_Airlines_Boeing_777-200ER;_HL7742@HKG;31.07.2011_614fz_(6052589349).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=26644078",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2013-06-14 02:26:36",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Asiana Airlines Boeing 777-200ER; HL7742@HKG;31.07.2011 614fz (6052589349)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Nikon D80|Photographs by Aero Icarus|Flickr images reviewed by File Upload Bot (Magnus Manske)|Hong Kong photographs taken on 2011-07-31|HL7742 (aircraft)|July 2011 in Hong Kong|2011 at Hong Kong International Airport|Boeing 777 on final approach|Boeing 777 of Asiana Airlines at Hong Kong International Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "valued",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Asiana Airlines Boeing 777-200ER (HL7742) landing at Hong Kong International Airport.",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2011-07-31 11:32",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/46423105@N03/6052589349/\">Asiana Airlines Boeing 777-200ER; HL7742@HKG;31.07.2011/614fz</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/46423105@N03\">Aero Icarus</a> from Zürich, Switzerland",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Attribution": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/46423105@N03\">Aero Icarus</a>",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "114579098": {
+            "pageid": 114579098,
+            "ns": 6,
+            "title": "File:SWISS Boeing 777-300ER (HB-JNL).jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/SWISS_Boeing_777-300ER_%28HB-JNL%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:SWISS_Boeing_777-300ER_(HB-JNL).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=114579098",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2022-01-23 19:17:24",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "SWISS Boeing 777-300ER (HB-JNL)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Self-published work|2021 at Zurich International Airport|Boeing 777-300ER in 2021|Boeing 777-300ER of Swiss International Air Lines at Zurich International Airport|HB-JNL (aircraft)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "This is an image taken at Zürich Airport of the Boeing 777-300ER (HB-JNL) in the SWISSlivery.",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2021-12-05",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Malokkii&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Malokkii (page does not exist)\">Malokkii</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 4.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-4.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "128702813": {
+            "pageid": 128702813,
+            "ns": 6,
+            "title": "File:Swiss Boeing 777-300 ER 20180513 3638.jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Swiss_Boeing_777-300_ER_20180513_3638.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:Swiss_Boeing_777-300_ER_20180513_3638.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=128702813",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2023-02-14 06:32:49",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "Swiss Boeing 777-300 ER 20180513 3638",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Zurich International Airport|Self-published work|HB-JNE (aircraft)|Boeing 777-300ER of Swiss International Air Lines at Zurich International Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "Swiss Boeing 777-3DE ER HB-JNE landing at Zurich Airprort on 13 May 2018",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2018-05-13 09:39:48",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Premkudva\" title=\"User:Premkudva\">Premkudva</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 4.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-4.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "Boeing 787 British Airways",
+    "testCase": {
+      "manufacturer": "Boeing",
+      "type": "787",
+      "airline": "British Airways"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "32518553": {
+            "pageid": 32518553,
+            "ns": 6,
+            "title": "File:G-ZBJB Boeing 787 British Airways (12248361233).jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/G-ZBJB_Boeing_787_British_Airways_%2812248361233%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:G-ZBJB_Boeing_787_British_Airways_(12248361233).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=32518553",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2014-05-02 17:18:51",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "G-ZBJB Boeing 787 British Airways (12248361233)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with iPhone 5S|Items with VRTS permission confirmed|Boeing 787-8 in 2013|Photographs by Aeroprints.com|Files with coordinates missing SDC location of creation (51° N, 1° W)|G-ZBJB (aircraft)|Boeing 787-8 of British Airways at London Heathrow Airport|November 2013 at London Heathrow Airport|Aircraft in the United Kingdom photographed in November 2013",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "GPSLatitude": {
+                    "value": "51.468014",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSLongitude": {
+                    "value": "-0.462925",
+                    "source": "commons-desc-page"
+                  },
+                  "GPSMapDatum": {
+                    "value": "WGS-84",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "At London Heathrow Airport",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2013-11-24 10:32:18",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/aeroprints/12248361233/\">Flickr</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">Aeroprints.com</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 3.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Attribution": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">aeroprints.com</a>",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-3.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "88934547": {
+            "pageid": 88934547,
+            "ns": 6,
+            "title": "File:British Airways, G-ZBJH, Boeing 787-8 Dreamliner.jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/0/04/British_Airways%2C_G-ZBJH%2C_Boeing_787-8_Dreamliner.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:British_Airways,_G-ZBJH,_Boeing_787-8_Dreamliner.jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=88934547",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2020-04-06 00:51:55",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "British Airways, G-ZBJH, Boeing 787-8 Dreamliner",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Flickr images reviewed by FlickreviewR 2|Boeing 787-8 in 2020|Photographs by Anna Zvereva|Uploads by Killarnee|Boeing 787-8 of British Airways at London Heathrow Airport|G-ZBJH (aircraft)|Aircraft in the United Kingdom photographed in March 2020|March 2020 at London Heathrow Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "British Airways, G-ZBJH, Boeing 787-8 Dreamliner",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2020-03-12 21:00:40",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external free\" href=\"https://www.flickr.com/photos/130961247@N06/49735364486/\">https://www.flickr.com/photos/130961247@N06/49735364486/</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "Anna Zvereva",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 2.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/2.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-2.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "148414594": {
+            "pageid": 148414594,
+            "ns": 6,
+            "title": "File:G-ZBKI - Boeing 787-9 Dreamliner - British Airways SFO (outpainted).jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/G-ZBKI_-_Boeing_787-9_Dreamliner_-_British_Airways_SFO_%28outpainted%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:G-ZBKI_-_Boeing_787-9_Dreamliner_-_British_Airways_SFO_(outpainted).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=148414594",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2024-05-16 16:52:13",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "G-ZBKI - Boeing 787-9 Dreamliner - British Airways SFO (outpainted)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Self-published work|Boeing 787-9 in 2023|April 2023 in San Francisco|2023 at San Francisco International Airport|Aircraft in the United States photographed in 2023|G-ZBKI (aircraft)|Boeing 787-9 of British Airways at San Francisco International Airport",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "A British Airways Boeing 787-9 Dreamliner on the apron at San Francisco International Airport (SFO).",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2024-05-16",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a href=\"//commons.wikimedia.org/wiki/User:Michael_Weinold\" title=\"User:Michael Weinold\">Michael Weinold</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY 4.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution 4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by/4.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-4.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  },
+  {
+    "searchQuery": "Boeing 767 Condor",
+    "testCase": {
+      "manufacturer": "Boeing",
+      "type": "767",
+      "airline": "Condor"
+    },
+    "responseData": {
+      "batchcomplete": "",
+      "continue": {
+        "gsroffset": 3,
+        "continue": "gsroffset||"
+      },
+      "query": {
+        "pages": {
+          "32566362": {
+            "pageid": 32566362,
+            "ns": 6,
+            "title": "File:D-ABUA Boeing 767 Condor (7628494956).jpg",
+            "index": 2,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/0/07/D-ABUA_Boeing_767_Condor_%287628494956%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:D-ABUA_Boeing_767_Condor_(7628494956).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=32566362",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2014-05-04 13:09:17",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "D-ABUA Boeing 767 Condor (7628494956)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Canon EOS 50D|Items with VRTS permission confirmed|2010 at Frankfurt Airport|Photographs by Aeroprints.com|Boeing 767 of Condor Airlines at Frankfurt Airport|D-ABUA (Boeing 767)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "At Frankfurt Main",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2010-02-26 10:56:09",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/aeroprints/7628494956/\">Flickr</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">Aeroprints.com</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 3.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Attribution": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">aeroprints.com</a>",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-3.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "32566367": {
+            "pageid": 32566367,
+            "ns": 6,
+            "title": "File:D-ABUA Boeing 767 Condor (7628493550).jpg",
+            "index": 3,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/D-ABUA_Boeing_767_Condor_%287628493550%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:D-ABUA_Boeing_767_Condor_(7628493550).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=32566367",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2014-05-04 13:09:27",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "D-ABUA Boeing 767 Condor (7628493550)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Taken with Canon EOS 50D|Items with VRTS permission confirmed|2010 at Frankfurt Airport|Photographs by Aeroprints.com|Boeing 767 of Condor Airlines at Frankfurt Airport|D-ABUA (Boeing 767)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "At Frankfurt Main",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2010-02-26 10:56:08",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/aeroprints/7628493550/\">Flickr</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">Aeroprints.com</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 3.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Attribution": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">aeroprints.com</a>",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-3.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          },
+          "32585291": {
+            "pageid": 32585291,
+            "ns": 6,
+            "title": "File:D-ABUA Boeing 767 Condor (7179393931).jpg",
+            "index": 1,
+            "imagerepository": "local",
+            "imageinfo": [
+              {
+                "url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/D-ABUA_Boeing_767_Condor_%287179393931%29.jpg",
+                "descriptionurl": "https://commons.wikimedia.org/wiki/File:D-ABUA_Boeing_767_Condor_(7179393931).jpg",
+                "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=32585291",
+                "extmetadata": {
+                  "DateTime": {
+                    "value": "2014-05-05 03:05:16",
+                    "source": "mediawiki-metadata",
+                    "hidden": ""
+                  },
+                  "ObjectName": {
+                    "value": "D-ABUA Boeing 767 Condor (7179393931)",
+                    "source": "mediawiki-metadata"
+                  },
+                  "CommonsMetadataExtension": {
+                    "value": 1.2,
+                    "source": "extension",
+                    "hidden": ""
+                  },
+                  "Categories": {
+                    "value": "Items with VRTS permission confirmed|Photographs by Aeroprints.com|Frankfurt Airport photographs taken on 2012-06-12|Boeing 767 of Condor Airlines at Frankfurt Airport|D-ABUA (Boeing 767)",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "Assessments": {
+                    "value": "",
+                    "source": "commons-categories",
+                    "hidden": ""
+                  },
+                  "ImageDescription": {
+                    "value": "At Frankfurt Main",
+                    "source": "commons-desc-page"
+                  },
+                  "DateTimeOriginal": {
+                    "value": "2012-06-12 08:54:51",
+                    "source": "commons-desc-page"
+                  },
+                  "Credit": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/aeroprints/7179393931/\">Flickr</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "Artist": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">Aeroprints.com</a>",
+                    "source": "commons-desc-page"
+                  },
+                  "LicenseShortName": {
+                    "value": "CC BY-SA 3.0",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "UsageTerms": {
+                    "value": "Creative Commons Attribution-Share Alike 3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "AttributionRequired": {
+                    "value": "true",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Attribution": {
+                    "value": "<a rel=\"nofollow\" class=\"external text\" href=\"http://www.aeroprints.com\">aeroprints.com</a>",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "LicenseUrl": {
+                    "value": "https://creativecommons.org/licenses/by-sa/3.0",
+                    "source": "commons-desc-page"
+                  },
+                  "Copyrighted": {
+                    "value": "True",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "Restrictions": {
+                    "value": "",
+                    "source": "commons-desc-page",
+                    "hidden": ""
+                  },
+                  "License": {
+                    "value": "cc-by-sa-3.0",
+                    "source": "commons-templates",
+                    "hidden": ""
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+]

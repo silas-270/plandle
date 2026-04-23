@@ -1,8 +1,4 @@
-interface Tier {
-    name: string;
-    emoji: string;
-    threshold: number;
-}
+import { Tier } from '@/data/ranks';
 
 interface MilesProgressProps {
     miles: number;

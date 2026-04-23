@@ -25,9 +25,9 @@ export const GET = async (request: NextRequest) => {
     wikimediaUrl.searchParams.append('generator', 'search');
     wikimediaUrl.searchParams.append('gsrsearch', `filetype:bitmap ${searchQuery}`);
     wikimediaUrl.searchParams.append('gsrnamespace', '6'); // 6 is the File namespace
-    wikimediaUrl.searchParams.append('gsrlimit', '10');
+    wikimediaUrl.searchParams.append('gsrlimit', '15'); // Erhöhe Limit leicht für größeren Match-Pool
     wikimediaUrl.searchParams.append('prop', 'imageinfo');
-    wikimediaUrl.searchParams.append('iiprop', 'url');
+    wikimediaUrl.searchParams.append('iiprop', 'url|extmetadata'); // Fordere Metadaten zur Verifizierung an
 
     try {
         // 4. Use the standard Web Fetch API
@@ -56,11 +56,44 @@ export const GET = async (request: NextRequest) => {
         }
 
         interface WikimediaPage {
-            imageinfo?: Array<{ url: string }>;
+            title?: string;
+            imageinfo?: Array<{ 
+                url: string;
+                extmetadata?: any;
+            }>;
         }
 
         const pageArray = Object.values(pages) as WikimediaPage[];
-        const randomPage = pageArray[Math.floor(Math.random() * pageArray.length)];
+        
+        // 6. Verifizierungs-Logik:
+        const wantedAirline = airline.toLowerCase();
+        
+        const verifiedPages = pageArray.filter(page => {
+            const info = page.imageinfo?.[0];
+            if (!info || !info.url) return false;
+
+            const title = (page.title || "").toLowerCase();
+            const categories = (info.extmetadata?.Categories?.value || "").toLowerCase();
+            const description = (info.extmetadata?.ImageDescription?.value || "").toLowerCase();
+            const objectName = (info.extmetadata?.ObjectName?.value || "").toLowerCase();
+
+            // Prüfen, ob die echte Airline in mindestens einem der relevanten Felder auftaucht
+            return categories.includes(wantedAirline) ||
+                   description.includes(wantedAirline) ||
+                   title.includes(wantedAirline) ||
+                   objectName.includes(wantedAirline);
+        });
+
+        // Wenn verifizierte Bilder vorliegen, bilde daraus den Pool. Andernfalls Fallback auf alle.
+        const finalPool = verifiedPages.length > 0 ? verifiedPages : pageArray;
+        
+        if (verifiedPages.length > 0) {
+            console.log(`[VERIFIED] ${verifiedPages.length} sichere Bilder für: ${searchQuery}`);
+        } else {
+            console.log(`[FALLBACK] Keine eindeutigen Metadaten für: ${searchQuery}`);
+        }
+
+        const randomPage = finalPool[Math.floor(Math.random() * finalPool.length)];
         const imageUrl = randomPage.imageinfo?.[0]?.url;
 
         if (imageUrl) {

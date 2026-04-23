@@ -131,7 +131,7 @@ export default function EndlessPage() {
                 : 'bg-bg-inverse hover:opacity-90 text-white'
                 }`}
         >
-            Next Aircraft ✈️
+            Next Aircraft
         </button>
     ) : null;
 

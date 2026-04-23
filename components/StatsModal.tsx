@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ModeStats, GameStats } from '@/hooks/useStats';
 import MilesProgress from './Milesprogress';
+import { TIERS } from '@/data/ranks';
 
 type Props = {
     stats: ModeStats;
@@ -116,13 +117,7 @@ const MODE_DEFINITIONS: Record<string, { title: string; icon: string }> = {
     trivia: { title: "Trivia Mode (Beta)", icon: "🧠" },
 };
 
-const TIERS = [
-    { name: "Bronze", emoji: "🥉", threshold: 10000 },
-    { name: "Silver", emoji: "🥈", threshold: 25000 },
-    { name: "Gold", emoji: "🥇", threshold: 50000 },
-    { name: "Platinum", emoji: "💎", threshold: 75000 },
-    { name: "Diamond", emoji: "✨", threshold: 100000 },
-];
+
 
 // --- Overview panel: single page scrolling ---
 function OverviewPanel({ allStats, getWinRate, difficulty, onDifficultyChange, miles }: {
@@ -172,7 +167,7 @@ function OverviewPanel({ allStats, getWinRate, difficulty, onDifficultyChange, m
                                     delay="0.1s"
                                 />
                                 <div className="flex justify-between mt-2 text-xs text-text-dim font-medium">
-                                    <span>{s.wins}W / {s.played - s.wins}L</span>
+                                    <span>Last 100 games</span>
                                     <span>{s.played} played</span>
                                 </div>
                             </div>
@@ -302,7 +297,17 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                     // ─── POSTGAME VARIANT ────────────────────────────────────────
                     <>
                         {/* Header */}
-                        <div className="pt-7 pb-3 px-7 text-center">
+                        <div className="pt-7 pb-3 px-7 text-center relative">
+                            {/* Close button top right */}
+                            <button
+                                onClick={onClose}
+                                className="absolute top-4 right-4 text-text-dim hover:text-text-main hover:bg-bg-subtle p-2 rounded-full transition-colors"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+
                             <div
                                 className="text-4xl mb-2 inline-block"
                                 style={{ animation: 'header-pop 0.5s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both' }}
@@ -324,7 +329,7 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                             <div className="relative overflow-hidden mx-7 mb-3 flex items-center justify-between px-4 py-2.5 bg-warning-muted border border-warning-light rounded-2xl">
                                 <span className="relative z-10 text-sm font-bold text-warning-dark">Miles earned</span>
                                 <span className="relative z-10 flex items-center gap-1.5 text-sm font-black text-warning-base">
-                                    <span>✈️</span> +{milesEarned.toLocaleString()} mi
+                                    {milesEarned.toLocaleString()} mi
                                 </span>
 
                                 {/* Flying Plane Effect */}
@@ -379,7 +384,7 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                                 </div>
                                 <AnimatedBar value={winRate} max={100} color={winRate >= 70 ? 'var(--success-stats)' : winRate >= 40 ? 'var(--brand-light)' : 'var(--warning-base)'} delay="0.15s" />
                                 <div className="flex justify-between mt-2 text-xs text-text-dim font-medium">
-                                    <span>{stats.wins}W / {stats.played - stats.wins}L</span>
+                                    <span>Last 100 games</span>
                                     <span>{stats.played} played</span>
                                 </div>
                             </div>
@@ -401,7 +406,7 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                                         : 'bg-bg-inverse hover:opacity-90 text-white'
                                         }`}
                                 >
-                                    {nextLabel || 'Next Aircraft ✈️'}
+                                    {nextLabel || 'Next Aircraft'}
                                 </button>
                             ) : (
                                 <button
