@@ -105,7 +105,7 @@ export default function TriviaPage() {
                 maxAttempts={3}
                 answer={question.answer}
                 miles={miles}
-                milesEarned={hasWon ? 100 : 0}
+                milesEarned={hasWon ? 250 : 0}
                 onNext={handleNext}
                 onClose={() => setStatsView(null)}
                 nextLabel="Next Question"

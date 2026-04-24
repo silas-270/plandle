@@ -98,7 +98,7 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                                         const pStats = allStats['practice'] || { wins: 0, played: 0, currentStreak: 0, maxStreak: 0 };
                                         const wr = getWinRate('practice');
                                         const tier = getCurrentTier(miles || 0);
-                                        const text = `✈️ Plandle Career Report ✈️\n━━━━━━━━━━━━━━\n${tier.emoji} ${tier.name} Rank\n📍 ${(miles || 0).toLocaleString()} mi flown\n📈 ${wr}% Success\n🔥 ${pStats.maxStreak} Match Max Streak\n━━━━━━━━━━━━━━\nThink you can fly higher?\n👉 plandle.vercel.app`;
+                                        const text = `✈️ Plandle Career Report ✈️\n━━━━━━━━━━━━━━\n🏆 ${tier.name} Rank\n📍 ${(miles || 0).toLocaleString()} mi flown\n📈 ${wr}% Success\n🔥 ${pStats.maxStreak} Match Max Streak\n━━━━━━━━━━━━━━\nThink you can fly higher?\n👉 plandle.vercel.app`;
                                         try {
                                             if (navigator.share) {
                                                 await navigator.share({ title: 'Plandle Stats', text: text });

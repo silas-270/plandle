@@ -122,18 +122,78 @@ export default function PostgameSection({
             {/* Stats Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 px-7 pb-1">
                 {/* Rank Progress Bar */}
-                <div className="bg-bg-muted rounded-2xl p-4 mb-4 md:mb-6">
-                    <div className="flex justify-between items-baseline mb-2">
-                        <span className="text-xs font-bold uppercase tracking-widest text-text-dim">Rank Progress</span>
-                        <span className="text-lg font-bold tabular-nums text-text-main">
-                            {nextTier ? `${milesRemaining.toLocaleString()} mi` : 'MAX'}
+                <div className="bg-bg-muted rounded-2xl p-4 mb-4 md:mb-6 relative overflow-hidden group">
+                    {/* Rank Up Detection logic */}
+                    {(() => {
+                        const milesBefore = miles - milesEarned;
+                        const tierBefore = getCurrentTier(milesBefore);
+                        const isRankUp = hasWon && milesEarned > 0 && currentTier.threshold > tierBefore.threshold;
+
+                        return (
+                            <>
+                                {/* Full Widget Sun-Shimmer Effect */}
+                                {isRankUp && (
+                                    <div 
+                                        className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+                                        style={{ opacity: 0.8 }}
+                                    >
+                                        <div 
+                                            className="absolute top-0 h-full w-[150%] skew-x-[-25deg]"
+                                            style={{
+                                                background: `linear-gradient(90deg, transparent 0%, ${currentTier.cssColor}44 45%, ${currentTier.cssColor}aa 50%, ${currentTier.cssColor}44 55%, transparent 100%)`,
+                                                animation: 'rank-shimmer-sweep 2.5s ease-in-out infinite',
+                                                left: '-150%'
+                                            }}
+                                        />
+                                    </div>
+                                )}
+
+                                <div className="flex justify-between items-baseline mb-2 relative z-10">
+                                    <div className="flex items-center gap-2">
+                                        <span 
+                                            className={`text-xs font-bold uppercase tracking-widest transition-colors duration-500 ${isRankUp ? '' : 'text-text-dim'}`}
+                                            style={isRankUp ? { color: currentTier.cssColor } : {}}
+                                        >
+                                            {isRankUp ? 'Rank up!' : 'Rank Progress'}
+                                        </span>
+                                    </div>
+                                    <span className="text-lg font-bold tabular-nums text-text-main">
+                                        {nextTier ? `${milesRemaining.toLocaleString()} mi` : 'MAX'}
+                                    </span>
+                                </div>
+                                <div className="relative z-10">
+                                    <AnimatedBar 
+                                        value={progressPct} 
+                                        max={100} 
+                                        color="var(--brand-base)" 
+                                        delay="0.15s" 
+                                    />
+                                </div>
+                            </>
+                        );
+                    })()}
+                    <div className="flex justify-between mt-2 text-[10px] text-text-dim font-black uppercase tracking-widest relative z-10">
+                        <span className="flex items-center gap-1.5 grayscale brightness-125">
+                            <img src={currentTier.emoji} alt="" className="w-3.5 h-3.5 object-contain" />
+                            {currentTier.name}
+                        </span>
+                        <span>
+                            {nextTier ? (
+                                <span className="flex items-center gap-1.5 grayscale brightness-125">
+                                    <img src={nextTier.emoji} alt="" className="w-3.5 h-3.5 object-contain" />
+                                    {nextTier.name}
+                                </span>
+                            ) : '🏆 Max Rank'}
                         </span>
                     </div>
-                    <AnimatedBar value={progressPct} max={100} color="var(--brand-base)" delay="0.15s" />
-                    <div className="flex justify-between mt-2 text-xs text-text-dim font-medium">
-                        <span className="font-bold">{currentTier.emoji} {currentTier.name}</span>
-                        <span>{nextTier ? `${nextTier.emoji} ${nextTier.name}` : '🏆 Max Rank'}</span>
-                    </div>
+
+                    <style jsx global>{`
+                        @keyframes rank-shimmer-sweep {
+                            0%   { left: -150%; }
+                            40%  { left: 150%;  }
+                            100% { left: 150%;  }
+                        }
+                    `}</style>
                 </div>
 
                 {/* Streak + Win Rate */}

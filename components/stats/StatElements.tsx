@@ -44,14 +44,14 @@ export function AnimatedBar({ value, max, color = 'var(--brand-light)', delay = 
     }, [pct]);
 
     return (
-        <div className="w-full h-2.5 bg-bg-subtle rounded-full overflow-hidden">
+        <div className="w-full h-2.5 bg-bg-subtle rounded-full overflow-hidden relative">
             <div
                 style={{
                     width: `${width}%`,
                     backgroundColor: color,
                     height: '100%',
                     borderRadius: '9999px',
-                    transition: `width 0.8s cubic-bezier(0.22, 1, 0.36, 1) ${delay}`,
+                    transition: `width 1.2s cubic-bezier(0.22, 1, 0.36, 1) ${delay}`,
                 }}
             />
         </div>

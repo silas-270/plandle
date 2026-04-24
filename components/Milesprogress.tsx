@@ -41,8 +41,8 @@ export default function MilesProgress({ miles, tiers }: MilesProgressProps) {
             {/* Current tier badge */}
             {currentTier && (
                 <div className="mb-8">
-                    <span className="inline-flex items-center gap-2 bg-brand-muted text-brand-dark text-xs font-bold tracking-widest rounded-full px-3 py-1.5 border border-brand-border">
-                        <span>{currentTier.emoji}</span>
+                    <span className="inline-flex items-center gap-2 bg-brand-muted text-brand-dark text-[10px] font-black tracking-[0.15em] rounded-full px-4 py-2 border border-brand-border shadow-sm">
+                        <img src={currentTier.emoji} alt="" className="w-5 h-5 object-contain" />
                         <span>{currentTier.name.toUpperCase()}</span>
                     </span>
                 </div>
@@ -87,8 +87,9 @@ export default function MilesProgress({ miles, tiers }: MilesProgressProps) {
                             <span className="text-[9px] font-bold tracking-[0.2em] text-text-dim uppercase">
                                 Next Milestone
                             </span>
-                            <span className="text-xs font-bold text-text-muted">
-                                {nextTier.emoji} {nextTier.name.toUpperCase()}
+                            <span className="text-xs font-bold text-text-muted flex items-center gap-2">
+                                <img src={nextTier.emoji} alt="" className="w-4 h-4 object-contain" />
+                                {nextTier.name.toUpperCase()}
                             </span>
                         </div>
                         <div className="text-right">
