@@ -11,9 +11,49 @@ export default function HomePage() {
     const { miles } = useMiles();
     const [isStatsOpen, setIsStatsOpen] = useState(false);
 
+    // --- DEBUG LOCALSTORAGE ---
+    const [debugStats, setDebugStats] = useState("");
+    const [debugMiles, setDebugMiles] = useState("");
+
+    useEffect(() => {
+        setDebugStats(localStorage.getItem('plandle_stats_v2') || "");
+        setDebugMiles(localStorage.getItem('plandle_miles_v1') || "");
+    }, []);
+
+    const handleSaveDebug = () => {
+        localStorage.setItem('plandle_stats_v2', debugStats);
+        localStorage.setItem('plandle_miles_v1', debugMiles);
+        window.location.reload();
+    };
+    // --------------------------
+
     return (
-        <div className="min-h-screen bg-bg-subtle flex flex-col items-center justify-center px-4 py-16">
+        <div className="min-h-screen bg-bg-subtle flex flex-col items-center justify-center px-4 py-8 sm:py-16">
             
+            {/* Quick Debug Panel (Delete layer) */}
+            <div className="w-full max-w-5xl bg-red-100/20 border border-red-500 p-4 mb-8 rounded-lg">
+                <p className="text-red-500 font-bold mb-2">DEBUG: LocalStorage Editor (Delete after use)</p>
+                <p className="text-xs text-text-dim">plandle_stats_v2:</p>
+                <textarea 
+                    className="w-full h-32 text-xs font-mono p-2 bg-bg-main text-text-main border border-border-muted rounded mb-2"
+                    value={debugStats}
+                    onChange={e => setDebugStats(e.target.value)}
+                />
+                <p className="text-xs text-text-dim">plandle_miles_v1:</p>
+                <input 
+                    type="text"
+                    className="w-full text-xs font-mono p-2 bg-bg-main text-text-main border border-border-muted rounded mb-2"
+                    value={debugMiles}
+                    onChange={e => setDebugMiles(e.target.value)}
+                />
+                <button 
+                    onClick={handleSaveDebug}
+                    className="bg-red-500 text-white font-bold py-2 px-4 rounded"
+                >
+                    Save & Reload
+                </button>
+            </div>
+
             <StatsModal
                 stats={stats['practice'] || { played: 0, wins: 0, currentStreak: 0, maxStreak: 0, guessDistribution: [] }} 
                 allStats={stats}
