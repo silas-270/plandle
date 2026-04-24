@@ -60,6 +60,33 @@ export function useStats() {
 
     useEffect(() => {
         const loaded = loadStats();
+        let needsSave = false;
+
+        // Migration: If we have history but no recentResults array, 
+        // generate a baseline array using the existing win rate.
+        Object.keys(loaded).forEach(mode => {
+            const mStats = loaded[mode];
+            if (mStats.played > 0 && (!mStats.recentResults || mStats.recentResults.length === 0)) {
+                const sampleSize = Math.min(mStats.played, 100);
+                const winRate = mStats.wins / mStats.played;
+                const winsCount = Math.round(sampleSize * winRate);
+                
+                const migratedResults = new Array(sampleSize).fill(false);
+                for (let i = 0; i < winsCount; i++) {
+                    migratedResults[i] = true;
+                }
+                // Randomize order purely for a better initial "sliding" feel
+                migratedResults.sort(() => Math.random() - 0.5);
+                
+                mStats.recentResults = migratedResults;
+                needsSave = true;
+            }
+        });
+
+        if (needsSave) {
+            saveStats(loaded);
+        }
+
         setStats(loaded);
         setIsHydrated(true);
     }, []);
