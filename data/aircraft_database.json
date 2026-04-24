@@ -2,141 +2,434 @@
     {
         "manufacturer": "Airbus",
         "type": "A220",
-        "airlines": ["Delta Air Lines", "Air France", "Swiss", "JetBlue Airways", "Air Canada", "Korean Air", "airBaltic", "EgyptAir", "Iraqi Airways", "QantasLink"]
+        "airlines": [
+            "Delta Air Lines",
+            "Air France",
+            "Swiss",
+            "JetBlue Airways",
+            "Air Canada",
+            "Korean Air",
+            "airBaltic",
+            "EgyptAir",
+            "Iraqi Airways",
+            "QantasLink"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A318",
-        "airlines": ["Air France", "TAROM"]
+        "airlines": [
+            "Air France",
+            "TAROM"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A319",
-        "airlines": ["American Airlines", "Delta Air Lines", "United Airlines", "EasyJet", "Lufthansa", "British Airways", "Air France", "Volotea", "Croatia Airlines", "Brussels Airlines", "TAP Air Portugal", "Air Canada", "Spirit Airlines", "Frontier Airlines"]
+        "airlines": [
+            "American Airlines",
+            "Delta Air Lines",
+            "United Airlines",
+            "EasyJet",
+            "Lufthansa",
+            "British Airways",
+            "Air France",
+            "Volotea",
+            "Croatia Airlines",
+            "Brussels Airlines",
+            "TAP Air Portugal",
+            "Air Canada",
+            "Spirit Airlines",
+            "Frontier Airlines"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A320",
-        "airlines": ["American Airlines", "EasyJet", "Lufthansa", "China Eastern Airlines", "IndiGo", "All Nippon Airways", "Vueling", "Wizz Air", "AirAsia", "British Airways", "JetBlue Airways", "Delta Air Lines", "United Airlines", "Air France", "Spirit Airlines", "Frontier Airlines", "Avianca", "LATAM Airlines", "Saudia", "Iberia"]
+        "airlines": [
+            "American Airlines",
+            "EasyJet",
+            "Lufthansa",
+            "China Eastern Airlines",
+            "IndiGo",
+            "All Nippon Airways",
+            "Vueling",
+            "Wizz Air",
+            "AirAsia",
+            "British Airways",
+            "JetBlue Airways",
+            "Delta Air Lines",
+            "United Airlines",
+            "Air France",
+            "Spirit Airlines",
+            "Frontier Airlines",
+            "Avianca",
+            "LATAM Airlines",
+            "Saudia",
+            "Iberia"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A321",
-        "airlines": ["American Airlines", "Delta Air Lines", "Lufthansa", "British Airways", "Turkish Airlines", "JetBlue Airways", "VietJet Air", "IndiGo", "Wizz Air", "EasyJet", "Air France", "Frontier Airlines", "Spirit Airlines", "Hawaiian Airlines", "Condor", "Iberia", "Air Canada"]
+        "airlines": [
+            "American Airlines",
+            "Delta Air Lines",
+            "Lufthansa",
+            "British Airways",
+            "Turkish Airlines",
+            "JetBlue Airways",
+            "VietJet Air",
+            "IndiGo",
+            "Wizz Air",
+            "EasyJet",
+            "Air France",
+            "Frontier Airlines",
+            "Spirit Airlines",
+            "Hawaiian Airlines",
+            "Condor",
+            "Iberia",
+            "Air Canada"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A330",
-        "airlines": ["Turkish Airlines", "Delta Air Lines", "Cathay Pacific", "Qantas Airways", "China Eastern Airlines", "Lufthansa", "TAP Air Portugal", "Hawaiian Airlines", "Iberia", "Aer Lingus", "Swiss", "Saudia", "Korean Air", "Air France", "Condor", "Virgin Atlantic", "Malaysia Airlines"]
+        "airlines": [
+            "Turkish Airlines",
+            "Delta Air Lines",
+            "Cathay Pacific",
+            "Qantas Airways",
+            "China Eastern Airlines",
+            "Lufthansa",
+            "TAP Air Portugal",
+            "Hawaiian Airlines",
+            "Iberia",
+            "Aer Lingus",
+            "Swiss",
+            "Saudia",
+            "Korean Air",
+            "Air France",
+            "Condor",
+            "Virgin Atlantic",
+            "Malaysia Airlines"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A340",
-        "airlines": ["Lufthansa", "Mahan Air", "Edelweiss Air", "Swiss"]
+        "airlines": [
+            "Lufthansa",
+            "Mahan Air",
+            "Edelweiss Air",
+            "Swiss"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A350",
-        "airlines": ["Singapore Airlines", "Qatar Airways", "Delta Air Lines", "Lufthansa", "Cathay Pacific", "Air France", "Finnair", "Iberia", "Ethiopian Airlines", "Asiana Airlines", "Thai Airways", "Japan Airlines", "British Airways", "Virgin Atlantic", "Air India", "Turkish Airlines"]
+        "airlines": [
+            "Singapore Airlines",
+            "Qatar Airways",
+            "Delta Air Lines",
+            "Lufthansa",
+            "Cathay Pacific",
+            "Air France",
+            "Finnair",
+            "Iberia",
+            "Ethiopian Airlines",
+            "Asiana Airlines",
+            "Thai Airways",
+            "Japan Airlines",
+            "British Airways",
+            "Virgin Atlantic",
+            "Air India",
+            "Turkish Airlines"
+        ]
     },
     {
         "manufacturer": "Airbus",
         "type": "A380",
-        "airlines": ["Emirates", "Singapore Airlines", "British Airways", "Qantas Airways", "Lufthansa", "Qatar Airways", "All Nippon Airways", "Asiana Airlines", "Korean Air"]
+        "airlines": [
+            "Emirates",
+            "Singapore Airlines",
+            "British Airways",
+            "Qantas Airways",
+            "Lufthansa",
+            "Qatar Airways",
+            "All Nippon Airways",
+            "Asiana Airlines",
+            "Korean Air"
+        ]
     },
     {
         "manufacturer": "Boeing",
         "type": "717",
-        "airlines": ["Delta Air Lines", "Hawaiian Airlines", "QantasLink"]
+        "airlines": [
+            "Delta Air Lines",
+            "Hawaiian Airlines",
+            "QantasLink"
+        ]
     },
     {
         "manufacturer": "Boeing",
         "type": "737",
-        "airlines": ["Southwest Airlines", "Ryanair", "American Airlines", "United Airlines", "Delta Air Lines", "Qantas Airways", "Alaska Airlines", "WestJet", "Gol", "Copa Airlines", "Turkish Airlines", "Pegasus Airlines", "Lion Air", "Virgin Australia", "Air Canada", "KLM", "Japan Airlines", "All Nippon Airways", "Korean Air"]
+        "airlines": [
+            "Southwest Airlines",
+            "Ryanair",
+            "American Airlines",
+            "United Airlines",
+            "Delta Air Lines",
+            "Qantas Airways",
+            "Alaska Airlines",
+            "WestJet",
+            "Gol",
+            "Copa Airlines",
+            "Turkish Airlines",
+            "Pegasus Airlines",
+            "Lion Air",
+            "Virgin Australia",
+            "Air Canada",
+            "KLM",
+            "Japan Airlines",
+            "All Nippon Airways",
+            "Korean Air"
+        ]
     },
     {
         "manufacturer": "Boeing",
         "type": "747",
-        "airlines": ["Lufthansa", "Korean Air", "Air China", "Asiana Airlines", "Atlas Air", "UPS"]
+        "airlines": [
+            "Lufthansa",
+            "Korean Air",
+            "Air China",
+            "Asiana Airlines",
+            "Atlas Air",
+            "UPS"
+        ]
     },
     {
         "manufacturer": "Boeing",
         "type": "757",
-        "airlines": ["Delta Air Lines", "United Airlines", "Icelandair", "Condor", "UPS"]
+        "airlines": [
+            "Delta Air Lines",
+            "United Airlines",
+            "Icelandair",
+            "Condor",
+            "UPS"
+        ]
     },
     {
         "manufacturer": "Boeing",
         "type": "767",
-        "airlines": ["Delta Air Lines", "United Airlines", "Japan Airlines", "All Nippon Airways", "LATAM Airlines", "Condor", "Austrian Airlines", "UPS"]
+        "airlines": [
+            "Delta Air Lines",
+            "United Airlines",
+            "Japan Airlines",
+            "All Nippon Airways",
+            "LATAM Airlines",
+            "Condor",
+            "Austrian Airlines",
+            "UPS"
+        ]
     },
     {
         "manufacturer": "Boeing",
         "type": "777",
-        "airlines": ["Emirates", "Qatar Airways", "Air France", "Cathay Pacific", "United Airlines", "British Airways", "American Airlines", "Air New Zealand", "Singapore Airlines", "All Nippon Airways", "Air India", "Turkish Airlines", "Saudia", "Korean Air", "Japan Airlines", "KLM", "Swiss", "Air Canada"]
+        "airlines": [
+            "Emirates",
+            "Qatar Airways",
+            "Air France",
+            "Cathay Pacific",
+            "United Airlines",
+            "British Airways",
+            "American Airlines",
+            "Air New Zealand",
+            "Singapore Airlines",
+            "All Nippon Airways",
+            "Air India",
+            "Turkish Airlines",
+            "Saudia",
+            "Korean Air",
+            "Japan Airlines",
+            "KLM",
+            "Swiss",
+            "Air Canada"
+        ]
     },
     {
         "manufacturer": "Boeing",
         "type": "787",
-        "airlines": ["All Nippon Airways", "Japan Airlines", "Qatar Airways", "United Airlines", "British Airways", "Qantas Airways", "Air Canada", "American Airlines", "LATAM Airlines", "Etihad Airways", "Ethiopian Airlines", "Singapore Airlines", "Air France", "KLM", "Virgin Atlantic", "Air New Zealand", "Saudia", "Hawaiian Airlines"]
+        "airlines": [
+            "All Nippon Airways",
+            "Japan Airlines",
+            "Qatar Airways",
+            "United Airlines",
+            "British Airways",
+            "Qantas Airways",
+            "Air Canada",
+            "American Airlines",
+            "LATAM Airlines",
+            "Etihad Airways",
+            "Ethiopian Airlines",
+            "Singapore Airlines",
+            "Air France",
+            "KLM",
+            "Virgin Atlantic",
+            "Air New Zealand",
+            "Saudia",
+            "Hawaiian Airlines"
+        ]
     },
     {
         "manufacturer": "Embraer",
         "type": "E170",
-        "airlines": ["Republic Airways", "J-Air", "LOT Polish Airlines", "Envoy Air"]
+        "airlines": [
+            "Republic Airways",
+            "J-Air",
+            "LOT Polish Airlines",
+            "Envoy Air"
+        ]
     },
     {
         "manufacturer": "Embraer",
         "type": "E175",
-        "airlines": ["American Airlines", "United Airlines", "Delta Air Lines", "Alaska Airlines", "Air Canada", "LOT Polish Airlines", "SkyWest Airlines"]
+        "airlines": [
+            "American Airlines",
+            "United Airlines",
+            "Delta Air Lines",
+            "Alaska Airlines",
+            "Air Canada",
+            "LOT Polish Airlines",
+            "SkyWest Airlines"
+        ]
     },
     {
         "manufacturer": "Embraer",
         "type": "E190",
-        "airlines": ["JetBlue Airways", "KLM", "British Airways", "Qantas Airways", "Aeromexico", "Finnair", "Copa Airlines", "HOP!", "Air France"]
+        "airlines": [
+            "JetBlue Airways",
+            "KLM",
+            "British Airways",
+            "Qantas Airways",
+            "Aeromexico",
+            "Finnair",
+            "Copa Airlines",
+            "HOP!",
+            "Air France"
+        ]
     },
     {
         "manufacturer": "Embraer",
         "type": "E195",
-        "airlines": ["Azul Brazilian Airlines", "KLM", "LOT Polish Airlines", "Porter Airlines", "Lufthansa", "Austrian Airlines", "Air Dolomiti", "TAP Air Portugal"]
+        "airlines": [
+            "Azul Brazilian Airlines",
+            "KLM",
+            "LOT Polish Airlines",
+            "Porter Airlines",
+            "Lufthansa",
+            "Austrian Airlines",
+            "Air Dolomiti",
+            "TAP Air Portugal"
+        ]
     },
     {
         "manufacturer": "Embraer",
         "type": "ERJ-145",
-        "airlines": ["Piedmont Airlines", "CommutAir", "Loganair", "JSX", "Envoy Air"]
+        "airlines": [
+            "Piedmont Airlines",
+            "CommutAir",
+            "Loganair",
+            "JSX",
+            "Envoy Air"
+        ]
     },
     {
         "manufacturer": "Bombardier",
         "type": "CRJ-200",
-        "airlines": ["SkyWest Airlines", "Air Canada"]
+        "airlines": [
+            "SkyWest Airlines",
+            "Air Canada"
+        ]
     },
     {
         "manufacturer": "Bombardier",
         "type": "CRJ-700",
-        "airlines": ["American Airlines", "United Airlines", "SkyWest Airlines", "Delta Air Lines", "HOP!"]
+        "airlines": [
+            "American Airlines",
+            "United Airlines",
+            "SkyWest Airlines",
+            "Delta Air Lines",
+            "HOP!"
+        ]
     },
     {
         "manufacturer": "Bombardier",
         "type": "CRJ-900",
-        "airlines": ["American Airlines", "Delta Air Lines", "Lufthansa", "Scandinavian Airlines", "Air Canada", "Iberia", "SkyWest Airlines"]
+        "airlines": [
+            "American Airlines",
+            "Delta Air Lines",
+            "Lufthansa",
+            "Scandinavian Airlines",
+            "Air Canada",
+            "Iberia",
+            "SkyWest Airlines"
+        ]
     },
     {
         "manufacturer": "Bombardier",
         "type": "CRJ-1000",
-        "airlines": ["Iberia", "HOP!", "Air Nostrum"]
+        "airlines": [
+            "Iberia",
+            "HOP!",
+            "Air Nostrum"
+        ]
     },
     {
         "manufacturer": "De Havilland",
         "type": "Dash 8 Q400",
-        "airlines": ["WestJet", "Porter Airlines", "QantasLink", "ANA Wings", "Ethiopian Airlines", "LOT Polish Airlines", "Widerøe", "Air Canada"]
+        "airlines": [
+            "WestJet",
+            "Porter Airlines",
+            "QantasLink",
+            "ANA Wings",
+            "Ethiopian Airlines",
+            "LOT Polish Airlines",
+            "Widerøe",
+            "Air Canada"
+        ]
     },
     {
         "manufacturer": "ATR",
         "type": "ATR 42",
-        "airlines": ["Loganair", "Silver Airways", "DAT", "Aeromar"]
+        "airlines": [
+            "Loganair",
+            "Silver Airways",
+            "DAT",
+            "Aeromar"
+        ]
     },
     {
         "manufacturer": "ATR",
         "type": "ATR 72",
-        "airlines": ["Azul Brazilian Airlines", "IndiGo", "Wings Air", "Air New Zealand", "Binter Canarias", "Silver Airways", "Loganair", "TAROM", "Air Serbia"]
+        "airlines": [
+            "Azul Brazilian Airlines",
+            "IndiGo",
+            "Wings Air",
+            "Air New Zealand",
+            "Binter Canarias",
+            "Silver Airways",
+            "Loganair",
+            "TAROM",
+            "Air Serbia"
+        ]
+    },
+    {
+        "manufacturer": "Aérospatiale / BAC",
+        "type": "Concorde",
+        "airlines": [
+            "British Airways",
+            "Air France"
+        ]
     }
 ]

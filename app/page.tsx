@@ -147,14 +147,14 @@ export default function HomePage() {
                     <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-success-stats to-accent-teal rounded-t-3xl" />
                     <div className="text-4xl">🧠</div>
                     <div>
-                        <h2 className="text-xl font-black text-text-main tracking-tight">Trivia (Beta)</h2>
+                        <h2 className="text-xl font-black text-text-main tracking-tight">Trivia</h2>
                         <p className="text-sm text-text-secondary mt-1 leading-relaxed">
                             Think you know aviation history? Guess the airline based on these facts.
                         </p>
                     </div>
                     <div className="flex items-center gap-2 mt-auto pt-2 flex-wrap">
                         <span className="text-xs font-bold text-success-stats bg-bg-muted px-2.5 py-1 rounded-full">3 attempts</span>
-                        <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+100 mi</span>
+                        <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+250 mi</span>
                     </div>
 
                 </Link>

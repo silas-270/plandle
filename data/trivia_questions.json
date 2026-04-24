@@ -1,13 +1,298 @@
 [
-    { "fact": "Welches Flugzeug kann seine Tragflächenfläche durch mehrstufige Klappen (triple-slotted flaps) während des Landeanflugs um etwa 21% vergrößern?", "answer": { "manufacturer": "Boeing", "type": "747" } },
-    { "fact": "I am the oldest airline in the world still operating under my original name. I was founded in 1919.", "answer": { "airline": "KLM" } },
-    { "fact": "My headquarters is in Atlanta, Georgia, and I operate the world's largest fleet of passenger aircraft.", "answer": { "airline": "Delta Air Lines" } },
-    { "fact": "I am known for the 'Flying Kangaroo' logo and I'm the flag carrier of Australia.", "answer": { "airline": "Qantas" } },
-    { "fact": "I have the largest fleet of Airbus A380s in the world by a massive margin.", "answer": { "airline": "Emirates" } },
-    { "fact": "I am Europe's largest low-cost airline and primarily fly Boeing 737-800s in a distinctive blue and yellow livery.", "answer": { "airline": "Ryanair" } },
-    { "fact": "I am the flag carrier of Germany and my logo features a stylized crane in a circle.", "answer": { "airline": "Lufthansa" } },
-    { "fact": "I am a major US airline headquartered in Chicago and once had a merger with Continental Airlines.", "answer": { "airline": "United Airlines" } },
-    { "fact": "Based in Hong Kong, I am named after a legendary kingdom and known for the 'brushwing' livery.", "answer": { "airline": "Cathay Pacific" } },
-    { "fact": "I am the largest airline in the world by passengers carried and I'm headquartered in Fort Worth, Texas.", "answer": { "airline": "American Airlines" } },
-    { "fact": "I am the world's largest low-cost carrier and I only fly Boeing 737 aircraft.", "answer": { "airline": "Southwest Airlines" } }
+    {
+        "fact": "I can increase my wing area by 21% during landing using complex triple-slotted flaps. What aircraft am I?",
+        "answer": {
+            "manufacturer": "Boeing",
+            "type": "747"
+        }
+    },
+    {
+        "fact": "I am the oldest airline in the world still operating under my original name. I was founded in 1919.",
+        "answer": {
+            "airline": "KLM"
+        }
+    },
+    {
+        "fact": "My headquarters is in Atlanta, Georgia, and I operate the world's largest fleet of passenger aircraft.",
+        "answer": {
+            "airline": "Delta Air Lines"
+        }
+    },
+    {
+        "fact": "I am known for the 'Flying Kangaroo' logo and I'm the flag carrier of Australia.",
+        "answer": {
+            "airline": "Qantas"
+        }
+    },
+    {
+        "fact": "I have the largest fleet of Airbus A380s in the world by a massive margin.",
+        "answer": {
+            "airline": "Emirates"
+        }
+    },
+    {
+        "fact": "I am Europe's largest low-cost airline and primarily fly Boeing 737-800s in a distinctive blue and yellow livery.",
+        "answer": {
+            "airline": "Ryanair"
+        }
+    },
+    {
+        "fact": "I am the flag carrier of Germany and my logo features a stylized crane in a circle.",
+        "answer": {
+            "airline": "Lufthansa"
+        }
+    },
+    {
+        "fact": "I am a major US airline headquartered in Chicago and once had a merger with Continental Airlines.",
+        "answer": {
+            "airline": "United Airlines"
+        }
+    },
+    {
+        "fact": "Based in Hong Kong, I am named after a legendary kingdom and known for the 'brushwing' livery.",
+        "answer": {
+            "airline": "Cathay Pacific"
+        }
+    },
+    {
+        "fact": "I am the largest airline in the world by passengers carried and I'm headquartered in Fort Worth, Texas.",
+        "answer": {
+            "airline": "American Airlines"
+        }
+    },
+    {
+        "fact": "I am the world's largest low-cost carrier and I only fly Boeing 737 aircraft.",
+        "answer": {
+            "airline": "Southwest Airlines"
+        }
+    },
+    {
+        "fact": "I am the only civilian supersonic aircraft and was historically operated by British Airways and Air France.",
+        "answer": {
+            "manufacturer": "Aérospatiale / BAC",
+            "type": "Concorde"
+        }
+    },
+    {
+        "fact": "I am the world's largest passenger aircraft. My operators include Emirates, Singapore Airlines, Asiana Airlines, and Lufthansa.",
+        "answer": {
+            "manufacturer": "Airbus",
+            "type": "A380"
+        }
+    },
+    {
+        "fact": "I am a major German airline operating the Boeing 747 as well as the Airbus A380, A350, and A340.",
+        "answer": {
+            "airline": "Lufthansa"
+        }
+    },
+    {
+        "fact": "I am a massive US low-cost airline and fly exclusively the Boeing 737.",
+        "answer": {
+            "airline": "Southwest Airlines"
+        }
+    },
+    {
+        "fact": "I am the largest version of the first-generation E-Jet from Brazilian manufacturer Embraer, operated by Azul Brazilian Airlines, KLM, and Air Dolomiti.",
+        "answer": {
+            "manufacturer": "Embraer",
+            "type": "E195"
+        }
+    },
+    {
+        "fact": "I am the longest version of the CRJ series, flown only by Iberia, HOP!, and Air Nostrum.",
+        "answer": {
+            "manufacturer": "Bombardier",
+            "type": "CRJ-1000"
+        }
+    },
+    {
+        "fact": "I am a well-known turboprop aircraft with operators including WestJet, Porter Airlines, and Widerøe.",
+        "answer": {
+            "manufacturer": "De Havilland",
+            "type": "Dash 8 Q400"
+        }
+    },
+    {
+        "fact": "I am a European turboprop aircraft flown by IndiGo, Wings Air, TAROM, and Binter Canarias.",
+        "answer": {
+            "manufacturer": "ATR",
+            "type": "ATR 72"
+        }
+    },
+    {
+        "fact": "I am a well-known Gulf airline operating exactly two aircraft types: the Airbus A380 and the Boeing 777.",
+        "answer": {
+            "airline": "Emirates"
+        }
+    },
+    {
+        "fact": "I am a Dutch airline flying the Boeing 737, 777, and 787, alongside regional jets like the Embraer E190 and E195.",
+        "answer": {
+            "airline": "KLM"
+        }
+    },
+    {
+        "fact": "I am the smallest member of the A320 family, with only two operators remaining: Air France and TAROM.",
+        "answer": {
+            "manufacturer": "Airbus",
+            "type": "A318"
+        }
+    },
+    {
+        "fact": "I am a major US airline and the only one to have both the Airbus A220 and the Boeing 717 in my fleet.",
+        "answer": {
+            "airline": "Delta Air Lines"
+        }
+    },
+    {
+        "fact": "Known as the 'Queen of the Skies', I am flown by Korean Air, Air China, Atlas Air, and UPS.",
+        "answer": {
+            "manufacturer": "Boeing",
+            "type": "747"
+        }
+    },
+    {
+        "fact": "I am a narrow, powerful aircraft often called the 'Flying Pencil', operated by Icelandair and Condor.",
+        "answer": {
+            "manufacturer": "Boeing",
+            "type": "757"
+        }
+    },
+    {
+        "fact": "I am a short-haul jet with rear-mounted engines and have only three operators: Delta Air Lines, Hawaiian Airlines, and QantasLink.",
+        "answer": {
+            "manufacturer": "Boeing",
+            "type": "717"
+        }
+    },
+    {
+        "fact": "I am a proud oneworld alliance member flying the Airbus A380 and A330, as well as the Boeing 737 and 787.",
+        "answer": {
+            "airline": "Qantas Airways"
+        }
+    },
+    {
+        "fact": "I am a world-famous cargo-only airline operating the Boeing 747, 757, and 767.",
+        "answer": {
+            "airline": "UPS"
+        }
+    },
+    {
+        "fact": "Based in Oceania, I operate the Boeing 777 and 787, as well as the ATR 72 on shorter routes.",
+        "answer": {
+            "airline": "Air New Zealand"
+        }
+    },
+    {
+        "fact": "I am a four-engine jet whose longest version was once the world's longest passenger aircraft. I am still flown by Lufthansa, Mahan Air, Edelweiss Air, and Swiss.",
+        "answer": {
+            "manufacturer": "Airbus",
+            "type": "A340"
+        }
+    },
+    {
+        "fact": "I am a highly modern long-haul aircraft featuring a characteristic 'Zorro mask' around the cockpit. My operators include Qatar Airways, Finnair, Thai Airways, and Air India.",
+        "answer": {
+            "manufacturer": "Airbus",
+            "type": "A350"
+        }
+    },
+    {
+        "fact": "I operated the supersonic Concorde and currently fly the Airbus A380, Boeing 777, and Embraer E190.",
+        "answer": {
+            "airline": "British Airways"
+        }
+    },
+    {
+        "fact": "I am a modern widebody aircraft known as the Dreamliner. My operators include All Nippon Airways, Japan Airlines, and Virgin Atlantic.",
+        "answer": {
+            "manufacturer": "Boeing",
+            "type": "787"
+        }
+    },
+    {
+        "fact": "I am a regional jet operated by Piedmont Airlines, CommutAir, Loganair, JSX, and Envoy Air.",
+        "answer": {
+            "manufacturer": "Embraer",
+            "type": "ERJ-145"
+        }
+    },
+    {
+        "fact": "I am a German leisure airline that operates the Airbus A330 alongside the Boeing 757 and 767.",
+        "answer": {
+            "airline": "Condor"
+        }
+    },
+    {
+        "fact": "I am a small regional jet with only two operators listed: SkyWest Airlines and Air Canada.",
+        "answer": {
+            "manufacturer": "Bombardier",
+            "type": "CRJ-200"
+        }
+    },
+    {
+        "fact": "I am a major North American regional airline operating the Embraer E175 as well as the CRJ-200, CRJ-700, and CRJ-900.",
+        "answer": {
+            "airline": "SkyWest Airlines"
+        }
+    },
+    {
+        "fact": "I am a modern narrowbody jet that is flown by airBaltic, EgyptAir, and Iraqi Airways.",
+        "answer": {
+            "manufacturer": "Airbus",
+            "type": "A220"
+        }
+    },
+    {
+        "fact": "I am a major Japanese carrier flying both the Airbus A380 and the Boeing 787.",
+        "answer": {
+            "airline": "All Nippon Airways"
+        }
+    },
+    {
+        "fact": "I am a small turboprop aircraft operated by Loganair, Silver Airways, DAT, and Aeromar.",
+        "answer": {
+            "manufacturer": "ATR",
+            "type": "ATR 42"
+        }
+    },
+    {
+        "fact": "I am the only airline alongside British Airways to have operated the Concorde, and I currently fly the Airbus A318 and A220.",
+        "answer": {
+            "airline": "Air France"
+        }
+    },
+    {
+        "fact": "I am a premium Asian carrier operating a widebody-only fleet that includes the Airbus A350, A380, Boeing 777, and 787.",
+        "answer": {
+            "airline": "Singapore Airlines"
+        }
+    },
+    {
+        "fact": "I am the smallest of the E-Jet family, with operators including Republic Airways, J-Air, and Envoy Air.",
+        "answer": {
+            "manufacturer": "Embraer",
+            "type": "E170"
+        }
+    },
+    {
+        "fact": "I am a US-based airline flying the Airbus A220, A320, and A321, as well as the Embraer E190.",
+        "answer": {
+            "airline": "JetBlue Airways"
+        }
+    },
+    {
+        "fact": "I am a shortened version of the A320 and my operators include Volotea, Croatia Airlines, and Brussels Airlines.",
+        "answer": {
+            "manufacturer": "Airbus",
+            "type": "A319"
+        }
+    },
+    {
+        "fact": "I am a major South American carrier operating the Airbus A320 alongside the Boeing 767 and 787.",
+        "answer": {
+            "airline": "LATAM Airlines"
+        }
+    }
 ]

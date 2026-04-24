@@ -16,7 +16,7 @@ import GameHistory from '@/components/game/GameHistory';
 import StatsModal from '@/components/stats';
 
 export default function TriviaPage() {
-    const [qIndex, setQIndex] = useState(0);
+    const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * TRIVIA_QUESTIONS.length));
     const question = TRIVIA_QUESTIONS[qIndex];
 
     const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(3, exactMatchGrader);
@@ -70,7 +70,7 @@ export default function TriviaPage() {
         if (isGameOver && !statsUpdatedRef.current) {
             statsUpdatedRef.current = true;
             updateStats(hasWon, 'trivia');
-            if (hasWon) addMiles(100);
+            if (hasWon) addMiles(250);
             setStatsView('postgame');
         }
     }, [isGameOver, hasWon, updateStats, addMiles]);
@@ -79,7 +79,16 @@ export default function TriviaPage() {
         resetGame();
         statsUpdatedRef.current = false;
         setStatsView(null);
-        setQIndex((prev) => (prev + 1) % TRIVIA_QUESTIONS.length);
+
+        // Pick a new random index different from the current one
+        setQIndex((prev) => {
+            if (TRIVIA_QUESTIONS.length <= 1) return prev;
+            let nextIndex;
+            do {
+                nextIndex = Math.floor(Math.random() * TRIVIA_QUESTIONS.length);
+            } while (nextIndex === prev);
+            return nextIndex;
+        });
     };
 
     return (
@@ -105,7 +114,7 @@ export default function TriviaPage() {
             <GameShell>
                 <GameNavbar
                     miles={miles}
-                    modeLabel="🧠 Trivia Mode (Beta)"
+                    modeLabel="🧠 Trivia Mode"
                     onStatsClick={() => setStatsView('overview')}
                 />
 
