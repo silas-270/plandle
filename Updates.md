@@ -9,19 +9,18 @@ Basierend auf 410 Runden Spielzeit wurden folgende Ideen auf einer Skala von "Ab
   *Ziel:* Wenn ein neuer Rang erreicht wird (z.B. Silver zu Gold), soll dies fett auf dem Bildschirm gefeiert werden.
 - [ ] **🟣 Kosmetische Verbesserung:** Custom Icons für die Ränge
   *Ziel:* Statt Standard-Emojis sollen passendere kleine SVGs oder Icons für die Ränge wie "Platinum" oder "Top Gun" verwendet werden.
-- [ ] **🟣 Kosmetische Verbesserung:** Flammenanimation verbessern
-  *Ziel:* Aktuell wackelt beim Streak nur das 🔥-Emoji. Auf eine dynamischere CSS-Animation umschreiben.
 
 ## Phase 2: Community & Content Erweiterung
 *Das Spiel fit machen, um es organisch wachsen zu lassen.*
 
-- [ ] **🔵 Größere neue Funktion:** Challenge-Sharing (Seed teilen für gleiches Flugzeug)
-  *Ziel:* Einen Seed teilen, um anderen Leuten genau dasselbe Flugzeug zeigen zu können. Am Ende klickt man auf `plandle.com/endless?seed=123456789`, wird ins Spiel geleitet und das erste Bild der Queue ist 1:1 das gleiche Bild.
 - [ ] **🟣 Content Update:** Trivia Modus ausbauen
   *Ziel:* Mehr Fragen und interessantere Fakten ins Spiel bringen.
 
 ## Phase 3: Das Mammut-Projekt
-*Langzeit-Feature für die globale Spielerschaft.*
+*Langzeit-Features für die globale Spielerschaft.*
+
+- [ ] **🔵 Größere neue Funktion:** Challenge-Sharing (Seed teilen für gleiches Flugzeug)
+  *Ziel:* Einen Seed teilen, um anderen Leuten genau dasselbe Flugzeug zeigen zu können. Am Ende klickt man auf `plandle.com/endless?seed=123456789`, wird ins Spiel geleitet und das erste Bild der Queue ist 1:1 das gleiche Bild.
 
 - [ ] **🌌 Große neue Funktion:** Scoreboard / Globale Rangliste
   *Teilaufgaben:*

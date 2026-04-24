@@ -149,7 +149,7 @@ export default function PostgameSection({
 
             {/* CTA */}
             <div className="px-7 pb-7 flex justify-center">
-                {gameMode === 'practice' && onNext ? (
+                {(gameMode === 'practice' || gameMode === 'trivia') && onNext ? (
                     <button
                         onClick={() => { onNext(); onClose(); }}
                         className={`w-full md:max-w-xs py-4 rounded-2xl font-bold text-lg tracking-wide active:scale-95 transition-all shadow-lg ${hasWon
@@ -157,7 +157,7 @@ export default function PostgameSection({
                             : 'bg-bg-inverse hover:opacity-90 text-white'
                             }`}
                     >
-                        {nextLabel || 'Next Aircraft'}
+                        {nextLabel || (gameMode === 'trivia' ? 'Next Question' : 'Next Aircraft')}
                     </button>
                 ) : (
                     <button

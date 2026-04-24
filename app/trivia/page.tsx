@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, useCallback, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { useGenericGameState, exactMatchGrader } from '@/hooks/useGenericGameState';
 import { useStats } from '@/hooks/useStats';
 import { useMiles } from '@/hooks/useMiles';
-import { TRIVIA_QUESTIONS, getTriviaAirlines } from '@/data/trivia';
-import { FieldConfig } from '@/types/genericGame';
+import { TRIVIA_QUESTIONS } from '@/data/trivia';
+import { getManufacturers, getTypes, getAirlines } from '@/data/aircraft';
+import { FieldConfig, GenericAnswer } from '@/types/genericGame';
 
 import GameShell from '@/components/game/GameShell';
 import GameNavbar from '@/components/game/GameNavbar';
@@ -17,27 +18,53 @@ import StatsModal from '@/components/stats';
 export default function TriviaPage() {
     const [qIndex, setQIndex] = useState(0);
     const question = TRIVIA_QUESTIONS[qIndex];
-    
-    // Trivia mode allows 3 guesses
+
     const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(3, exactMatchGrader);
     const { stats, getWinRate, updateStats } = useStats();
     const { miles, addMiles } = useMiles();
     const [statsView, setStatsView] = useState<'postgame' | 'overview' | null>(null);
 
-    const triviaAirlines = getTriviaAirlines();
-    const [selectedAirline, setSelectedAirline] = useState(triviaAirlines[0] || '');
+    // Dynamic selection state
+    const [selection, setSelection] = useState<GenericAnswer>({});
 
-    // The form definition: just one select field for "Airline"
-    const fields: FieldConfig[] = [
-        { key: 'airline', label: 'Airline Guess', options: triviaAirlines },
-    ];
-    const currentSelection = { airline: selectedAirline };
+    const manufacturers = useMemo(() => getManufacturers(), []);
+    const airlines = useMemo(() => getAirlines(), []);
 
-    const handleGuess = () => {
-        submitGuess(currentSelection, question.answer);
+    // Initialize selection when question changes
+    useEffect(() => {
+        const initial: GenericAnswer = {};
+        Object.keys(question.answer).forEach(key => {
+            if (key === 'manufacturer') initial[key] = manufacturers[0];
+            else if (key === 'type') initial[key] = getTypes(initial['manufacturer'] || manufacturers[0])[0];
+            else if (key === 'airline') initial[key] = airlines[0];
+        });
+        setSelection(initial);
+    }, [qIndex, question.answer, manufacturers, airlines]);
+
+    const handleFieldChange = (key: string, value: string) => {
+        setSelection(prev => {
+            const next = { ...prev, [key]: value };
+            // Handle dependent fields (manufacturer -> type)
+            if (key === 'manufacturer') {
+                next['type'] = getTypes(value)[0] || '';
+            }
+            return next;
+        });
     };
 
-    // When the game ends, show stats and award miles if they won.
+    const fields: FieldConfig[] = useMemo(() => {
+        return Object.keys(question.answer).map(key => {
+            if (key === 'manufacturer') return { key, label: 'Manufacturer', options: manufacturers };
+            if (key === 'type') return { key, label: 'Aircraft Type', options: getTypes(selection['manufacturer'] || manufacturers[0]) };
+            if (key === 'airline') return { key, label: 'Airline', options: airlines };
+            return { key, label: key, options: [] };
+        });
+    }, [question.answer, selection, manufacturers, airlines]);
+
+    const handleGuess = () => {
+        submitGuess(selection, question.answer);
+    };
+
     const statsUpdatedRef = useRef(false);
     useEffect(() => {
         if (isGameOver && !statsUpdatedRef.current) {
@@ -53,7 +80,6 @@ export default function TriviaPage() {
         statsUpdatedRef.current = false;
         setStatsView(null);
         setQIndex((prev) => (prev + 1) % TRIVIA_QUESTIONS.length);
-        setSelectedAirline(getTriviaAirlines()[0] || '');
     };
 
     return (
@@ -73,7 +99,7 @@ export default function TriviaPage() {
                 milesEarned={hasWon ? 100 : 0}
                 onNext={handleNext}
                 onClose={() => setStatsView(null)}
-                nextLabel="Next Question ✈️"
+                nextLabel="Next Question"
                 gameMode="trivia"
             />
             <GameShell>
@@ -82,16 +108,14 @@ export default function TriviaPage() {
                     modeLabel="🧠 Trivia Mode (Beta)"
                     onStatsClick={() => setStatsView('overview')}
                 />
-                
-                {/* Swap the Image viewer for a Text viewer */}
+
                 <GameTextCard text={question.fact} isBuffering={false} />
-                
+
                 <div className="p-4 sm:p-8 pb-28 sm:pb-8">
-                    {/* The same GameForm, but it auto-adapts to 1 column and renders only 'airline' */}
                     <GameForm
                         fields={fields}
-                        selected={currentSelection}
-                        onFieldChange={(key, value) => setSelectedAirline(value)}
+                        selected={selection}
+                        onFieldChange={handleFieldChange}
                         isBuffering={false}
                         isGameOver={isGameOver}
                         remainingAttempts={remainingAttempts}
@@ -108,8 +132,7 @@ export default function TriviaPage() {
                             </button>
                         ) : null}
                     />
-                    
-                    {/* The same History viewer, but auto-adapts to 1 column */}
+
                     <GameHistory guesses={guesses} fields={fields} />
                 </div>
             </GameShell>

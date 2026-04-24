@@ -1,4 +1,5 @@
 [
+    { "fact": "Welches Flugzeug kann seine Tragflächenfläche durch mehrstufige Klappen (triple-slotted flaps) während des Landeanflugs um etwa 21% vergrößern?", "answer": { "manufacturer": "Boeing", "type": "747" } },
     { "fact": "I am the oldest airline in the world still operating under my original name. I was founded in 1919.", "answer": { "airline": "KLM" } },
     { "fact": "My headquarters is in Atlanta, Georgia, and I operate the world's largest fleet of passenger aircraft.", "answer": { "airline": "Delta Air Lines" } },
     { "fact": "I am known for the 'Flying Kangaroo' logo and I'm the flag carrier of Australia.", "answer": { "airline": "Qantas" } },
