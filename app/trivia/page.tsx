@@ -12,7 +12,7 @@ import GameNavbar from '@/components/game/GameNavbar';
 import GameTextCard from '@/components/game/GameTextCard';
 import GameForm from '@/components/game/GameForm';
 import GameHistory from '@/components/game/GameHistory';
-import StatsModal from '@/components/StatsModal';
+import StatsModal from '@/components/stats';
 
 export default function TriviaPage() {
     const [qIndex, setQIndex] = useState(0);

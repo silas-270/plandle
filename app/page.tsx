@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import StatsModal from "@/components/StatsModal";
+import StatsModal from "@/components/stats";
 import { useStats } from "@/hooks/useStats";
 import { useMiles } from "@/hooks/useMiles";
 

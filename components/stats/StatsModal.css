@@ -1,0 +1,27 @@
+/* Shared keyframe animations for the stats modal system */
+
+@keyframes confetti-fall {
+    0%   { transform: translateY(0)   rotate(0deg)   scaleX(1); opacity: 1; }
+    80%  { opacity: 1; }
+    100% { transform: translateY(95vh) rotate(720deg) scaleX(-1); opacity: 0; }
+}
+
+@keyframes flame-wobble {
+    from { transform: rotate(-8deg) scale(1);    }
+    to   { transform: rotate(8deg)  scale(1.15); }
+}
+
+@keyframes flame-inferno {
+    from { transform: rotate(-12deg) scale(1.1);  }
+    to   { transform: rotate(12deg)  scale(1.35); }
+}
+
+@keyframes header-pop {
+    from { transform: scale(0.5) rotate(-15deg); opacity: 0; }
+    to   { transform: scale(1)   rotate(0deg);   opacity: 1; }
+}
+
+@keyframes plane-fly-across {
+    0%   { left: -15%; transform: translateY(-50%); }
+    100% { left: 115%; transform: translateY(-50%); }
+}

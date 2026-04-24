@@ -12,7 +12,7 @@ import GameNavbar from '@/components/game/GameNavbar';
 import GameImage from '@/components/game/GameImage';
 import GameForm from '@/components/game/GameForm';
 import GameHistory from '@/components/game/GameHistory';
-import StatsModal from '@/components/StatsModal';
+import StatsModal from '@/components/stats';
 import { FieldConfig } from '@/types/genericGame';
 
 const aircraftGrader: Grader = (selection, actual) => {

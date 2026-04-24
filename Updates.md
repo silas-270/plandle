@@ -5,8 +5,6 @@ Basierend auf 410 Runden Spielzeit wurden folgende Ideen auf einer Skala von "Ab
 ## Phase 1: UX Polish & Spieler-Feedback
 *Das Menü und Feedback-System modernisieren, um das Spielen belohnender zu machen.*
 
-- [ ] **🟡 QoL-Verbesserung:** Menü nach jedem Spiel verbessern
-  *Ziel:* Relevantere Sachen nach einer Runde anzeigen. Aktuell sieht man nur Text. Hier sollten coole Meilen-Counter, XP-Balken für den Rang oder der aktuelle Streak sofort sichtbar sein.
 - [ ] **🟣 Kosmetische Verbesserung:** Animation beim Aufstieg eines Rangs
   *Ziel:* Wenn ein neuer Rang erreicht wird (z.B. Silver zu Gold), soll dies fett auf dem Bildschirm gefeiert werden.
 - [ ] **🟣 Kosmetische Verbesserung:** Custom Icons für die Ränge
