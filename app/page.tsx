@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StatsModal from "@/components/StatsModal";
 import { useStats } from "@/hooks/useStats";
 import { useMiles } from "@/hooks/useMiles";
@@ -29,24 +29,24 @@ export default function HomePage() {
 
     return (
         <div className="min-h-screen bg-bg-subtle flex flex-col items-center justify-center px-4 py-8 sm:py-16">
-            
+
             {/* Quick Debug Panel (Delete layer) */}
             <div className="w-full max-w-5xl bg-red-100/20 border border-red-500 p-4 mb-8 rounded-lg">
                 <p className="text-red-500 font-bold mb-2">DEBUG: LocalStorage Editor (Delete after use)</p>
                 <p className="text-xs text-text-dim">plandle_stats_v2:</p>
-                <textarea 
+                <textarea
                     className="w-full h-32 text-xs font-mono p-2 bg-bg-main text-text-main border border-border-muted rounded mb-2"
                     value={debugStats}
                     onChange={e => setDebugStats(e.target.value)}
                 />
                 <p className="text-xs text-text-dim">plandle_miles_v1:</p>
-                <input 
+                <input
                     type="text"
                     className="w-full text-xs font-mono p-2 bg-bg-main text-text-main border border-border-muted rounded mb-2"
                     value={debugMiles}
                     onChange={e => setDebugMiles(e.target.value)}
                 />
-                <button 
+                <button
                     onClick={handleSaveDebug}
                     className="bg-red-500 text-white font-bold py-2 px-4 rounded"
                 >
@@ -55,7 +55,7 @@ export default function HomePage() {
             </div>
 
             <StatsModal
-                stats={stats['practice'] || { played: 0, wins: 0, currentStreak: 0, maxStreak: 0, guessDistribution: [] }} 
+                stats={stats['practice'] || { played: 0, wins: 0, currentStreak: 0, maxStreak: 0, guessDistribution: [] }}
                 allStats={stats}
                 winRate={getWinRate('practice')}
                 getWinRate={getWinRate}
