@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { ModeStats, GameStats } from '@/hooks/useStats';
 import MilesProgress from './Milesprogress';
-import { TIERS } from '@/data/ranks';
+import { TIERS, getCurrentTier } from '@/data/ranks';
 
 type Props = {
     stats: ModeStats;
@@ -203,6 +203,63 @@ function OverviewPanel({ allStats, getWinRate, difficulty, onDifficultyChange, m
                         </div>
                     );
                 })}
+            </div>
+
+            {/* Share Card */}
+            <div className="mt-8 px-7">
+                <button
+                    onClick={async () => {
+                        const pStats = allStats['practice'] || { wins: 0, played: 0, currentStreak: 0, maxStreak: 0 };
+                        const wr = getWinRate('practice');
+                        const tier = getCurrentTier(miles);
+                        const text = `✈️ Plandle Career Report ✈️\n━━━━━━━━━━━━━━\n${tier.emoji} ${tier.name} Rank\n📍 ${miles.toLocaleString()} mi flown\n📈 ${wr}% Success\n🔥 ${pStats.maxStreak} Match Max Streak\n━━━━━━━━━━━━━━\nThink you can fly higher?\n👉 plandle.vercel.app`;
+
+                        try {
+                            if (navigator.share) {
+                                await navigator.share({
+                                    title: 'Plandle Stats',
+                                    text: text,
+                                });
+                            } else if (navigator.clipboard) {
+                                await navigator.clipboard.writeText(text);
+                                alert("Copied to clipboard!");
+                            } else {
+                                // Fallback for HTTP / non-secure contexts
+                                const textArea = document.createElement("textarea");
+                                textArea.value = text;
+                                textArea.style.position = "fixed";  // Avoid scrolling
+                                textArea.style.opacity = "0";
+                                document.body.appendChild(textArea);
+                                textArea.focus();
+                                textArea.select();
+                                try {
+                                    document.execCommand('copy');
+                                    alert("Copied to clipboard!");
+                                } catch (err) {
+                                    alert("Could not copy automatically. Screenshot instead!");
+                                }
+                                document.body.removeChild(textArea);
+                            }
+                        } catch (e: any) {
+                            // User canceling the share prompt throws an Error, we can ignore it
+                            if (e.name !== "AbortError") {
+                                console.error("Error sharing", e);
+                            }
+                        }
+                    }}
+                    className="w-full relative bg-brand-base rounded-2xl shadow-md border-none p-5 flex items-center justify-start hover:shadow-lg hover:bg-brand-dark transition-all duration-200 overflow-hidden active:scale-[0.98]"
+                >
+                    {/* SVG Light Gray Background - Left aligned */}
+                    <div className="absolute inset-0 flex items-center justify-start pointer-events-none px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-[8rem] h-[8rem] text-white opacity-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                        </svg>
+                    </div>
+
+                    <h2 className="relative z-10 text-lg font-black text-white tracking-wide uppercase px-2 drop-shadow-md">
+                        Share Career Report
+                    </h2>
+                </button>
             </div>
         </div>
     );
