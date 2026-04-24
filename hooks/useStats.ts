@@ -68,15 +68,27 @@ export function useStats() {
             const mStats = loaded[mode];
             if (mStats.played > 0 && (!mStats.recentResults || mStats.recentResults.length === 0)) {
                 const sampleSize = Math.min(mStats.played, 100);
-                const winRate = mStats.wins / mStats.played;
-                const winsCount = Math.round(sampleSize * winRate);
                 
-                const migratedResults = new Array(sampleSize).fill(false);
-                for (let i = 0; i < winsCount; i++) {
-                    migratedResults[i] = true;
+                // If streak is high, the most recent games MUST have been wins.
+                const forcedWinsByStreak = Math.min(mStats.currentStreak, sampleSize);
+                const remainingSlots = sampleSize - forcedWinsByStreak;
+                
+                let migratedResults: boolean[] = new Array(forcedWinsByStreak).fill(true);
+                
+                if (remainingSlots > 0) {
+                    // For the remaining history we don't know, use the average win rate of the "old" games.
+                    const historicalWins = mStats.wins - forcedWinsByStreak;
+                    const historicalPlayed = mStats.played - forcedWinsByStreak;
+                    const historicalWinRate = historicalPlayed > 0 ? (historicalWins / historicalPlayed) : 0;
+                    
+                    const additionalWins = Math.round(remainingSlots * Math.max(0, Math.min(1, historicalWinRate)));
+                    const baseline = new Array(remainingSlots).fill(false);
+                    for (let i = 0; i < additionalWins; i++) baseline[i] = true;
+                    // Randomize the old part only
+                    baseline.sort(() => Math.random() - 0.5);
+                    
+                    migratedResults = [...migratedResults, ...baseline];
                 }
-                // Randomize order purely for a better initial "sliding" feel
-                migratedResults.sort(() => Math.random() - 0.5);
                 
                 mStats.recentResults = migratedResults;
                 needsSave = true;
