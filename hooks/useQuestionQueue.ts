@@ -48,7 +48,9 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
                     imageIndex = challengeSeed.imageIndex;
                 } else if (isDaily) {
                     const today = new Date().toISOString().split('T')[0];
-                    airplane = getPlaneBySeed(today);
+                    const daily = getPlaneBySeed(today);
+                    airplane = daily.airplane;
+                    imageIndex = daily.imageIndex;
                 } else {
                     airplane = getRandomPlane();
                 }

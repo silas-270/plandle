@@ -43,16 +43,21 @@ export const getRandomPlane = (): aircraft => {
     };
 };
 
-export const getPlaneBySeed = (seed: string): aircraft => {
+export const getPlaneBySeed = (seed: string): { airplane: aircraft; imageIndex: number } => {
     const rng = new SeededRandom(seed);
     const airplaneIndex = rng.nextInt(AIRCRAFT_DATABASE.length);
     const airplane = AIRCRAFT_DATABASE[airplaneIndex];
     const airlineIndex = rng.nextInt(airplane.airlines.length);
+    // Consistent image choice for Daily: 0-5
+    const imageIndex = rng.nextInt(6);
 
     return {
-        manufacturer: airplane.manufacturer,
-        type: airplane.type,
-        airline: airplane.airlines[airlineIndex],
+        airplane: {
+            manufacturer: airplane.manufacturer,
+            type: airplane.type,
+            airline: airplane.airlines[airlineIndex],
+        },
+        imageIndex
     };
 };
 
