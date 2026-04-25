@@ -7,6 +7,7 @@ import { useGenericGameState, Grader } from '@/hooks/useGenericGameState';
 import { useStats } from '@/hooks/useStats';
 import { useMiles, DAILY_MILES } from '@/hooks/useMiles';
 import { getManufacturers, getTypes, getAirlines } from '@/data/aircraft';
+import { shareText } from '@/utils/share';
 import { DIFFICULTY_CONFIGS } from '@/types/difficulty';
 import GameShell from '@/components/game/GameShell';
 import GameNavbar from '@/components/game/GameNavbar';
@@ -133,6 +134,17 @@ export default function DailyPage() {
         );
     }
 
+    const handleShareChallenge = () => {
+        const url = `${window.location.origin}/daily`;
+        const resultText = hasWon 
+            ? `I solved today's Daily Challenge in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
+            : `I couldn't solve today's Daily Challenge... 😵`;
+
+        const shareMsg = `✈️ Plandle Daily ✈️\n━━━━━━━━━━━━━━\n${resultText}\n\nCan you do better?\n👉 ${url}`;
+        
+        shareText('Plandle Daily', shareMsg);
+    };
+
     // ── Normal game ──
     return (
         <>
@@ -152,6 +164,7 @@ export default function DailyPage() {
                 milesEarned={hasWon ? DAILY_MILES : 0}
                 onNext={() => {}}
                 onClose={() => setStatsView(null)}
+                onShareChallenge={handleShareChallenge}
             />
             <GameShell>
                 <GameNavbar

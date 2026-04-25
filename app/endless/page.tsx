@@ -6,6 +6,7 @@ import { useGenericGameState, Grader } from '@/hooks/useGenericGameState';
 import { useStats } from '@/hooks/useStats';
 import { useMiles, SKIP_COST } from '@/hooks/useMiles';
 import { getManufacturers, getTypes, getAirlines, getPlaneIndices, encodeChallenge } from '@/data/aircraft';
+import { shareText } from '@/utils/share';
 import { DifficultyLevel, DIFFICULTY_CONFIGS } from '@/types/difficulty';
 import GameShell from '@/components/game/GameShell';
 import GameNavbar from '@/components/game/GameNavbar';
@@ -94,7 +95,7 @@ export default function EndlessPage() {
         // Remove challenge param so next questions are random
         if (typeof window !== 'undefined') {
             const url = new URL(window.location.href);
-            url.searchParams.delete('challenge');
+            url.searchParams.delete('c');
             window.history.replaceState({}, '', url.toString());
         }
     };
@@ -107,12 +108,17 @@ export default function EndlessPage() {
             currentCard.answer.airline
         );
         if (!indices) return;
+        
         const encoded = encodeChallenge(indices.aircraftIndex, indices.airlineIndex, currentCard.imageIndex);
-        const url = `${window.location.origin}/endless?challenge=${encoded}`;
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(url);
-            alert('Challenge link copied! 🔗');
-        }
+        const url = `${window.location.origin}/endless?c=${encoded}`;
+        
+        const resultText = hasWon 
+            ? `I identified this aircraft in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
+            : `I couldn't identify this aircraft... 😵`;
+
+        const shareMsg = `✈️ Plandle Challenge ✈️\n━━━━━━━━━━━━━━\n${resultText}\n\nThink you're a better pilot?\n👉 ${url}`;
+        
+        shareText('Plandle Challenge', shareMsg);
     };
 
     const handleDifficultyChange = (level: DifficultyLevel) => {

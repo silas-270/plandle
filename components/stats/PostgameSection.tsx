@@ -116,7 +116,7 @@ export default function PostgameSection({
                                 <p className="text-lg font-black text-text-main leading-tight">{Object.values(answer).join(' • ')}</p>
                             )}
                         </div>
-                        {hasWon && gameMode === 'practice' && onShareChallenge ? (
+                        {(gameMode === 'practice' || gameMode === 'daily' || gameMode === 'trivia') && onShareChallenge ? (
                             <button
                                 onClick={onShareChallenge}
                                 className="p-2.5 bg-brand-muted text-brand-base rounded-xl hover:bg-brand-base hover:text-white transition-all active:scale-95 shadow-sm group"

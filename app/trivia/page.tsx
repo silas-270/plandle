@@ -6,6 +6,7 @@ import { useStats } from '@/hooks/useStats';
 import { useMiles } from '@/hooks/useMiles';
 import { TRIVIA_QUESTIONS } from '@/data/trivia';
 import { getManufacturers, getTypes, getAirlines } from '@/data/aircraft';
+import { shareText } from '@/utils/share';
 import { FieldConfig, GenericAnswer } from '@/types/genericGame';
 
 import GameShell from '@/components/game/GameShell';
@@ -16,7 +17,26 @@ import GameHistory from '@/components/game/GameHistory';
 import StatsModal from '@/components/stats';
 
 export default function TriviaPage() {
-    const [qIndex, setQIndex] = useState(() => Math.floor(Math.random() * TRIVIA_QUESTIONS.length));
+    const [qIndex, setQIndex] = useState(() => {
+        if (typeof window !== 'undefined') {
+            const params = new URLSearchParams(window.location.search);
+            const encoded = params.get('c');
+            if (encoded) {
+                try {
+                    const decoded = atob(encoded);
+                    if (decoded.startsWith('t.')) {
+                        const idx = parseInt(decoded.split('.')[1], 10);
+                        if (!isNaN(idx) && idx >= 0 && idx < TRIVIA_QUESTIONS.length) {
+                            return idx;
+                        }
+                    }
+                } catch (e) {
+                    console.error("Invalid trivia challenge", e);
+                }
+            }
+        }
+        return Math.floor(Math.random() * TRIVIA_QUESTIONS.length);
+    });
     const question = TRIVIA_QUESTIONS[qIndex];
 
     const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(3, exactMatchGrader);
@@ -80,6 +100,13 @@ export default function TriviaPage() {
         statsUpdatedRef.current = false;
         setStatsView(null);
 
+        // Remove challenge param so next questions are random
+        if (typeof window !== 'undefined') {
+            const url = new URL(window.location.href);
+            url.searchParams.delete('c');
+            window.history.replaceState({}, '', url.toString());
+        }
+
         // Pick a new random index different from the current one
         setQIndex((prev) => {
             if (TRIVIA_QUESTIONS.length <= 1) return prev;
@@ -89,6 +116,19 @@ export default function TriviaPage() {
             } while (nextIndex === prev);
             return nextIndex;
         });
+    };
+
+    const handleShareChallenge = () => {
+        const encoded = btoa(`t.${qIndex}`);
+        const url = `${window.location.origin}/trivia?c=${encoded}`;
+        
+        const resultText = hasWon 
+            ? `I solved this Trivia challenge in ${guesses.length}/3 attempts! 🧠`
+            : `I failed this Trivia challenge... 😵`;
+
+        const shareMsg = `✈️ Plandle Trivia ✈️\n━━━━━━━━━━━━━━\n${resultText}\n\nThink you know your planes?\n👉 ${url}`;
+        
+        shareText('Plandle Trivia', shareMsg);
     };
 
     return (
@@ -108,6 +148,7 @@ export default function TriviaPage() {
                 milesEarned={hasWon ? 250 : 0}
                 onNext={handleNext}
                 onClose={() => setStatsView(null)}
+                onShareChallenge={handleShareChallenge}
                 nextLabel="Next Question"
                 gameMode="trivia"
             />

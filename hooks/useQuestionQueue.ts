@@ -124,7 +124,7 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
             let challengeSeed: typeof challengeSeedRef.current = null;
             if (typeof window !== 'undefined') {
                 const params = new URLSearchParams(window.location.search);
-                const encoded = params.get('challenge');
+                const encoded = params.get('c');
                 if (encoded) {
                     challengeSeed = decodeChallenge(encoded);
                     challengeSeedRef.current = challengeSeed;
