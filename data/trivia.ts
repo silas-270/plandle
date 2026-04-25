@@ -6,4 +6,4 @@ export type TriviaQuestion = {
     answer: GenericAnswer;
 };
 
-export const TRIVIA_QUESTIONS: TriviaQuestion[] = triviaData;
+export const TRIVIA_QUESTIONS = triviaData as unknown as TriviaQuestion[];
