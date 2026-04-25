@@ -13,20 +13,57 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Plandle | The Aircraft Guessing Game",
-  description: "Identify aircraft from photos, earn miles, and master aviation. Play Daily, Endless, or Trivia modes to build your streak and become an aviation expert.",
-  keywords: ["aviation", "aircraft", "plane", "game", "plandle", "wordle", "airline", "trivia"],
+  metadataBase: new URL("https://plandle.vercel.app"),
+  title: {
+    default: "Plandle | The Aircraft Guessing Game",
+    template: "%s | Plandle",
+  },
+  description: "The ultimate daily aircraft guessing game. Identify planes from photos, earn miles, and master aviation. Play Daily, Endless, or Trivia modes.",
+  keywords: [
+    "aviation game",
+    "aircraft guessing game",
+    "planespotting game",
+    "avgeek trivia",
+    "wordle for planes",
+    "airline quiz",
+    "aircraft identification",
+    "plandle",
+    "flight game"
+  ],
   authors: [{ name: "Plandle Team" }],
+  creator: "Silas",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Plandle | The Aircraft Guessing Game",
-    description: "Identify aircraft from photos, earn miles, and master aviation. Play Daily, Endless, or Trivia modes.",
+    description: "How well do you know your planes? Guess the aircraft from photos, build your streak, and earn miles.",
     type: "website",
     siteName: "Plandle",
+    locale: "en_US",
+    url: "https://plandle.vercel.app",
   },
   twitter: {
     card: "summary_large_image",
     title: "Plandle | The Aircraft Guessing Game",
-    description: "Identify aircraft from photos, earn miles, and master aviation.",
+    description: "The ultimate daily game for aviation enthusiasts. Identify aircraft and build your streak!",
+    creator: "@plandle_app",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  appleWebApp: {
+    title: "Plandle",
+    statusBarStyle: "default",
+    capable: true,
   },
 };
 
