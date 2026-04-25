@@ -7,6 +7,8 @@ export const GET = async (request: NextRequest) => {
     const manufacturer = searchParams.get('manufacturer');
     const type = searchParams.get('type');
     const airline = searchParams.get('airline');
+    const imageIndexParam = searchParams.get('imageIndex');
+    const forcedImageIndex = imageIndexParam !== null ? parseInt(imageIndexParam, 10) : null;
 
     // 2. Parameter validation
     if (!manufacturer || !type || !airline) {
@@ -93,12 +95,19 @@ export const GET = async (request: NextRequest) => {
             console.log(`[FALLBACK] Keine eindeutigen Metadaten für: ${searchQuery}`);
         }
 
-        const randomPage = finalPool[Math.floor(Math.random() * finalPool.length)];
-        const imageUrl = randomPage.imageinfo?.[0]?.url;
+        // Pick image: use forced index (clamped to pool size) or random
+        let chosenIndex: number;
+        if (forcedImageIndex !== null && !isNaN(forcedImageIndex)) {
+            chosenIndex = forcedImageIndex % finalPool.length;
+        } else {
+            chosenIndex = Math.floor(Math.random() * finalPool.length);
+        }
+        const chosenPage = finalPool[chosenIndex];
+        const imageUrl = chosenPage.imageinfo?.[0]?.url;
 
         if (imageUrl) {
-            // Return the image URL safely wrapped in a JSON response
-            return NextResponse.json({ imageUrl }, { status: 200 });
+            // Return the image URL and the index used so the client can create a challenge seed
+            return NextResponse.json({ imageUrl, imageIndex: chosenIndex }, { status: 200 });
         } else {
             console.log("Bildinfo fehlte im Wikimedia-Ergebnis.");
             return NextResponse.json(

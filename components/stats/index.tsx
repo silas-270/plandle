@@ -27,9 +27,10 @@ type Props = {
     onNext?: () => void;
     onDifficultyChange?: (level: any) => void;
     nextLabel?: string;
+    onShareChallenge?: () => void;
 };
 
-export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWon, isOpen, guessCount, maxAttempts, answer, gameMode = 'practice', variant = 'postgame', difficulty, miles = 0, milesEarned = 0, onClose, onNext, onDifficultyChange, nextLabel }: Props) {
+export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWon, isOpen, guessCount, maxAttempts, answer, gameMode = 'practice', variant = 'postgame', difficulty, miles = 0, milesEarned = 0, onClose, onNext, onDifficultyChange, nextLabel, onShareChallenge }: Props) {
     const [showConfetti, setShowConfetti] = useState(false);
     const [animate, setAnimate] = useState(false);
 
@@ -169,6 +170,7 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                         nextLabel={nextLabel}
                         onClose={onClose}
                         onNext={onNext}
+                        onShareChallenge={onShareChallenge}
                     />
                 )}
             </div>

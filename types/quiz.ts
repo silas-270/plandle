@@ -1,5 +1,6 @@
 export type QuizCard = {
     image: { src: string };
+    imageIndex: number;
     answer: {
         manufacturer: string;
         type: string;

@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { QuizCard, QueueStatus } from '../types/quiz';
-import { getRandomPlane, getPlaneBySeed, aircraft } from '@/data/aircraft';
+import { getRandomPlane, getPlaneBySeed, getPlaneByIndices, decodeChallenge, aircraft } from '@/data/aircraft';
 
 const QUEUE_TARGET_LENGTH = 5;
 
-// This forces the browser to download and cache the image in the background.
 const preloadImage = (src: string): Promise<void> => {
     return new Promise((resolve, reject) => {
         const img = new Image();
@@ -19,30 +18,45 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
     const [status, setStatus] = useState<QueueStatus>('initializing');
     const hasInitialized = useRef(false);
     const modeRef = useRef(mode);
+    // Challenge seed parsed from URL on mount (practice mode only)
+    const challengeSeedRef = useRef<{ aircraftIndex: number; airlineIndex: number; imageIndex: number } | null>(null);
 
-    // Sync mode change if necessary (useful if we toggle modes)
     useEffect(() => {
         if (modeRef.current !== mode) {
             modeRef.current = mode;
-            setQueue([]); // Reset queue on mode toggle
+            setQueue([]);
             hasInitialized.current = false;
         }
     }, [mode]);
 
     // 1. The Helper: Fetches a single card with a built-in retry loop
-    const fetchWithRetry = async (maxRetries = 3, isDaily = false): Promise<QuizCard | null> => {
+    const fetchWithRetry = async (
+        maxRetries = 3,
+        isDaily = false,
+        challengeSeed?: { aircraftIndex: number; airlineIndex: number; imageIndex: number } | null
+    ): Promise<QuizCard | null> => {
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                // Determine which plane to fetch
                 let airplane: aircraft;
-                if (isDaily) {
+                let imageIndex: number | undefined;
+
+                if (challengeSeed) {
+                    // Challenge mode: load exact aircraft from seed
+                    const plane = getPlaneByIndices(challengeSeed.aircraftIndex, challengeSeed.airlineIndex);
+                    if (!plane) throw new Error('Invalid challenge seed indices');
+                    airplane = plane;
+                    imageIndex = challengeSeed.imageIndex;
+                } else if (isDaily) {
                     const today = new Date().toISOString().split('T')[0];
                     airplane = getPlaneBySeed(today);
                 } else {
                     airplane = getRandomPlane();
                 }
 
-                const params = new URLSearchParams(airplane);
+                const params = new URLSearchParams(airplane as any);
+                if (imageIndex !== undefined) {
+                    params.set('imageIndex', String(imageIndex));
+                }
 
                 const res = await fetch(`/api/plane-images?${params}`);
                 const data = await res.json();
@@ -51,8 +65,9 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
 
                 const newCard: QuizCard = {
                     image: { src: data.imageUrl },
-                    answer: airplane
-                }
+                    imageIndex: data.imageIndex ?? 0,
+                    answer: airplane,
+                };
 
                 if (newCard.image?.src) {
                     await preloadImage(newCard.image.src);
@@ -60,11 +75,8 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
 
                 return newCard;
             } catch (error) {
-                if (attempt === maxRetries) {
-                    return null;
-                }
-
-                const delay = 1000 * Math.pow(2, attempt - 1); // 1s, 2s, 4s...
+                if (attempt === maxRetries) return null;
+                const delay = 1000 * Math.pow(2, attempt - 1);
                 await new Promise(resolve => setTimeout(resolve, delay));
             }
         }
@@ -99,7 +111,6 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
         setStatus('initializing');
 
         if (mode === 'daily') {
-            // Fetch exactly one for daily
             fetchWithRetry(3, true).then(newCard => {
                 if (newCard) {
                     setQueue([newCard]);
@@ -109,15 +120,36 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
                 }
             });
         } else {
-            // Endless mode: Fetch initial batch
-            for (let i = 0; i < QUEUE_TARGET_LENGTH; i++) {
+            // Check for a challenge seed in the URL (client-side only)
+            let challengeSeed: typeof challengeSeedRef.current = null;
+            if (typeof window !== 'undefined') {
+                const params = new URLSearchParams(window.location.search);
+                const encoded = params.get('challenge');
+                if (encoded) {
+                    challengeSeed = decodeChallenge(encoded);
+                    challengeSeedRef.current = challengeSeed;
+                }
+            }
+
+            // If a challenge seed exists, load that first, then fill the rest randomly
+            const firstFetch = challengeSeed
+                ? fetchWithRetry(3, false, challengeSeed)
+                : fetchWithRetry(3, false);
+
+            firstFetch.then(firstCard => {
+                if (firstCard) {
+                    setQueue([firstCard]);
+                    setStatus('ready');
+                } else {
+                    setStatus('error');
+                }
+            });
+
+            // Fill the rest of the queue randomly (regardless of challenge)
+            for (let i = 1; i < QUEUE_TARGET_LENGTH; i++) {
                 fetchWithRetry(3, false).then(newCard => {
                     if (newCard) {
-                        setQueue(prevQueue => {
-                            const updatedQueue = [...prevQueue, newCard];
-                            if (updatedQueue.length === 1) setStatus('ready');
-                            return updatedQueue;
-                        });
+                        setQueue(prevQueue => [...prevQueue, newCard]);
                     }
                 });
             }
@@ -126,11 +158,7 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
 
     // 4. The Action
     const nextQuestion = useCallback(() => {
-        if (mode === 'daily') {
-            // In daily mode, we don't have a "next" question in the same queue
-            // The UI should handle what happens when the game is over
-            return;
-        }
+        if (mode === 'daily') return;
 
         setQueue(prevQueue => {
             const newQueue = prevQueue.slice(1);
@@ -144,6 +172,6 @@ export function useQuestionQueue(mode: 'daily' | 'practice' = 'practice') {
         currentCard: queue[0] || null,
         status,
         nextQuestion,
-        cardsRemaining: queue.length
+        cardsRemaining: queue.length,
     };
 }

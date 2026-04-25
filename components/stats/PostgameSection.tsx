@@ -17,6 +17,7 @@ interface PostgameSectionProps {
     nextLabel?: string;
     onClose: () => void;
     onNext?: () => void;
+    onShareChallenge?: () => void;
 }
 
 export default function PostgameSection({
@@ -32,6 +33,7 @@ export default function PostgameSection({
     nextLabel,
     onClose,
     onNext,
+    onShareChallenge,
 }: PostgameSectionProps) {
     const currentTier = getCurrentTier(miles);
     const nextTier = getNextTier(miles);
@@ -114,7 +116,19 @@ export default function PostgameSection({
                                 <p className="text-lg font-black text-text-main leading-tight">{Object.values(answer).join(' • ')}</p>
                             )}
                         </div>
-                        <span className="text-3xl">✈️</span>
+                        {hasWon && gameMode === 'practice' && onShareChallenge ? (
+                            <button
+                                onClick={onShareChallenge}
+                                className="p-2.5 bg-brand-muted text-brand-base rounded-xl hover:bg-brand-base hover:text-white transition-all active:scale-95 shadow-sm group"
+                                title="Share this challenge"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                </svg>
+                            </button>
+                        ) : (
+                            <span className="text-3xl grayscale opacity-20">✈️</span>
+                        )}
                     </div>
                 </div>
             )}
@@ -208,7 +222,7 @@ export default function PostgameSection({
             </div>
 
             {/* CTA */}
-            <div className="px-7 pb-7 flex justify-center">
+            <div className="px-7 pb-7 flex flex-col gap-2 items-center">
                 {(gameMode === 'practice' || gameMode === 'trivia') && onNext ? (
                     <button
                         onClick={() => { onNext(); onClose(); }}

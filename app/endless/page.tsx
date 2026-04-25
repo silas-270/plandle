@@ -5,7 +5,7 @@ import { useQuestionQueue } from '@/hooks/useQuestionQueue';
 import { useGenericGameState, Grader } from '@/hooks/useGenericGameState';
 import { useStats } from '@/hooks/useStats';
 import { useMiles, SKIP_COST } from '@/hooks/useMiles';
-import { getManufacturers, getTypes, getAirlines } from '@/data/aircraft';
+import { getManufacturers, getTypes, getAirlines, getPlaneIndices, encodeChallenge } from '@/data/aircraft';
 import { DifficultyLevel, DIFFICULTY_CONFIGS } from '@/types/difficulty';
 import GameShell from '@/components/game/GameShell';
 import GameNavbar from '@/components/game/GameNavbar';
@@ -91,6 +91,28 @@ export default function EndlessPage() {
         setSelectedManufacturer(manufacturers[0]);
         setSelectedType(initialTypes[0]);
         setSelectedAirline(airlines[0]);
+        // Remove challenge param so next questions are random
+        if (typeof window !== 'undefined') {
+            const url = new URL(window.location.href);
+            url.searchParams.delete('challenge');
+            window.history.replaceState({}, '', url.toString());
+        }
+    };
+
+    const handleShareChallenge = () => {
+        if (!currentCard) return;
+        const indices = getPlaneIndices(
+            currentCard.answer.manufacturer,
+            currentCard.answer.type,
+            currentCard.answer.airline
+        );
+        if (!indices) return;
+        const encoded = encodeChallenge(indices.aircraftIndex, indices.airlineIndex, currentCard.imageIndex);
+        const url = `${window.location.origin}/endless?challenge=${encoded}`;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(url);
+            alert('Challenge link copied! 🔗');
+        }
     };
 
     const handleDifficultyChange = (level: DifficultyLevel) => {
@@ -153,6 +175,7 @@ export default function EndlessPage() {
                 milesEarned={hasWon ? config.milesPerWin : 0}
                 onNext={handleNext}
                 onClose={() => setStatsView(null)}
+                onShareChallenge={handleShareChallenge}
                 difficulty={difficulty}
                 onDifficultyChange={handleDifficultyChange}
             />
