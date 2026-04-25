@@ -116,7 +116,7 @@ export default function PostgameSection({
                                 <p className="text-lg font-black text-text-main leading-tight">{Object.values(answer).join(' • ')}</p>
                             )}
                         </div>
-                        {(gameMode === 'practice' || gameMode === 'daily' || gameMode === 'trivia') && onShareChallenge ? (
+                        {(gameMode === 'practice' || gameMode === 'daily' || gameMode === 'trivia' || gameMode === 'military') && onShareChallenge ? (
                             <button
                                 onClick={onShareChallenge}
                                 className="p-2.5 bg-brand-muted text-brand-base rounded-xl hover:bg-brand-base hover:text-white transition-all active:scale-95 shadow-sm group"
@@ -223,7 +223,7 @@ export default function PostgameSection({
 
             {/* CTA */}
             <div className="px-7 pb-7 flex flex-col gap-2 items-center">
-                {(gameMode === 'practice' || gameMode === 'trivia') && onNext ? (
+                {(gameMode === 'practice' || gameMode === 'trivia' || gameMode === 'military') && onNext ? (
                     <button
                         onClick={() => { onNext(); onClose(); }}
                         className={`w-full md:max-w-xs py-4 rounded-2xl font-bold text-lg tracking-wide active:scale-95 transition-all shadow-lg ${hasWon

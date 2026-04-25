@@ -26,9 +26,33 @@ export default function OverviewPanel({ allStats, getWinRate, difficulty, onDiff
     return (
         <div className="max-h-[70vh] overflow-y-auto pb-4 no-scrollbar">
             {/* Global Currency */}
-            <div className="mt-2 mb-10 px-7">
+            <div className="mt-2 mb-6 px-7">
                 <MilesProgress miles={miles} tiers={TIERS} />
             </div>
+
+            {/* Global Settings */}
+            {onDifficultyChange && (
+                <div className="px-7 mb-10">
+                    <span className="block text-xs font-bold uppercase tracking-widest text-text-dim mb-2">Game Difficulty</span>
+                    <div className="flex bg-bg-subtle p-1 rounded-xl w-full">
+                        {['Economy', 'Business', 'First Class'].map((level) => (
+                            <button
+                                key={level}
+                                onClick={() => onDifficultyChange(level as any)}
+                                className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${difficulty === level
+                                    ? 'bg-bg-main text-brand-base shadow-sm'
+                                    : 'text-text-secondary hover:text-text-main'
+                                    }`}
+                            >
+                                {level}
+                            </button>
+                        ))}
+                    </div>
+                    <p className="text-[10px] text-text-dim mt-2 text-center">
+                        Higher difficulty gives you more miles!
+                    </p>
+                </div>
+            )}
 
             {/* Mode Sections */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-10 px-7">
@@ -64,29 +88,7 @@ export default function OverviewPanel({ allStats, getWinRate, difficulty, onDiff
                                 <StreakBadge value={s.maxStreak} isMax />
                             </div>
 
-                            {/* Mode-specific settings */}
-                            {key === 'practice' && onDifficultyChange && (
-                                <div className="pt-2">
-                                    <span className="block text-xs font-bold uppercase tracking-widest text-text-dim mb-2">Difficulty Settings</span>
-                                    <div className="flex bg-bg-subtle p-1 rounded-xl w-full">
-                                        {['Economy', 'Business', 'First Class'].map((level) => (
-                                            <button
-                                                key={level}
-                                                onClick={() => onDifficultyChange(level as any)}
-                                                className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${difficulty === level
-                                                    ? 'bg-bg-main text-brand-base shadow-sm'
-                                                    : 'text-text-secondary hover:text-text-main'
-                                                    }`}
-                                            >
-                                                {level}
-                                            </button>
-                                        ))}
-                                    </div>
-                                    <p className="text-[10px] text-text-dim mt-2 text-center">
-                                        Higher difficulty gives you more miles!
-                                    </p>
-                                </div>
-                            )}
+                            {/* Removed Mode-specific settings */}
                         </div>
                     );
                 })}

@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { useQuestionQueue } from '@/hooks/useQuestionQueue';
+import { useMilitaryQueue } from '@/hooks/useMilitaryQueue';
 import { useGenericGameState, Grader } from '@/hooks/useGenericGameState';
 import { useStats } from '@/hooks/useStats';
 import { useMiles, SKIP_COST } from '@/hooks/useMiles';
-import { getManufacturers, getTypes, getAirlines, getPlaneIndices, encodeChallenge } from '@/data/aircraft';
+import { getMilitaryManufacturers, getMilitaryTypes, getMilitaryIndex, encodeMilitaryChallenge } from '@/data/military';
 import { shareText } from '@/utils/share';
 import { DifficultyLevel, DIFFICULTY_CONFIGS } from '@/types/difficulty';
 import GameShell from '@/components/game/GameShell';
@@ -16,33 +16,32 @@ import GameHistory from '@/components/game/GameHistory';
 import StatsModal from '@/components/stats';
 import { FieldConfig } from '@/types/genericGame';
 
-const aircraftGrader: Grader = (selection, actual) => {
+const militaryGrader: Grader = (selection, actual) => {
     return {
         manufacturer: selection.manufacturer === actual.manufacturer ? 'correct' : 'incorrect',
-        type: selection.type === actual.type ? 'correct' : (selection.manufacturer === actual.manufacturer ? 'partial' : 'incorrect'),
-        airline: selection.airline === actual.airline ? 'correct' : 'incorrect',
+        type: selection.type === actual.type
+            ? 'correct'
+            : (selection.manufacturer === actual.manufacturer ? 'partial' : 'incorrect'),
     };
 };
 
-export default function EndlessPage() {
+export default function MilitaryPage() {
     const [difficulty, setDifficulty] = useState<DifficultyLevel>('Business');
     const config = DIFFICULTY_CONFIGS[difficulty];
 
-    const { currentCard, status, nextQuestion } = useQuestionQueue('practice');
-    const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(config.maxAttempts, aircraftGrader);
+    const { currentCard, status, nextQuestion } = useMilitaryQueue();
+    const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(config.maxAttempts, militaryGrader);
     const { stats, getWinRate, updateStats } = useStats();
     const { miles, addMiles, spendMiles, canAfford } = useMiles();
 
     const [statsView, setStatsView] = useState<'postgame' | 'overview' | null>(null);
 
-    const manufacturers = getManufacturers();
-    const airlines = getAirlines();
-    const initialTypes = manufacturers[0] ? getTypes(manufacturers[0]) : [];
+    const manufacturers = getMilitaryManufacturers();
+    const initialTypes = manufacturers[0] ? getMilitaryTypes(manufacturers[0]) : [];
 
     const [selectedManufacturer, setSelectedManufacturer] = useState(manufacturers[0] || '');
     const [selectedType, setSelectedType] = useState(initialTypes[0] || '');
-    const [selectedAirline, setSelectedAirline] = useState(airlines[0] || '');
-    const availableTypes = selectedManufacturer ? getTypes(selectedManufacturer) : [];
+    const availableTypes = selectedManufacturer ? getMilitaryTypes(selectedManufacturer) : [];
 
     // Load persisted difficulty
     useEffect(() => {
@@ -53,20 +52,18 @@ export default function EndlessPage() {
     // Auto-select first type when manufacturer changes
     useEffect(() => {
         if (selectedManufacturer) {
-            setSelectedType(getTypes(selectedManufacturer)[0] || '');
+            setSelectedType(getMilitaryTypes(selectedManufacturer)[0] || '');
         }
     }, [selectedManufacturer]);
 
     const fields: FieldConfig[] = [
         { key: 'manufacturer', label: 'Manufacturer', options: manufacturers },
         { key: 'type', label: 'Aircraft Type', options: availableTypes },
-        { key: 'airline', label: 'Airline', options: airlines },
     ];
 
     const currentSelection = {
         manufacturer: selectedManufacturer,
         type: selectedType,
-        airline: selectedAirline,
     };
 
     // Record stats + award miles once per game
@@ -74,7 +71,7 @@ export default function EndlessPage() {
     useEffect(() => {
         if (isGameOver && !statsUpdatedRef.current) {
             statsUpdatedRef.current = true;
-            updateStats(hasWon, 'practice');
+            updateStats(hasWon, 'military');
             if (hasWon) addMiles(config.milesPerWin);
             setStatsView('postgame');
         }
@@ -82,17 +79,16 @@ export default function EndlessPage() {
 
     const handleGuess = () => {
         if (!currentCard) return;
-        submitGuess(currentSelection, currentCard.answer);
+        submitGuess(currentSelection, currentCard.answer as unknown as Record<string, string>);
     };
 
     const handleNext = () => {
         resetGame();
         statsUpdatedRef.current = false;
         nextQuestion();
-        setSelectedManufacturer(manufacturers[0]);
-        setSelectedType(initialTypes[0]);
-        setSelectedAirline(airlines[0]);
-        // Remove challenge param so next questions are random
+        setSelectedManufacturer(manufacturers[0] || '');
+        setSelectedType(initialTypes[0] || '');
+        // Remove challenge param so subsequent questions are random
         if (typeof window !== 'undefined') {
             const url = new URL(window.location.href);
             url.searchParams.delete('c');
@@ -102,23 +98,20 @@ export default function EndlessPage() {
 
     const handleShareChallenge = () => {
         if (!currentCard) return;
-        const indices = getPlaneIndices(
+        const aircraftIndex = getMilitaryIndex(
             currentCard.answer.manufacturer,
-            currentCard.answer.type,
-            currentCard.answer.airline
+            currentCard.answer.type
         );
-        if (!indices) return;
-        
-        const encoded = encodeChallenge(indices.aircraftIndex, indices.airlineIndex, currentCard.imageIndex);
-        const url = `${window.location.origin}/endless?c=${encoded}`;
-        
-        const resultText = hasWon 
-            ? `I identified this aircraft in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
-            : `I couldn't identify this aircraft... 😵`;
+        if (aircraftIndex === -1) return;
 
-        const shareMsg = `✈️ Plandle Challenge ✈️\n━━━━━━━━━━━━━━\n${resultText}\n\nThink you're a better pilot?\n👉 ${url}`;
-        
-        shareText('Plandle Challenge', shareMsg);
+        const encoded = encodeMilitaryChallenge(aircraftIndex, currentCard.imageIndex);
+        const url = `${window.location.origin}/military?c=${encoded}`;
+
+        const resultText = hasWon
+            ? `I identified this military aircraft in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
+            : `I couldn't identify this military aircraft... 😵`;
+        const shareMsg = `🪖 Plandle Military Challenge 🪖\n━━━━━━━━━━━━━━\n${resultText}\n\nThink you know your jets?\n👉 ${url}`;
+        shareText('Plandle Military Challenge', shareMsg);
     };
 
     const handleDifficultyChange = (level: DifficultyLevel) => {
@@ -136,18 +129,17 @@ export default function EndlessPage() {
     }
     // Buffering between questions (queue temporarily empty) — show loading, not error
     if (status === 'buffering' && !currentCard) {
-        return <div className="flex h-screen items-center justify-center font-mono animate-pulse">Loading next aircraft...</div>;
+        return <div className="flex h-screen items-center justify-center font-mono animate-pulse">Loading next target...</div>;
     }
     if (status === 'error') {
         return <div className="flex h-screen items-center justify-center text-error-base font-bold text-xl">Flight cancelled (Connection error).</div>;
     }
     if (!currentCard) {
-        return <div className="flex h-screen items-center justify-center font-mono animate-pulse">Loading next aircraft...</div>;
+        return <div className="flex h-screen items-center justify-center font-mono animate-pulse">Loading next target...</div>;
     }
 
     const imageScale = isGameOver ? 1 : Math.max(1, config.initialZoom - (guesses.length * config.zoomStep));
 
-    // Skip button — Endless-only, only visible when affordable and 2+ guesses in
     const skipButton = !isGameOver && guesses.length >= 2 && canAfford(SKIP_COST) ? (
         <button
             onClick={() => { spendMiles(SKIP_COST); handleNext(); }}
@@ -173,17 +165,17 @@ export default function EndlessPage() {
     return (
         <>
             <StatsModal
-                stats={stats['practice']}
+                stats={stats['military'] || { played: 0, wins: 0, currentStreak: 0, maxStreak: 0 }}
                 allStats={stats}
-                winRate={getWinRate('practice')}
+                winRate={getWinRate('military')}
                 getWinRate={getWinRate}
                 hasWon={hasWon}
                 isOpen={statsView !== null}
                 variant={statsView === 'overview' ? 'overview' : 'postgame'}
                 guessCount={guesses.length}
                 maxAttempts={config.maxAttempts}
-                answer={currentCard?.answer}
-                gameMode="practice"
+                answer={currentCard?.answer as unknown as Record<string, string>}
+                gameMode="military"
                 miles={miles}
                 milesEarned={hasWon ? config.milesPerWin : 0}
                 onNext={handleNext}
@@ -195,7 +187,7 @@ export default function EndlessPage() {
             <GameShell>
                 <GameNavbar
                     miles={miles}
-                    modeLabel="🔄 Endless Mode"
+                    modeLabel="🪖 Military Mode"
                     onStatsClick={() => setStatsView('overview')}
                 />
                 <GameImage
@@ -210,7 +202,6 @@ export default function EndlessPage() {
                         onFieldChange={(key, value) => {
                             if (key === 'manufacturer') setSelectedManufacturer(value);
                             if (key === 'type') setSelectedType(value);
-                            if (key === 'airline') setSelectedAirline(value);
                         }}
                         isBuffering={status === 'buffering'}
                         isGameOver={isGameOver}

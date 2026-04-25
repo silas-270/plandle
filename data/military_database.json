@@ -1,0 +1,166 @@
+[
+  {
+    "manufacturer": "Lockheed Martin",
+    "type": "F-22 Raptor"
+  },
+  {
+    "manufacturer": "Lockheed Martin",
+    "type": "F-35 Lightning II"
+  },
+  {
+    "manufacturer": "Lockheed Martin",
+    "type": "F-117 Nighthawk"
+  },
+  {
+    "manufacturer": "Lockheed Martin",
+    "type": "SR-71 Blackbird"
+  },
+  {
+    "manufacturer": "Lockheed Martin",
+    "type": "C-130 Hercules"
+  },
+  {
+    "manufacturer": "Boeing",
+    "type": "B-52 Stratofortress"
+  },
+  {
+    "manufacturer": "Boeing",
+    "type": "F-15 Eagle"
+  },
+  {
+    "manufacturer": "Boeing",
+    "type": "F/A-18 Hornet"
+  },
+  {
+    "manufacturer": "Boeing",
+    "type": "AH-64 Apache"
+  },
+  {
+    "manufacturer": "Northrop Grumman",
+    "type": "B-2 Spirit"
+  },
+  {
+    "manufacturer": "Northrop Grumman",
+    "type": "B-21 Raider"
+  },
+  {
+    "manufacturer": "General Dynamics",
+    "type": "F-16 Fighting Falcon"
+  },
+  {
+    "manufacturer": "General Dynamics",
+    "type": "F-111 Aardvark"
+  },
+  {
+    "manufacturer": "Fairchild Republic",
+    "type": "A-10 Thunderbolt II"
+  },
+  {
+    "manufacturer": "Grumman",
+    "type": "F-14 Tomcat"
+  },
+  {
+    "manufacturer": "North American",
+    "type": "P-51 Mustang"
+  },
+  {
+    "manufacturer": "North American",
+    "type": "F-86 Sabre"
+  },
+  {
+    "manufacturer": "North American",
+    "type": "B-25 Mitchell"
+  },
+  {
+    "manufacturer": "Supermarine",
+    "type": "Spitfire"
+  },
+  {
+    "manufacturer": "Hawker",
+    "type": "Hurricane"
+  },
+  {
+    "manufacturer": "Hawker",
+    "type": "Harrier"
+  },
+  {
+    "manufacturer": "Avro",
+    "type": "Lancaster"
+  },
+  {
+    "manufacturer": "Avro",
+    "type": "Vulcan"
+  },
+  {
+    "manufacturer": "de Havilland",
+    "type": "Mosquito"
+  },
+  {
+    "manufacturer": "BAE Systems",
+    "type": "Tornado"
+  },
+  {
+    "manufacturer": "BAE Systems",
+    "type": "Eurofighter Typhoon"
+  },
+  {
+    "manufacturer": "Dassault",
+    "type": "Mirage 2000"
+  },
+  {
+    "manufacturer": "Dassault",
+    "type": "Rafale"
+  },
+  {
+    "manufacturer": "Dassault",
+    "type": "Mirage III"
+  },
+  {
+    "manufacturer": "Mikoyan-Gurevich",
+    "type": "MiG-21"
+  },
+  {
+    "manufacturer": "Mikoyan-Gurevich",
+    "type": "MiG-29"
+  },
+  {
+    "manufacturer": "Mikoyan-Gurevich",
+    "type": "MiG-15"
+  },
+  {
+    "manufacturer": "Sukhoi",
+    "type": "Su-27"
+  },
+  {
+    "manufacturer": "Sukhoi",
+    "type": "Su-25"
+  },
+  {
+    "manufacturer": "Sukhoi",
+    "type": "Su-57"
+  },
+  {
+    "manufacturer": "Tupolev",
+    "type": "Tu-95"
+  },
+  {
+    "manufacturer": "Tupolev",
+    "type": "Tu-160"
+  },
+  {
+    "manufacturer": "Junkers",
+    "type": "Ju 87 Stuka"
+  },
+  {
+    "manufacturer": "Mitsubishi",
+    "type": "A6M Zero"
+  },
+  {
+    "manufacturer": "Saab",
+    "type": "Gripen"
+  },
+  {
+    "manufacturer": "Saab",
+    "type": "Viggen"
+  }
+]

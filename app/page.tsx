@@ -211,6 +211,26 @@ export default function HomePage() {
 
                 </Link>
 
+                {/* Military Mode */}
+                <Link
+                    href="/military"
+                    className="group relative bg-bg-main rounded-3xl shadow-lg border border-border-muted p-7 flex flex-col gap-3 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 overflow-hidden"
+                >
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-700 to-green-800 rounded-t-3xl" />
+                    <div className="text-4xl">🪖</div>
+                    <div>
+                        <h2 className="text-xl font-black text-text-main tracking-tight">Military Mode</h2>
+                        <p className="text-sm text-text-secondary mt-1 leading-relaxed">
+                            Identify military aircraft from minimal data. No airlines, just intense knowledge.
+                        </p>
+                    </div>
+                    <div className="flex items-center gap-2 mt-auto pt-2 flex-wrap">
+                        <span className="text-xs font-bold text-yellow-700 bg-bg-muted px-2.5 py-1 rounded-full">Economy / Business / First</span>
+                        <span className="text-xs font-bold text-warning-dark bg-warning-muted px-2.5 py-1 rounded-full">+125–500 mi</span>
+                    </div>
+
+                </Link>
+
                 {/* Trivia Mode */}
                 <Link
                     href="/trivia"

@@ -87,5 +87,6 @@ export function StreakBadge({ value, isMax }: { value: number; isMax?: boolean }
 export const MODE_DEFINITIONS: Record<string, { title: string; icon: string }> = {
     daily: { title: "Daily Challenge", icon: "📅" },
     practice: { title: "Endless Mode", icon: "🔄" },
+    military: { title: "Military Mode", icon: "🪖" },
     trivia: { title: "Trivia Mode", icon: "🧠" },
 };
