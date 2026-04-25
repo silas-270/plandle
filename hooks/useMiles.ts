@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
+import { getOrCreateUserProfile } from '@/utils/user';
 
 const STORAGE_KEY = 'plandle_miles_v1';
 export const SKIP_COST = 250;
@@ -19,16 +20,36 @@ function loadMiles(): number {
 function saveMiles(miles: number): void {
     try {
         localStorage.setItem(STORAGE_KEY, String(miles));
-    } catch {}
+    } catch { }
 }
 
 export function useMiles() {
     const [miles, setMiles] = useState(0);
+    const [isHydrated, setIsHydrated] = useState(false);
 
     // Hydrate from localStorage
     useEffect(() => {
         setMiles(loadMiles());
+        setIsHydrated(true);
     }, []);
+
+    // Sync to DB whenever miles change (after hydration)
+    useEffect(() => {
+        if (!isHydrated) return;
+
+        const profile = getOrCreateUserProfile();
+        if (!profile.id) return;
+
+        fetch('/api/user/sync', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                id: profile.id,
+                name: profile.name,
+                miles: miles
+            }),
+        }).catch(err => console.warn('[Sync] Failed to sync miles to DB:', err));
+    }, [miles, isHydrated]);
 
     const addMiles = useCallback((amount: number) => {
         setMiles(prev => {

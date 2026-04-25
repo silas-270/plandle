@@ -3,27 +3,68 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import StatsModal from "@/components/stats";
+import LeaderboardModal from "@/components/leaderboard/LeaderboardModal";
 import { useStats } from "@/hooks/useStats";
 import { useMiles } from "@/hooks/useMiles";
+import { getOrCreateUserProfile, updateUsername } from "@/utils/user";
+
+/** Fire-and-forget sync to DB — client is always source of truth */
+const syncUserToDb = (id: string, name: string, miles: number) => {
+    fetch('/api/user/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ id, name, miles }),
+    }).catch(err => console.warn('[Sync] Failed to sync user to DB:', err));
+};
 
 export default function HomePage() {
     const { stats, getWinRate } = useStats();
     const { miles } = useMiles();
     const [isStatsOpen, setIsStatsOpen] = useState(false);
+    const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(false);
+    const [username, setUsername] = useState("Aviation Cadet");
+    const [isEditingName, setIsEditingName] = useState(false);
 
     // --- DEBUG LOCALSTORAGE ---
     const [debugStats, setDebugStats] = useState("");
     const [debugMiles, setDebugMiles] = useState("");
+    const [debugUser, setDebugUser] = useState("");
+    const [debugDaily, setDebugDaily] = useState("");
 
     useEffect(() => {
         setDebugStats(localStorage.getItem('plandle_stats_v2') || "");
         setDebugMiles(localStorage.getItem('plandle_miles_v1') || "");
+        setDebugUser(localStorage.getItem('plandle_user_v1') || "");
+        setDebugDaily(localStorage.getItem('plandle_daily_log') || "");
+        
+        const profile = getOrCreateUserProfile();
+        setUsername(profile.name);
+        syncUserToDb(profile.id, profile.name, miles);
     }, []);
+
+    const handleSaveName = () => {
+        setIsEditingName(false);
+        const trimmed = username.trim();
+        const finalName = trimmed || "Aviation Cadet";
+        setUsername(finalName);
+        updateUsername(finalName);
+        const profile = getOrCreateUserProfile();
+        syncUserToDb(profile.id, finalName, miles);
+    };
 
     const handleSaveDebug = () => {
         localStorage.setItem('plandle_stats_v2', debugStats);
         localStorage.setItem('plandle_miles_v1', debugMiles);
+        localStorage.setItem('plandle_user_v1', debugUser);
+        localStorage.setItem('plandle_daily_log', debugDaily);
         window.location.reload();
+    };
+
+    const handleNuke = () => {
+        if (confirm("☢️ NUCLEAR OPTION: Delete EVERYTHING? This cannot be undone.")) {
+            localStorage.clear();
+            window.location.reload();
+        }
     };
     // --------------------------
 
@@ -31,28 +72,86 @@ export default function HomePage() {
         <div className="min-h-screen bg-bg-subtle flex flex-col items-center justify-center px-4 py-8 sm:py-16">
 
             {/* Quick Debug Panel (Delete layer) */}
-            <div className="w-full max-w-5xl bg-red-100/20 border border-red-500 p-4 mb-8 rounded-lg">
-                <p className="text-red-500 font-bold mb-2">DEBUG: LocalStorage Editor (Delete after use)</p>
-                <p className="text-xs text-text-dim">plandle_stats_v2:</p>
-                <textarea
-                    className="w-full h-32 text-xs font-mono p-2 bg-bg-main text-text-main border border-border-muted rounded mb-2"
-                    value={debugStats}
-                    onChange={e => setDebugStats(e.target.value)}
-                />
-                <p className="text-xs text-text-dim">plandle_miles_v1:</p>
-                <input
-                    type="text"
-                    className="w-full text-xs font-mono p-2 bg-bg-main text-text-main border border-border-muted rounded mb-2"
-                    value={debugMiles}
-                    onChange={e => setDebugMiles(e.target.value)}
-                />
+            <div className="w-full max-w-5xl bg-red-100/20 border border-red-500 p-6 mb-8 rounded-2xl shadow-inner">
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
+                    <div>
+                        <p className="text-red-500 font-black text-xl tracking-tight">PLATFORM DEBUG CONSOLE</p>
+                        <p className="text-xs text-red-500/70 font-bold uppercase tracking-widest">Manual LocalStorage Orchestration</p>
+                    </div>
+                    <button
+                        onClick={handleNuke}
+                        className="bg-red-600 hover:bg-red-700 text-white font-black py-2 px-6 rounded-full shadow-lg active:scale-95 transition-all text-sm"
+                    >
+                        ☢️ NUKE EVERYTHING
+                    </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {/* Stats Editor */}
+                    <div className="flex flex-col gap-1">
+                        <label className="text-[10px] font-black uppercase text-text-dim px-1">Career Stats (plandle_stats_v2)</label>
+                        <textarea
+                            className="w-full h-32 text-[11px] font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl focus:ring-1 focus:ring-red-400 outline-none"
+                            value={debugStats}
+                            onChange={e => setDebugStats(e.target.value)}
+                            placeholder='{"practice": {"played": 0, ...}}'
+                        />
+                        <p className="text-[9px] text-text-dim px-1 font-medium leading-tight">
+                            Schema: Record&lt;string, ModeStats&gt;. ModeStats: {`{ played, wins, currentStreak, maxStreak, guessDistribution: number[] }`}
+                        </p>
+                    </div>
+
+                    {/* Daily Log Editor */}
+                    <div className="flex flex-col gap-1">
+                        <label className="text-[10px] font-black uppercase text-text-dim px-1">Daily Log (plandle_daily_log)</label>
+                        <textarea
+                            className="w-full h-32 text-[11px] font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl focus:ring-1 focus:ring-red-400 outline-none"
+                            value={debugDaily}
+                            onChange={e => setDebugDaily(e.target.value)}
+                            placeholder='{"2024-04-25": {"hasPlayed": true, ...}}'
+                        />
+                        <p className="text-[9px] text-text-dim px-1 font-medium leading-tight">
+                            Schema: Record&lt;string, DayStatus&gt;. DayStatus: {`{ hasPlayed, hasWon, guesses, mode }`}
+                        </p>
+                    </div>
+
+                    {/* Miles Editor */}
+                    <div className="flex flex-col gap-1">
+                        <label className="text-[10px] font-black uppercase text-text-dim px-1">Miles Balance (plandle_miles_v1)</label>
+                        <input
+                            type="text"
+                            className="w-full text-xs font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl outline-none"
+                            value={debugMiles}
+                            onChange={e => setDebugMiles(e.target.value)}
+                        />
+                        <p className="text-[9px] text-text-dim px-1 font-medium italic">Type: Integer (Number)</p>
+                    </div>
+
+                    {/* User Editor */}
+                    <div className="flex flex-col gap-1">
+                        <label className="text-[10px] font-black uppercase text-text-dim px-1">User Profile (plandle_user_v1)</label>
+                        <input
+                            type="text"
+                            className="w-full text-xs font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl outline-none"
+                            value={debugUser}
+                            onChange={e => setDebugUser(e.target.value)}
+                        />
+                        <p className="text-[9px] text-text-dim px-1 font-medium">Schema: {`{ "id": "uuid-string", "name": "string" }`}</p>
+                    </div>
+                </div>
+
                 <button
                     onClick={handleSaveDebug}
-                    className="bg-red-500 text-white font-bold py-2 px-4 rounded"
+                    className="w-full mt-6 bg-text-main text-bg-main font-black py-4 rounded-2xl shadow-xl hover:opacity-90 active:scale-[0.98] transition-all tracking-widest text-sm uppercase"
                 >
-                    Save & Reload
+                    💾 PERSIST OVERRIDES & RELOAD
                 </button>
             </div>
+
+            <LeaderboardModal
+                isOpen={isLeaderboardOpen}
+                onClose={() => setIsLeaderboardOpen(false)}
+            />
 
             <StatsModal
                 stats={stats['practice'] || { played: 0, wins: 0, currentStreak: 0, maxStreak: 0, guessDistribution: [] }}
@@ -82,6 +181,55 @@ export default function HomePage() {
             {/* Mode Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl">
 
+                {/* Pilot Profile Card */}
+                <div 
+                    className="col-span-1 sm:col-span-2 lg:col-span-3 relative bg-bg-main rounded-2xl shadow-sm border border-border-muted p-5 flex items-center justify-between hover:shadow-md hover:bg-bg-subtle transition-all duration-200 overflow-hidden group"
+                >
+                    {/* SVG Light Gray Background - Left aligned User icon */}
+                    <div className="absolute inset-0 flex items-center justify-start pointer-events-none px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-[8rem] h-[8rem] text-text-main opacity-[0.04]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </div>
+
+                    <div className="relative z-10 flex flex-col px-2 w-full">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-base mb-0.5">Pilot Profile</span>
+                        {isEditingName ? (
+                            <input
+                                autoFocus
+                                type="text"
+                                className="text-lg font-black text-text-main bg-transparent border-b-2 border-brand-base focus:outline-none w-full max-w-[200px]"
+                                value={username}
+                                onChange={(e) => setUsername(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleSaveName()}
+                                onClick={(e) => e.stopPropagation()}
+                            />
+                        ) : (
+                            <h2 className="text-lg font-black text-text-main tracking-wide">
+                                {username}
+                            </h2>
+                        )}
+                    </div>
+
+                    <button 
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            isEditingName ? handleSaveName() : setIsEditingName(true);
+                        }}
+                        className="relative z-10 p-2 text-text-dim group-hover:text-brand-base transition-colors"
+                    >
+                        {isEditingName ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 text-success-stats" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                        ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                            </svg>
+                        )}
+                    </button>
+                </div>
+
                 {/* Player Stats Card - Compact minimalist design */}
                 <button
                     onClick={() => setIsStatsOpen(true)}
@@ -94,9 +242,32 @@ export default function HomePage() {
                         </svg>
                     </div>
 
-                    <h2 className="relative z-10 text-lg font-black text-text-main tracking-wide uppercase px-2">
-                        Your Career Stats
-                    </h2>
+                    <div className="relative z-10 flex flex-col px-2">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-dim mb-0.5 text-left">Career Overview</span>
+                        <h2 className="text-lg font-black text-text-main tracking-wide uppercase">
+                            Your Career Stats
+                        </h2>
+                    </div>
+                </button>
+
+                {/* Global Rankings Card */}
+                <button
+                    onClick={() => setIsLeaderboardOpen(true)}
+                    className="col-span-1 sm:col-span-2 lg:col-span-3 relative bg-bg-main rounded-2xl shadow-sm border border-border-muted p-5 flex items-center justify-start hover:shadow-md hover:bg-bg-subtle transition-all duration-200 overflow-hidden"
+                >
+                    {/* SVG Light Gray Background - Globe icon */}
+                    <div className="absolute inset-0 flex items-center justify-start pointer-events-none px-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="w-[8rem] h-[8rem] text-text-main opacity-[0.04]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+
+                    <div className="relative z-10 flex flex-col px-2">
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-text-dim mb-0.5 text-left">Community</span>
+                        <h2 className="text-lg font-black text-text-main tracking-wide uppercase">
+                            Global Rankings
+                        </h2>
+                    </div>
                 </button>
 
                 {/* Daily Challenge */}
