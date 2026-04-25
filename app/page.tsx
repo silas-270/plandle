@@ -26,17 +26,7 @@ export default function HomePage() {
     const [isEditingName, setIsEditingName] = useState(false);
 
     // --- DEBUG LOCALSTORAGE ---
-    const [debugStats, setDebugStats] = useState("");
-    const [debugMiles, setDebugMiles] = useState("");
-    const [debugUser, setDebugUser] = useState("");
-    const [debugDaily, setDebugDaily] = useState("");
-
     useEffect(() => {
-        setDebugStats(localStorage.getItem('plandle_stats_v2') || "");
-        setDebugMiles(localStorage.getItem('plandle_miles_v1') || "");
-        setDebugUser(localStorage.getItem('plandle_user_v1') || "");
-        setDebugDaily(localStorage.getItem('plandle_daily_log') || "");
-        
         const profile = getOrCreateUserProfile();
         setUsername(profile.name);
         syncUserToDb(profile.id, profile.name, miles);
@@ -52,11 +42,16 @@ export default function HomePage() {
         syncUserToDb(profile.id, finalName, miles);
     };
 
-    const handleSaveDebug = () => {
-        localStorage.setItem('plandle_stats_v2', debugStats);
-        localStorage.setItem('plandle_miles_v1', debugMiles);
-        localStorage.setItem('plandle_user_v1', debugUser);
-        localStorage.setItem('plandle_daily_log', debugDaily);
+    const handleRestoreBackup = () => {
+        const stats = {"daily":{"played":9,"wins":9,"currentStreak":9,"maxStreak":9,"recentResults":[true,true,true,true,true,true,true,true,true]},"practice":{"played":427,"wins":427,"currentStreak":100,"maxStreak":100,"recentResults":new Array(100).fill(true)},"trivia":{"played":13,"wins":8,"currentStreak":1,"maxStreak":4,"recentResults":[true,false,false,true,true,true,true,false,false,true,true,true,true]}};
+        const dailyLog = {"2026-04-24":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-23":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-22":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-21":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-20":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-19":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-18":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-17":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-16":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"}};
+        
+        localStorage.setItem('plandle_stats_v2', JSON.stringify(stats));
+        localStorage.setItem('plandle_miles_v1', "135775");
+        localStorage.setItem('plandle_daily_log', JSON.stringify(dailyLog));
+        localStorage.setItem('plandle_user_v1', JSON.stringify({"id":"7662c19a-9ea0-42cf-90b5-c72635926ec0","name":"Eagle One"}));
+        
+        alert("✅ Backup restored successfully!");
         window.location.reload();
     };
 
@@ -72,80 +67,26 @@ export default function HomePage() {
         <div className="min-h-screen bg-bg-subtle flex flex-col items-center justify-center px-4 py-8 sm:py-16">
 
             {/* Quick Debug Panel (Delete layer) */}
-            <div className="w-full max-w-5xl bg-red-100/20 border border-red-500 p-6 mb-8 rounded-2xl shadow-inner">
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
-                    <div>
-                        <p className="text-red-500 font-black text-xl tracking-tight">PLATFORM DEBUG CONSOLE</p>
-                        <p className="text-xs text-red-500/70 font-bold uppercase tracking-widest">Manual LocalStorage Orchestration</p>
-                    </div>
+            <div className="w-full max-w-5xl bg-red-100/20 border border-red-500 p-6 mb-8 rounded-2xl shadow-inner flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div className="text-center sm:text-left">
+                    <p className="text-red-500 font-black text-xl tracking-tight uppercase">Pilot Operations Console</p>
+                    <p className="text-[10px] text-red-500/70 font-bold uppercase tracking-widest">Maintenance & Migration Tools</p>
+                </div>
+                
+                <div className="flex flex-wrap justify-center gap-3">
+                    <button
+                        onClick={handleRestoreBackup}
+                        className="bg-text-main text-bg-main font-black py-2.5 px-6 rounded-full shadow-lg active:scale-95 transition-all text-sm tracking-tight uppercase"
+                    >
+                        ♻️ Restore Backup
+                    </button>
                     <button
                         onClick={handleNuke}
-                        className="bg-red-600 hover:bg-red-700 text-white font-black py-2 px-6 rounded-full shadow-lg active:scale-95 transition-all text-sm"
+                        className="bg-red-600 hover:bg-red-700 text-white font-black py-2.5 px-6 rounded-full shadow-lg active:scale-95 transition-all text-sm tracking-tight uppercase"
                     >
-                        ☢️ NUKE EVERYTHING
+                        ☢️ Nuke Storage
                     </button>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Stats Editor */}
-                    <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-black uppercase text-text-dim px-1">Career Stats (plandle_stats_v2)</label>
-                        <textarea
-                            className="w-full h-32 text-[11px] font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl focus:ring-1 focus:ring-red-400 outline-none"
-                            value={debugStats}
-                            onChange={e => setDebugStats(e.target.value)}
-                            placeholder='{"practice": {"played": 0, ...}}'
-                        />
-                        <p className="text-[9px] text-text-dim px-1 font-medium leading-tight">
-                            Schema: Record&lt;string, ModeStats&gt;. ModeStats: {`{ played, wins, currentStreak, maxStreak, guessDistribution: number[] }`}
-                        </p>
-                    </div>
-
-                    {/* Daily Log Editor */}
-                    <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-black uppercase text-text-dim px-1">Daily Log (plandle_daily_log)</label>
-                        <textarea
-                            className="w-full h-32 text-[11px] font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl focus:ring-1 focus:ring-red-400 outline-none"
-                            value={debugDaily}
-                            onChange={e => setDebugDaily(e.target.value)}
-                            placeholder='{"2024-04-25": {"hasPlayed": true, ...}}'
-                        />
-                        <p className="text-[9px] text-text-dim px-1 font-medium leading-tight">
-                            Schema: Record&lt;string, DayStatus&gt;. DayStatus: {`{ hasPlayed, hasWon, guesses, mode }`}
-                        </p>
-                    </div>
-
-                    {/* Miles Editor */}
-                    <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-black uppercase text-text-dim px-1">Miles Balance (plandle_miles_v1)</label>
-                        <input
-                            type="text"
-                            className="w-full text-xs font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl outline-none"
-                            value={debugMiles}
-                            onChange={e => setDebugMiles(e.target.value)}
-                        />
-                        <p className="text-[9px] text-text-dim px-1 font-medium italic">Type: Integer (Number)</p>
-                    </div>
-
-                    {/* User Editor */}
-                    <div className="flex flex-col gap-1">
-                        <label className="text-[10px] font-black uppercase text-text-dim px-1">User Profile (plandle_user_v1)</label>
-                        <input
-                            type="text"
-                            className="w-full text-xs font-mono p-3 bg-bg-main text-text-main border border-border-muted rounded-xl outline-none"
-                            value={debugUser}
-                            onChange={e => setDebugUser(e.target.value)}
-                        />
-                        <p className="text-[9px] text-text-dim px-1 font-medium">Schema: {`{ "id": "uuid-string", "name": "string" }`}</p>
-                    </div>
-                </div>
-
-                <button
-                    onClick={handleSaveDebug}
-                    className="w-full mt-6 bg-text-main text-bg-main font-black py-4 rounded-2xl shadow-xl hover:opacity-90 active:scale-[0.98] transition-all tracking-widest text-sm uppercase"
-                >
-                    💾 PERSIST OVERRIDES & RELOAD
-                </button>
             </div>
 
             <LeaderboardModal
