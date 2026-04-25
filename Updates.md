@@ -6,9 +6,6 @@ Basierend auf 410 Runden Spielzeit wurden folgende Ideen auf einer Skala von "Ab
 ## Phase 2: Das Mammut-Projekt
 *Langzeit-Features für die globale Spielerschaft.*
 
-- [ ] **🔵 Größere neue Funktion:** Challenge-Sharing (Seed teilen für gleiches Flugzeug)
-  *Ziel:* Einen Seed teilen, um anderen Leuten genau dasselbe Flugzeug zeigen zu können. Am Ende klickt man auf `plandle.com/endless?seed=123456789`, wird ins Spiel geleitet und das erste Bild der Queue ist 1:1 das gleiche Bild.
-
 - [ ] **🌌 Große neue Funktion:** Scoreboard / Globale Rangliste
   *Teilaufgaben:*
   - User Accounts durch generierte UUID im Localstorage umsetzen.

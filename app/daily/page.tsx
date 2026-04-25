@@ -68,8 +68,11 @@ export default function DailyPage() {
     // Load today's daily completion status
     useEffect(() => {
         const today = new Date().toISOString().split('T')[0];
-        const saved = localStorage.getItem(`plandle_daily_${today}`) as 'solved' | 'played' | null;
-        if (saved) setDailyStatus(saved);
+        const logRaw = localStorage.getItem('plandle_daily_log');
+        if (logRaw) {
+            const log = JSON.parse(logRaw);
+            if (log[today]) setDailyStatus(log[today]);
+        }
     }, []);
 
     // Persist daily status when game ends
@@ -77,7 +80,12 @@ export default function DailyPage() {
         if (isGameOver) {
             const today = new Date().toISOString().split('T')[0];
             const s = hasWon ? 'solved' : 'played';
-            localStorage.setItem(`plandle_daily_${today}`, s);
+            
+            const logRaw = localStorage.getItem('plandle_daily_log');
+            const log = logRaw ? JSON.parse(logRaw) : {};
+            log[today] = s;
+            
+            localStorage.setItem('plandle_daily_log', JSON.stringify(log));
             setDailyStatus(s);
         }
     }, [isGameOver, hasWon]);
