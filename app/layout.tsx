@@ -42,12 +42,21 @@ export const metadata: Metadata = {
     siteName: "Plandle",
     locale: "en_US",
     url: "https://plandle.vercel.app",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Plandle - The Aircraft Guessing Game",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Plandle | The Aircraft Guessing Game",
     description: "The ultimate daily game for aviation enthusiasts. Identify aircraft and build your streak!",
     creator: "@plandle_app",
+    images: ["/opengraph-image.png"],
   },
   robots: {
     index: true,
