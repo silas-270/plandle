@@ -42,51 +42,12 @@ export default function HomePage() {
         syncUserToDb(profile.id, finalName, miles);
     };
 
-    const handleRestoreBackup = () => {
-        const stats = { "daily": { "played": 9, "wins": 9, "currentStreak": 9, "maxStreak": 9, "recentResults": [true, true, true, true, true, true, true, true, true] }, "practice": { "played": 427, "wins": 427, "currentStreak": 100, "maxStreak": 100, "recentResults": new Array(100).fill(true) }, "trivia": { "played": 13, "wins": 8, "currentStreak": 1, "maxStreak": 4, "recentResults": [true, false, false, true, true, true, true, false, false, true, true, true, true] } };
-        const dailyLog = { "2026-04-24": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-23": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-22": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-21": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-20": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-19": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-18": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-17": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-16": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" } };
-
-        localStorage.setItem('plandle_stats_v2', JSON.stringify(stats));
-        localStorage.setItem('plandle_miles_v1', "135775");
-        localStorage.setItem('plandle_daily_log', JSON.stringify(dailyLog));
-
-        alert("✅ Backup restored successfully!");
-        window.location.reload();
-    };
-
-    const handleNuke = () => {
-        if (confirm("☢️ NUCLEAR OPTION: Delete EVERYTHING? This cannot be undone.")) {
-            localStorage.clear();
-            window.location.reload();
-        }
-    };
     // --------------------------
 
     return (
         <div className="min-h-screen bg-bg-subtle flex flex-col items-center justify-center px-4 py-8 sm:py-16">
 
-            {/* Quick Debug Panel (Delete layer) */}
-            <div className="w-full max-w-5xl bg-red-100/20 border border-red-500 p-6 mb-8 rounded-2xl shadow-inner flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div className="text-center sm:text-left">
-                    <p className="text-red-500 font-black text-xl tracking-tight uppercase">Pilot Operations Console</p>
-                    <p className="text-[10px] text-red-500/70 font-bold uppercase tracking-widest">Maintenance & Migration Tools</p>
-                </div>
 
-                <div className="flex flex-wrap justify-center gap-3">
-                    <button
-                        onClick={handleRestoreBackup}
-                        className="bg-text-main text-bg-main font-black py-2.5 px-6 rounded-full shadow-lg active:scale-95 transition-all text-sm tracking-tight uppercase"
-                    >
-                        ♻️ Restore Backup
-                    </button>
-                    <button
-                        onClick={handleNuke}
-                        className="bg-red-600 hover:bg-red-700 text-white font-black py-2.5 px-6 rounded-full shadow-lg active:scale-95 transition-all text-sm tracking-tight uppercase"
-                    >
-                        ☢️ Nuke Storage
-                    </button>
-                </div>
-            </div>
 
             <LeaderboardModal
                 isOpen={isLeaderboardOpen}
