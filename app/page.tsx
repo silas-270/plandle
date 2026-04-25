@@ -43,14 +43,13 @@ export default function HomePage() {
     };
 
     const handleRestoreBackup = () => {
-        const stats = {"daily":{"played":9,"wins":9,"currentStreak":9,"maxStreak":9,"recentResults":[true,true,true,true,true,true,true,true,true]},"practice":{"played":427,"wins":427,"currentStreak":100,"maxStreak":100,"recentResults":new Array(100).fill(true)},"trivia":{"played":13,"wins":8,"currentStreak":1,"maxStreak":4,"recentResults":[true,false,false,true,true,true,true,false,false,true,true,true,true]}};
-        const dailyLog = {"2026-04-24":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-23":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-22":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-21":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-20":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-19":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-18":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-17":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"},"2026-04-16":{"hasPlayed":true,"hasWon":true,"guesses":["???"],"mode":"daily"}};
-        
+        const stats = { "daily": { "played": 9, "wins": 9, "currentStreak": 9, "maxStreak": 9, "recentResults": [true, true, true, true, true, true, true, true, true] }, "practice": { "played": 427, "wins": 427, "currentStreak": 100, "maxStreak": 100, "recentResults": new Array(100).fill(true) }, "trivia": { "played": 13, "wins": 8, "currentStreak": 1, "maxStreak": 4, "recentResults": [true, false, false, true, true, true, true, false, false, true, true, true, true] } };
+        const dailyLog = { "2026-04-24": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-23": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-22": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-21": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-20": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-19": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-18": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-17": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" }, "2026-04-16": { "hasPlayed": true, "hasWon": true, "guesses": ["???"], "mode": "daily" } };
+
         localStorage.setItem('plandle_stats_v2', JSON.stringify(stats));
         localStorage.setItem('plandle_miles_v1', "135775");
         localStorage.setItem('plandle_daily_log', JSON.stringify(dailyLog));
-        localStorage.setItem('plandle_user_v1', JSON.stringify({"id":"7662c19a-9ea0-42cf-90b5-c72635926ec0","name":"Eagle One"}));
-        
+
         alert("✅ Backup restored successfully!");
         window.location.reload();
     };
@@ -72,7 +71,7 @@ export default function HomePage() {
                     <p className="text-red-500 font-black text-xl tracking-tight uppercase">Pilot Operations Console</p>
                     <p className="text-[10px] text-red-500/70 font-bold uppercase tracking-widest">Maintenance & Migration Tools</p>
                 </div>
-                
+
                 <div className="flex flex-wrap justify-center gap-3">
                     <button
                         onClick={handleRestoreBackup}
@@ -123,7 +122,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl">
 
                 {/* Pilot Profile Card */}
-                <div 
+                <div
                     className="col-span-1 sm:col-span-2 lg:col-span-3 relative bg-bg-main rounded-2xl shadow-sm border border-border-muted p-5 flex items-center justify-between hover:shadow-md hover:bg-bg-subtle transition-all duration-200 overflow-hidden group"
                 >
                     {/* SVG Light Gray Background - Left aligned User icon */}
@@ -152,7 +151,7 @@ export default function HomePage() {
                         )}
                     </div>
 
-                    <button 
+                    <button
                         onClick={(e) => {
                             e.stopPropagation();
                             isEditingName ? handleSaveName() : setIsEditingName(true);
