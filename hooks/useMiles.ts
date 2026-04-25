@@ -27,16 +27,14 @@ export function useMiles() {
     const [miles, setMiles] = useState(0);
     const [isHydrated, setIsHydrated] = useState(false);
 
-    // Hydrate from localStorage
+    // Hydrate from localStorage, then immediately sync with the real value
     useEffect(() => {
-        setMiles(loadMiles());
+        const loaded = loadMiles();
+        setMiles(loaded);
         setIsHydrated(true);
-    }, []);
 
-    // Sync to DB whenever miles change (after hydration)
-    useEffect(() => {
-        if (!isHydrated) return;
-
+        // Sync to DB with the real miles value right after hydration —
+        // not in a separate effect, which would race against the state update.
         const profile = getOrCreateUserProfile();
         if (!profile.id) return;
 
@@ -46,10 +44,10 @@ export function useMiles() {
             body: JSON.stringify({
                 id: profile.id,
                 name: profile.name,
-                miles: miles
+                miles: loaded   // loaded directly from localStorage, not from state
             }),
         }).catch(err => console.warn('[Sync] Failed to sync miles to DB:', err));
-    }, [miles, isHydrated]);
+    }, []);
 
     const addMiles = useCallback((amount: number) => {
         setMiles(prev => {
