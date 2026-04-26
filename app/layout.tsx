@@ -75,6 +75,9 @@ export const metadata: Metadata = {
     statusBarStyle: "default",
     capable: true,
   },
+  verification: {
+    google: "ULoubNGNzYqZ6hskX_WDFCfsXl0ygpSFH4i6k2r0UpE",
+  },
 };
 
 export const viewport = {
