@@ -28,12 +28,12 @@ export default function LeaderboardModal({ isOpen, onClose }: Props) {
         if (isOpen) {
             setAnimate(false);
             const t = setTimeout(() => setAnimate(true), 30);
-            
+
             // Get user info and fetch leaderboard
             const profile = getOrCreateUserProfile();
             setUserId(profile.id);
             fetchLeaderboard(profile.id);
-            
+
             return () => clearTimeout(t);
         } else {
             setAnimate(false);
@@ -44,7 +44,7 @@ export default function LeaderboardModal({ isOpen, onClose }: Props) {
         setLoading(true);
         setError(false);
         try {
-            const res = await fetch(`/api/leaderboard?limit=5&userId=${uid}`);
+            const res = await fetch(`/api/leaderboard?limit=15&userId=${uid}`);
             if (!res.ok) throw new Error('Failed to fetch');
             const result = await res.json();
             setData(result);
@@ -93,7 +93,7 @@ export default function LeaderboardModal({ isOpen, onClose }: Props) {
                         <div className="py-20 flex flex-col items-center justify-center text-center gap-4">
                             <div className="text-4xl">📡</div>
                             <p className="text-text-secondary font-medium italic">Lost contact with ATC</p>
-                            <button 
+                            <button
                                 onClick={() => userId && fetchLeaderboard(userId)}
                                 className="px-6 py-2 bg-bg-subtle border border-border-muted rounded-full text-sm font-bold text-text-main hover:bg-border-muted transition-colors"
                             >
@@ -101,7 +101,7 @@ export default function LeaderboardModal({ isOpen, onClose }: Props) {
                             </button>
                         </div>
                     ) : data ? (
-                        <LeaderboardList 
+                        <LeaderboardList
                             topPlayers={data.topPlayers}
                             ownRank={data.ownRank}
                             currentUserId={userId}
