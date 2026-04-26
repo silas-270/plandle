@@ -29,7 +29,6 @@ export default function HomePage() {
     useEffect(() => {
         const profile = getOrCreateUserProfile();
         setUsername(profile.name);
-        syncUserToDb(profile.id, profile.name, miles);
     }, []);
 
     const handleSaveName = () => {
