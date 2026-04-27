@@ -1,0 +1,241 @@
+
+/home/silas270/plandle/app/daily/page.tsx
+  33:34  warning  'nextQuestion' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              @typescript-eslint/no-unused-vars
+  34:74  warning  'resetGame' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  51:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/daily/page.tsx:51:13
+  49 |     useEffect(() => {
+  50 |         if (selectedManufacturer) {
+> 51 |             setSelectedType(getTypes(selectedManufacturer)[0] || '');
+     |             ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  52 |         }
+  53 |     }, [selectedManufacturer]);
+  54 |                   react-hooks/set-state-in-effect
+  88:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/daily/page.tsx:88:13
+  86 |             updateStats(hasWon, 'daily');
+  87 |             if (hasWon) addMiles(DAILY_MILES);
+> 88 |             setStatsView('postgame');
+     |             ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  89 |         }
+  90 |     }, [isGameOver, hasWon, updateStats, addMiles]);
+  91 |  react-hooks/set-state-in-effect
+
+/home/silas270/plandle/app/endless/page.tsx
+  37:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/endless/page.tsx:37:13
+  35 |     useEffect(() => {
+  36 |         if (savedDifficulty && DIFFICULTY_CONFIGS[savedDifficulty as DifficultyLevel]) {
+> 37 |             setDifficulty(savedDifficulty as DifficultyLevel);
+     |             ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  38 |         }
+  39 |     }, [savedDifficulty]);
+  40 |          react-hooks/set-state-in-effect
+  58:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/endless/page.tsx:58:13
+  56 |     useEffect(() => {
+  57 |         if (selectedManufacturer) {
+> 58 |             setSelectedType(getTypes(selectedManufacturer)[0] || '');
+     |             ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  59 |         }
+  60 |     }, [selectedManufacturer]);
+  61 |                                                 react-hooks/set-state-in-effect
+  81:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/endless/page.tsx:81:13
+  79 |             updateStats(hasWon, 'practice');
+  80 |             if (hasWon) addMiles(config.milesPerWin);
+> 81 |             setStatsView('postgame');
+     |             ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  82 |         }
+  83 |     }, [isGameOver, hasWon, updateStats, addMiles, config.milesPerWin]);
+  84 |  react-hooks/set-state-in-effect
+
+/home/silas270/plandle/app/military/page.tsx
+  38:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/military/page.tsx:38:13
+  36 |     useEffect(() => {
+  37 |         if (savedDifficulty && DIFFICULTY_CONFIGS[savedDifficulty as DifficultyLevel]) {
+> 38 |             setDifficulty(savedDifficulty as DifficultyLevel);
+     |             ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  39 |         }
+  40 |     }, [savedDifficulty]);
+  41 |          react-hooks/set-state-in-effect
+  57:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/military/page.tsx:57:13
+  55 |     useEffect(() => {
+  56 |         if (selectedManufacturer) {
+> 57 |             setSelectedType(getMilitaryTypes(selectedManufacturer)[0] || '');
+     |             ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  58 |         }
+  59 |     }, [selectedManufacturer]);
+  60 |                                         react-hooks/set-state-in-effect
+  78:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/military/page.tsx:78:13
+  76 |             updateStats(hasWon, 'military');
+  77 |             if (hasWon) addMiles(config.milesPerWin);
+> 78 |             setStatsView('postgame');
+     |             ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  79 |         }
+  80 |     }, [isGameOver, hasWon, updateStats, addMiles, config.milesPerWin]);
+  81 |  react-hooks/set-state-in-effect
+
+/home/silas270/plandle/app/page.tsx
+  23:9  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/page.tsx:23:9
+  21 |     useEffect(() => {
+  22 |         const profile = getOrCreateUserProfile();
+> 23 |         setUsername(data?.name || profile.name || 'Aviation Cadet');
+     |         ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  24 |
+  25 |         if (profile.id) {
+  26 |             fetch(`/api/leaderboard?userId=${profile.id}&limit=1`)  react-hooks/set-state-in-effect
+
+/home/silas270/plandle/app/trivia/page.tsx
+  59:9   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/trivia/page.tsx:59:9
+  57 |             else if (key === 'airline') initial[key] = airlines[0];
+  58 |         });
+> 59 |         setSelection(initial);
+     |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  60 |     }, [qIndex, question.answer, manufacturers, airlines]);
+  61 |
+  62 |     const handleFieldChange = (key: string, value: string) => {  react-hooks/set-state-in-effect
+  92:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/app/trivia/page.tsx:92:13
+  90 |             updateStats(hasWon, 'trivia');
+  91 |             if (hasWon) addMiles(250);
+> 92 |             setStatsView('postgame');
+     |             ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  93 |         }
+  94 |     }, [isGameOver, hasWon, updateStats, addMiles]);
+  95 |                                                 react-hooks/set-state-in-effect
+
+/home/silas270/plandle/components/stats/OverviewPanel.tsx
+   4:17  warning  'getCurrentTier' is defined but never used  @typescript-eslint/no-unused-vars
+  12:34  error    Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+  41:76  error    Unexpected any. Specify a different type    @typescript-eslint/no-explicit-any
+
+/home/silas270/plandle/components/stats/PostgameSection.tsx
+   95:25  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  191:29  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  197:37  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/home/silas270/plandle/components/stats/index.tsx
+   28:34  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-explicit-any
+   47:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/components/stats/index.tsx:47:13
+  45 |     useEffect(() => {
+  46 |         if (isOpen) {
+> 47 |             setAnimate(false);
+     |             ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  48 |             setShowConfetti(false);
+  49 |             const t1 = setTimeout(() => setAnimate(true), 30);
+  50 |             // Only show confetti in postgame win  react-hooks/set-state-in-effect
+  120:58  warning  'err' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  125:53  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-explicit-any
+
+/home/silas270/plandle/contexts/UserContext.tsx
+   85:13  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+/home/silas270/plandle/contexts/UserContext.tsx:85:13
+  83 |         const profile = getOrCreateUserProfile();
+  84 |         if (!profile.id) {
+> 85 |             setIsLoading(false);
+     |             ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  86 |             return;
+  87 |         }
+  88 |  react-hooks/set-state-in-effect
+  155:11  warning  The 'stats' logical expression could make the dependencies of useCallback Hook (at line 169) change on every render. To fix this, wrap the initialization of 'stats' in its own useMemo() Hook                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     react-hooks/exhaustive-deps
+
+✖ 25 problems (17 errors, 8 warnings)
+

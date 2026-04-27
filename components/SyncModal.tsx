@@ -61,13 +61,16 @@ export default function SyncModal() {
             if (data.success && data.verifiedUser) {
                 const verifiedMiles = data.verifiedUser.miles;
                 if (verifiedMiles === payload.miles) {
-                    // Success! Clean up localStorage except user id (plandle_user_v1 remains for now)
+                    // Success! Clean up localStorage — strip everything except the UUID
                     localStorage.removeItem('plandle_miles_v1');
                     localStorage.removeItem('plandle_difficulty');
                     localStorage.removeItem('plandle_stats_v2');
                     localStorage.removeItem('plandle_daily_log');
+                    localStorage.setItem('plandle_user_v1', JSON.stringify({ id: user.id }));
                     
                     setNeedsSync(false);
+                    // Force a reload so the UserContext retrieves all the newly synced data from postgres!
+                    window.location.reload();
                 } else {
                     throw new Error('Data integrity check failed');
                 }

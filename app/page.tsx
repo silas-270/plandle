@@ -5,23 +5,12 @@ import { useState, useEffect } from "react";
 import StatsModal from "@/components/stats";
 import LeaderboardModal from "@/components/leaderboard/LeaderboardModal";
 import PilotPanel from "@/components/home/PilotPanel";
-import { useStats } from "@/hooks/useStats";
-import { useMiles } from "@/hooks/useMiles";
-import { getOrCreateUserProfile, updateUsername } from "@/utils/user";
+import { useUser } from "@/contexts/UserContext";
+import { getOrCreateUserProfile } from "@/utils/user";
 import GameModeCard from "@/components/home/GameModeCard";
 
-/** Fire-and-forget sync to DB — client is always source of truth */
-const syncUserToDb = (id: string, name: string, miles: number) => {
-    fetch('/api/user/sync', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id, name, miles }),
-    }).catch(err => console.warn('[Sync] Failed to sync user to DB:', err));
-};
-
 export default function HomePage() {
-    const { stats, getWinRate } = useStats();
-    const { miles } = useMiles();
+    const { stats, getWinRate, miles, data, updateName } = useUser();
     const [isStatsOpen, setIsStatsOpen] = useState(false);
     const [isLeaderboardOpen, setIsLeaderboardOpen] = useState(false);
     const [username, setUsername] = useState("Aviation Cadet");
@@ -31,7 +20,7 @@ export default function HomePage() {
     // Load profile + fetch global rank
     useEffect(() => {
         const profile = getOrCreateUserProfile();
-        setUsername(profile.name);
+        setUsername(data?.name || 'Aviation Cadet');
 
         if (profile.id) {
             fetch(`/api/leaderboard?userId=${profile.id}&limit=1`)
@@ -43,16 +32,14 @@ export default function HomePage() {
                 })
                 .catch(() => { });
         }
-    }, []);
+    }, [data?.name]);
 
     const handleSaveName = () => {
         setIsEditingName(false);
         const trimmed = username.trim();
         const finalName = trimmed || "Aviation Cadet";
         setUsername(finalName);
-        updateUsername(finalName);
-        const profile = getOrCreateUserProfile();
-        syncUserToDb(profile.id, finalName, miles);
+        updateName(finalName);
     };
 
 

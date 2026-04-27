@@ -1,6 +1,6 @@
 'use client';
 
-import { GameStats } from '@/hooks/useStats';
+import { GameStats } from '@/contexts/UserContext';
 import { TIERS, getCurrentTier } from '@/data/ranks';
 import MilesProgress from '@/components/Milesprogress';
 import { AnimatedBar, StreakBadge, MODE_DEFINITIONS } from './StatElements';

@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { ModeStats, GameStats } from '@/hooks/useStats';
+import { ModeStats, GameStats } from '@/contexts/UserContext';
 import { getCurrentTier } from '@/data/ranks';
 import { ConfettiPiece } from './StatElements';
 import OverviewPanel from './OverviewPanel';

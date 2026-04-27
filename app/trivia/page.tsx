@@ -2,8 +2,7 @@
 
 import { useState, useRef, useEffect, useMemo } from 'react';
 import { useGenericGameState, exactMatchGrader } from '@/hooks/useGenericGameState';
-import { useStats } from '@/hooks/useStats';
-import { useMiles } from '@/hooks/useMiles';
+import { useUser } from '@/contexts/UserContext';
 import { TRIVIA_QUESTIONS } from '@/data/trivia';
 import { getManufacturers, getTypes, getAirlines } from '@/data/aircraft';
 import { shareText } from '@/utils/share';
@@ -40,8 +39,7 @@ export default function TriviaPage() {
     const question = TRIVIA_QUESTIONS[qIndex];
 
     const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(3, exactMatchGrader);
-    const { stats, getWinRate, updateStats } = useStats();
-    const { miles, addMiles } = useMiles();
+    const { stats, getWinRate, updateStats, miles, addMiles } = useUser();
     const [statsView, setStatsView] = useState<'postgame' | 'overview' | null>(null);
 
     // Dynamic selection state

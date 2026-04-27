@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import SyncModal from "@/components/SyncModal";
+import { UserProvider } from "@/contexts/UserContext";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -96,8 +97,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {children}
-        <SyncModal />
+        <UserProvider>
+          {children}
+          <SyncModal />
+        </UserProvider>
         <Analytics />
       </body>
     </html>

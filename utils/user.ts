@@ -2,43 +2,32 @@ import { generateRandomName } from "./nameGenerator";
 
 export type UserProfile = {
     id: string;
-    name: string;
 };
 
 const STORAGE_KEY = 'plandle_user_v1';
 
 /**
  * Loads the user profile from localStorage, 
- * or creates a new one with a UUID and random name if it doesn't exist.
+ * or creates a new one with a UUID if it doesn't exist.
+ * We no longer store the name in localStorage — the DB is the single source of truth.
  */
 export function getOrCreateUserProfile(): UserProfile {
-    if (typeof window === 'undefined') return { id: '', name: 'Passenger' };
+    if (typeof window === 'undefined') return { id: '' };
 
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
         try {
-            return JSON.parse(raw);
+            const parsed = JSON.parse(raw);
+            if (parsed.id) return parsed;
         } catch (e) {
             console.error("Failed to parse user profile", e);
         }
     }
 
-    // Create new profile
+    // Create new profile ID
     const newProfile: UserProfile = {
         id: crypto.randomUUID(),
-        name: generateRandomName()
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(newProfile));
     return newProfile;
-}
-
-/**
- * Updates the username in the stored profile.
- */
-export function updateUsername(newName: string): void {
-    if (typeof window === 'undefined') return;
-    
-    const profile = getOrCreateUserProfile();
-    profile.name = newName;
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
 }

@@ -4,8 +4,7 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { useQuestionQueue } from '@/hooks/useQuestionQueue';
 import { useGenericGameState, Grader } from '@/hooks/useGenericGameState';
-import { useStats } from '@/hooks/useStats';
-import { useMiles, DAILY_MILES } from '@/hooks/useMiles';
+import { useUser } from '@/contexts/UserContext';
 import { getManufacturers, getTypes, getAirlines } from '@/data/aircraft';
 import { shareText } from '@/utils/share';
 import { DIFFICULTY_CONFIGS } from '@/types/difficulty';
@@ -17,7 +16,9 @@ import GameHistory from '@/components/game/GameHistory';
 import StatsModal from '@/components/stats';
 import { FieldConfig } from '@/types/genericGame';
 
-// Daily is always Economy difficulty
+export const DAILY_MILES = 2000;
+
+// Daily is always Business difficulty
 const config = DIFFICULTY_CONFIGS['Business'];
 
 const aircraftGrader: Grader = (selection, actual) => {
@@ -31,11 +32,9 @@ const aircraftGrader: Grader = (selection, actual) => {
 export default function DailyPage() {
     const { currentCard, status, nextQuestion } = useQuestionQueue('daily');
     const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(config.maxAttempts, aircraftGrader);
-    const { stats, getWinRate, updateStats } = useStats();
-    const { miles, addMiles } = useMiles();
+    const { stats, getWinRate, updateStats, miles, addMiles, dailyLog, recordDaily } = useUser();
 
     const [statsView, setStatsView] = useState<'postgame' | 'overview' | null>(null);
-    const [dailyStatus, setDailyStatus] = useState<'solved' | 'played' | null>(null);
 
     const manufacturers = getManufacturers();
     const airlines = getAirlines();
@@ -65,30 +64,19 @@ export default function DailyPage() {
         airline: selectedAirline,
     };
 
-    // Load today's daily completion status
-    useEffect(() => {
-        const today = new Date().toISOString().split('T')[0];
-        const logRaw = localStorage.getItem('plandle_daily_log');
-        if (logRaw) {
-            const log = JSON.parse(logRaw);
-            if (log[today]) setDailyStatus(log[today]);
-        }
-    }, []);
+    // Check today's daily status from context
+    const today = new Date().toISOString().split('T')[0];
+    const dailyStatus = dailyLog[today] as 'solved' | 'played' | undefined;
 
     // Persist daily status when game ends
     useEffect(() => {
         if (isGameOver) {
-            const today = new Date().toISOString().split('T')[0];
             const s = hasWon ? 'solved' : 'played';
-            
-            const logRaw = localStorage.getItem('plandle_daily_log');
-            const log = logRaw ? JSON.parse(logRaw) : {};
-            log[today] = s;
-            
-            localStorage.setItem('plandle_daily_log', JSON.stringify(log));
-            setDailyStatus(s);
+            if (!dailyLog[today]) {
+                recordDaily(today, s);
+            }
         }
-    }, [isGameOver, hasWon]);
+    }, [isGameOver, hasWon, today, dailyLog, recordDaily]);
 
     // Record stats + award miles once per game
     const statsUpdatedRef = useRef(false);

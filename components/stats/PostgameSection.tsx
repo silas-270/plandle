@@ -1,6 +1,6 @@
 'use client';
 
-import { ModeStats } from '@/hooks/useStats';
+import { ModeStats } from '@/contexts/UserContext';
 import { AnimatedBar, StreakBadge } from './StatElements';
 import { getCurrentTier, getNextTier } from '@/data/ranks';
 

@@ -3,8 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useQuestionQueue } from '@/hooks/useQuestionQueue';
 import { useGenericGameState, Grader } from '@/hooks/useGenericGameState';
-import { useStats } from '@/hooks/useStats';
-import { useMiles, SKIP_COST } from '@/hooks/useMiles';
+import { useUser } from '@/contexts/UserContext';
 import { getManufacturers, getTypes, getAirlines, getPlaneIndices, encodeChallenge } from '@/data/aircraft';
 import { shareText } from '@/utils/share';
 import { DifficultyLevel, DIFFICULTY_CONFIGS } from '@/types/difficulty';
@@ -16,6 +15,8 @@ import GameHistory from '@/components/game/GameHistory';
 import StatsModal from '@/components/stats';
 import { FieldConfig } from '@/types/genericGame';
 
+export const SKIP_COST = 250;
+
 const aircraftGrader: Grader = (selection, actual) => {
     return {
         manufacturer: selection.manufacturer === actual.manufacturer ? 'correct' : 'incorrect',
@@ -25,13 +26,20 @@ const aircraftGrader: Grader = (selection, actual) => {
 };
 
 export default function EndlessPage() {
-    const [difficulty, setDifficulty] = useState<DifficultyLevel>('Business');
+    const { stats, getWinRate, updateStats, miles, addMiles, spendMiles, canAfford, difficulty: savedDifficulty, setDifficulty: saveDifficulty } = useUser();
+
+    const [difficulty, setDifficulty] = useState<DifficultyLevel>((savedDifficulty as DifficultyLevel) || 'Business');
     const config = DIFFICULTY_CONFIGS[difficulty];
+
+    // Sync from context once loaded
+    useEffect(() => {
+        if (savedDifficulty && DIFFICULTY_CONFIGS[savedDifficulty as DifficultyLevel]) {
+            setDifficulty(savedDifficulty as DifficultyLevel);
+        }
+    }, [savedDifficulty]);
 
     const { currentCard, status, nextQuestion } = useQuestionQueue('practice');
     const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(config.maxAttempts, aircraftGrader);
-    const { stats, getWinRate, updateStats } = useStats();
-    const { miles, addMiles, spendMiles, canAfford } = useMiles();
 
     const [statsView, setStatsView] = useState<'postgame' | 'overview' | null>(null);
 
@@ -43,12 +51,6 @@ export default function EndlessPage() {
     const [selectedType, setSelectedType] = useState(initialTypes[0] || '');
     const [selectedAirline, setSelectedAirline] = useState(airlines[0] || '');
     const availableTypes = selectedManufacturer ? getTypes(selectedManufacturer) : [];
-
-    // Load persisted difficulty
-    useEffect(() => {
-        const saved = localStorage.getItem('plandle_difficulty') as DifficultyLevel;
-        if (saved && DIFFICULTY_CONFIGS[saved]) setDifficulty(saved);
-    }, []);
 
     // Auto-select first type when manufacturer changes
     useEffect(() => {
@@ -126,7 +128,7 @@ export default function EndlessPage() {
             if (!confirm('Changing difficulty will reset your current game. Continue?')) return;
         }
         setDifficulty(level);
-        localStorage.setItem('plandle_difficulty', level);
+        saveDifficulty(level);
         handleNext();
     };
 
