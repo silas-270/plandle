@@ -73,9 +73,9 @@ export default function PostgameSection({
 
             {/* Miles earned banner */}
             {hasWon && milesEarned > 0 && (
-                <div className="relative overflow-hidden mx-7 mb-3 flex items-center justify-between px-4 py-2.5 bg-warning-muted border border-warning-light rounded-2xl">
-                    <span className="relative z-10 text-sm font-bold text-warning-dark">Miles earned</span>
-                    <span className="relative z-10 flex items-center gap-1.5 text-sm font-black text-warning-base">
+                <div className="relative overflow-hidden mx-7 mb-3 flex items-center justify-between px-4 py-2.5 bg-success-muted border border-success-light rounded-2xl">
+                    <span className="relative z-10 text-sm font-bold text-success-dark">Miles earned</span>
+                    <span className="relative z-10 flex items-center gap-1.5 text-sm font-black text-success-base">
                         {milesEarned.toLocaleString()} mi
                     </span>
 

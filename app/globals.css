@@ -27,8 +27,10 @@
 
   /* Status Colors */
   --success-base: #22c55e;
+  --success-light: #86efac;
   --success-dark: #15803d;
   --success-stats: #10b981;
+  --success-muted: #f0fdf4;
   --warning-base: #fbbf24;
 
   --warning-light: #fbbf24;
@@ -74,8 +76,10 @@
   --color-brand-border: var(--brand-border);
 
   --color-success-base: var(--success-base);
+  --color-success-light: var(--success-light);
   --color-success-dark: var(--success-dark);
   --color-success-stats: var(--success-stats);
+  --color-success-muted: var(--success-muted);
   --color-warning-base: var(--warning-base);
   --color-warning-light: var(--warning-light);
   --color-warning-dark: var(--warning-dark);
