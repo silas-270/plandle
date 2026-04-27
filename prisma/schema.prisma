@@ -11,9 +11,40 @@ datasource db {
 }
 
 model User {
-  id        String   @id // UUID from localStorage
-  name      String
-  miles     Int      @default(0)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id         String   @id // UUID from localStorage
+  name       String
+  miles      Int      @default(0)
+  difficulty String   @default("Business") // Migrates plandle_difficulty
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  stats      GameStat[]
+  dailyLogs  DailyLog[]
+}
+
+model GameStat {
+  id            String   @id @default(uuid())
+  userId        String
+  mode          String   // e.g., 'daily', 'practice', 'military'
+  played        Int      @default(0)
+  wins          Int      @default(0)
+  currentStreak Int      @default(0)
+  maxStreak     Int      @default(0)
+  
+  recentResults Boolean[] 
+
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, mode]) 
+}
+
+model DailyLog {
+  id        String   @id @default(uuid())
+  userId    String
+  date      DateTime @db.Date // Stores strictly the date component
+  status    String   // e.g., 'solved' or 'played'
+  
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, date]) 
 }
