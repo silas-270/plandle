@@ -34,19 +34,16 @@ export default function GameForm({
                         <label className="block text-xs sm:text-sm font-semibold text-text-dim mb-1.5 uppercase tracking-wide">
                             {field.label}
                         </label>
-                        <input
-                            list={`list-${field.key}`}
+                        <select
                             value={selected[field.key] ?? ''}
                             onChange={e => onFieldChange(field.key, e.target.value)}
                             disabled={isBuffering}
-                            placeholder={`Type to search...`}
                             className="w-full p-2.5 sm:p-3 bg-bg-muted border border-border-main rounded-xl text-sm focus:ring-2 focus:ring-brand-light focus:border-brand-light transition-all outline-none"
-                        />
-                        <datalist id={`list-${field.key}`}>
+                        >
                             {field.options.map(opt => (
                                 <option key={opt} value={opt}>{opt}</option>
                             ))}
-                        </datalist>
+                        </select>
                     </div>
                 ))}
             </div>
