@@ -9,27 +9,20 @@ export async function GET(req: NextRequest) {
             return NextResponse.json({ error: 'Missing user ID' }, { status: 400 });
         }
 
-        let user = await prisma.user.findUnique({
+        const fallbackName = req.nextUrl.searchParams.get('fallbackName') || 'Passenger';
+        
+        const user = await prisma.user.upsert({
             where: { id: userId },
+            update: {},
+            create: {
+                id: userId,
+                name: fallbackName,
+            },
             include: {
                 stats: true,
                 dailyLogs: true,
             },
         });
-
-        if (!user) {
-            const fallbackName = req.nextUrl.searchParams.get('fallbackName') || 'Passenger';
-            user = await prisma.user.create({
-                data: {
-                    id: userId,
-                    name: fallbackName,
-                },
-                include: {
-                    stats: true,
-                    dailyLogs: true,
-                }
-            });
-        }
 
         // Transform dailyLogs from array into the { "YYYY-MM-DD": "solved" } map the client expects
         const dailyLog: Record<string, string> = {};
