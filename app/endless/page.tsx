@@ -39,7 +39,7 @@ export default function EndlessPage() {
     }, [savedDifficulty]);
 
     const { currentCard, status, nextQuestion } = useQuestionQueue('practice');
-    const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(config.maxAttempts, aircraftGrader);
+    const { guesses, isGameOver, hasWon, isSkipped, remainingAttempts, submitGuess, skipGame, resetGame } = useGenericGameState(config.maxAttempts, aircraftGrader);
 
     const [statsView, setStatsView] = useState<'postgame' | 'overview' | null>(null);
 
@@ -71,16 +71,18 @@ export default function EndlessPage() {
         airline: selectedAirline,
     };
 
-    // Record stats + award miles once per game
+    // Record stats + award miles once per game (skipped rounds are excluded)
     const statsUpdatedRef = useRef(false);
     useEffect(() => {
         if (isGameOver && !statsUpdatedRef.current) {
             statsUpdatedRef.current = true;
-            updateStats(hasWon, 'practice');
-            if (hasWon) addMiles(config.milesPerWin);
+            if (!isSkipped) {
+                updateStats(hasWon, 'practice');
+                if (hasWon) addMiles(config.milesPerWin);
+            }
             setStatsView('postgame');
         }
-    }, [isGameOver, hasWon, updateStats, addMiles, config.milesPerWin]);
+    }, [isGameOver, hasWon, isSkipped, updateStats, addMiles, config.milesPerWin]);
 
     const handleGuess = () => {
         if (!currentCard) return;
@@ -114,9 +116,11 @@ export default function EndlessPage() {
         const encoded = encodeChallenge(indices.aircraftIndex, indices.airlineIndex, currentCard.imageIndex);
         const url = `${window.location.origin}/endless?c=${encoded}`;
         
-        const resultText = hasWon 
-            ? `I identified this aircraft in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
-            : `I couldn't identify this aircraft... 😵`;
+        const resultText = isSkipped
+            ? `I skipped this one after ${guesses.length} ${guesses.length === 1 ? 'guess' : 'guesses'}. ⏭️`
+            : hasWon
+                ? `I identified this aircraft in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
+                : `I couldn't identify this aircraft... 😵`;
 
         const shareMsg = `✈️ Plandle Challenge ✈️\n━━━━━━━━━━━━━━\n${resultText}\n\nThink you're a better pilot?\n👉 ${url}`;
         
@@ -152,11 +156,11 @@ export default function EndlessPage() {
     // Skip button — Endless-only, only visible when affordable and 2+ guesses in
     const skipButton = !isGameOver && guesses.length >= 2 && canAfford(SKIP_COST) ? (
         <button
-            onClick={() => { spendMiles(SKIP_COST); handleNext(); }}
+            onClick={() => { spendMiles(SKIP_COST); skipGame(); }}
             disabled={status === 'buffering'}
             className="w-full py-3 text-sm font-bold text-warning-dark bg-warning-muted border border-warning-light rounded-xl hover:opacity-90 transition-colors active:scale-95 flex items-center justify-center gap-2"
         >
-            <span>✈️</span> Skip bad image (−{SKIP_COST.toLocaleString()} mi)
+            <span>⏭️</span> Skip bad image (−{SKIP_COST.toLocaleString()} mi)
         </button>
     ) : null;
 
@@ -180,6 +184,7 @@ export default function EndlessPage() {
                 winRate={getWinRate('practice')}
                 getWinRate={getWinRate}
                 hasWon={hasWon}
+                isSkipped={isSkipped}
                 isOpen={statsView !== null}
                 variant={statsView === 'overview' ? 'overview' : 'postgame'}
                 guessCount={guesses.length}

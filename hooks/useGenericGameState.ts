@@ -17,6 +17,7 @@ export function useGenericGameState(maxAttempts: number, grader: Grader = exactM
     const [guesses, setGuesses] = useState<GenericGuess[]>([]);
     const [isGameOver, setIsGameOver] = useState(false);
     const [hasWon, setHasWon] = useState(false);
+    const [isSkipped, setIsSkipped] = useState(false);
 
     const submitGuess = useCallback((selection: GenericAnswer, actual: GenericAnswer) => {
         if (isGameOver || guesses.length >= maxAttempts) return;
@@ -36,11 +37,18 @@ export function useGenericGameState(maxAttempts: number, grader: Grader = exactM
         }
     }, [isGameOver, maxAttempts, guesses, grader]);
 
+    /** Trigger the postgame screen without counting as a win or loss. */
+    const skipGame = useCallback(() => {
+        setIsSkipped(true);
+        setIsGameOver(true);
+    }, []);
+
     const resetGame = useCallback(() => {
         setGuesses([]);
         setIsGameOver(false);
         setHasWon(false);
+        setIsSkipped(false);
     }, []);
 
-    return { guesses, isGameOver, hasWon, submitGuess, resetGame, remainingAttempts: maxAttempts - guesses.length };
+    return { guesses, isGameOver, hasWon, isSkipped, submitGuess, skipGame, resetGame, remainingAttempts: maxAttempts - guesses.length };
 }

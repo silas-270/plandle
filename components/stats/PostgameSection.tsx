@@ -6,6 +6,7 @@ import { getCurrentTier, getNextTier } from '@/data/ranks';
 
 interface PostgameSectionProps {
     hasWon: boolean;
+    isSkipped?: boolean;
     guessCount: number;
     maxAttempts: number;
     milesEarned: number;
@@ -22,6 +23,7 @@ interface PostgameSectionProps {
 
 export default function PostgameSection({
     hasWon,
+    isSkipped = false,
     guessCount,
     maxAttempts,
     milesEarned,
@@ -59,20 +61,22 @@ export default function PostgameSection({
                     className="text-4xl mb-2 inline-block"
                     style={{ animation: 'header-pop 0.5s 0.2s cubic-bezier(0.34, 1.56, 0.64, 1) both' }}
                 >
-                    {hasWon ? '🎉' : '✈️'}
+                    {isSkipped ? '⏭️' : (hasWon ? '🎉' : '✈️')}
                 </div>
                 <h2 className="text-2xl font-black text-text-main tracking-tight">
-                    {hasWon ? 'Nailed it!' : 'Better luck next time!'}
+                    {isSkipped ? 'Skipped' : (hasWon ? 'Nailed it!' : 'Better luck next time!')}
                 </h2>
                 <p className="text-sm text-text-dim mt-1 font-medium">
-                    {hasWon
-                        ? <>Identified in <span className="font-bold text-text-muted">{guessCount} {guessCount === 1 ? 'guess' : 'guesses'}</span> / {maxAttempts}</>
-                        : <>Out of guesses!</>}
+                    {isSkipped
+                        ? <>Skipped after <span className="font-bold text-text-muted">{guessCount} {guessCount === 1 ? 'guess' : 'guesses'}</span></>        
+                        : hasWon
+                            ? <>Identified in <span className="font-bold text-text-muted">{guessCount} {guessCount === 1 ? 'guess' : 'guesses'}</span> / {maxAttempts}</>
+                            : <>Out of guesses!</>}
                 </p>
             </div>
 
-            {/* Miles earned banner */}
-            {hasWon && milesEarned > 0 && (
+            {/* Miles earned banner — only for genuine wins, never on skip */}
+            {hasWon && !isSkipped && milesEarned > 0 && (
                 <div className="relative overflow-hidden mx-7 mb-3 flex items-center justify-between px-4 py-2.5 bg-success-muted border border-success-light rounded-2xl">
                     <span className="relative z-10 text-sm font-bold text-success-dark">Miles earned</span>
                     <span className="relative z-10 flex items-center gap-1.5 text-sm font-black text-success-base">
@@ -141,7 +145,7 @@ export default function PostgameSection({
                     {(() => {
                         const milesBefore = miles - milesEarned;
                         const tierBefore = getCurrentTier(milesBefore);
-                        const isRankUp = hasWon && milesEarned > 0 && currentTier.threshold > tierBefore.threshold;
+                        const isRankUp = hasWon && !isSkipped && milesEarned > 0 && currentTier.threshold > tierBefore.threshold;
 
                         return (
                             <>

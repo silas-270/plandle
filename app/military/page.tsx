@@ -40,7 +40,7 @@ export default function MilitaryPage() {
     }, [savedDifficulty]);
 
     const { currentCard, status, nextQuestion } = useMilitaryQueue();
-    const { guesses, isGameOver, hasWon, remainingAttempts, submitGuess, resetGame } = useGenericGameState(config.maxAttempts, militaryGrader);
+    const { guesses, isGameOver, hasWon, isSkipped, remainingAttempts, submitGuess, skipGame, resetGame } = useGenericGameState(config.maxAttempts, militaryGrader);
 
     const [statsView, setStatsView] = useState<'postgame' | 'overview' | null>(null);
 
@@ -68,16 +68,18 @@ export default function MilitaryPage() {
         type: selectedType,
     };
 
-    // Record stats + award miles once per game
+    // Record stats + award miles once per game (skipped rounds are excluded)
     const statsUpdatedRef = useRef(false);
     useEffect(() => {
         if (isGameOver && !statsUpdatedRef.current) {
             statsUpdatedRef.current = true;
-            updateStats(hasWon, 'military');
-            if (hasWon) addMiles(config.milesPerWin);
+            if (!isSkipped) {
+                updateStats(hasWon, 'military');
+                if (hasWon) addMiles(config.milesPerWin);
+            }
             setStatsView('postgame');
         }
-    }, [isGameOver, hasWon, updateStats, addMiles, config.milesPerWin]);
+    }, [isGameOver, hasWon, isSkipped, updateStats, addMiles, config.milesPerWin]);
 
     const handleGuess = () => {
         if (!currentCard) return;
@@ -109,9 +111,11 @@ export default function MilitaryPage() {
         const encoded = encodeMilitaryChallenge(aircraftIndex, currentCard.imageIndex);
         const url = `${window.location.origin}/military?c=${encoded}`;
 
-        const resultText = hasWon
-            ? `I identified this military aircraft in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
-            : `I couldn't identify this military aircraft... 😵`;
+        const resultText = isSkipped
+            ? `I skipped this one after ${guesses.length} ${guesses.length === 1 ? 'guess' : 'guesses'}. ⏭️`
+            : hasWon
+                ? `I identified this military aircraft in ${guesses.length}/${config.maxAttempts} attempts! 🎯`
+                : `I couldn't identify this military aircraft... 😵`;
         const shareMsg = `🪖 Plandle Military Challenge 🪖\n━━━━━━━━━━━━━━\n${resultText}\n\nThink you know your jets?\n👉 ${url}`;
         shareText('Plandle Military Challenge', shareMsg);
     };
@@ -144,11 +148,11 @@ export default function MilitaryPage() {
 
     const skipButton = !isGameOver && guesses.length >= 2 && canAfford(SKIP_COST) ? (
         <button
-            onClick={() => { spendMiles(SKIP_COST); handleNext(); }}
+            onClick={() => { spendMiles(SKIP_COST); skipGame(); }}
             disabled={status === 'buffering'}
             className="w-full py-3 text-sm font-bold text-warning-dark bg-warning-muted border border-warning-light rounded-xl hover:opacity-90 transition-colors active:scale-95 flex items-center justify-center gap-2"
         >
-            <span>✈️</span> Skip bad image (−{SKIP_COST.toLocaleString()} mi)
+            <span>⏭️</span> Skip bad image (−{SKIP_COST.toLocaleString()} mi)
         </button>
     ) : null;
 
@@ -172,6 +176,7 @@ export default function MilitaryPage() {
                 winRate={getWinRate('military')}
                 getWinRate={getWinRate}
                 hasWon={hasWon}
+                isSkipped={isSkipped}
                 isOpen={statsView !== null}
                 variant={statsView === 'overview' ? 'overview' : 'postgame'}
                 guessCount={guesses.length}

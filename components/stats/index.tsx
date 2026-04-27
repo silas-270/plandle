@@ -23,6 +23,7 @@ type Props = {
     difficulty?: string;
     miles?: number;
     milesEarned?: number;
+    isSkipped?: boolean;
     onClose: () => void;
     onNext?: () => void;
     onDifficultyChange?: (level: any) => void;
@@ -30,7 +31,7 @@ type Props = {
     onShareChallenge?: () => void;
 };
 
-export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWon, isOpen, guessCount, maxAttempts, answer, gameMode = 'practice', variant = 'postgame', difficulty, miles = 0, milesEarned = 0, onClose, onNext, onDifficultyChange, nextLabel, onShareChallenge }: Props) {
+export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWon, isOpen, guessCount, maxAttempts, answer, gameMode = 'practice', variant = 'postgame', difficulty, miles = 0, milesEarned = 0, isSkipped = false, onClose, onNext, onDifficultyChange, nextLabel, onShareChallenge }: Props) {
     const [showConfetti, setShowConfetti] = useState(false);
     const [animate, setAnimate] = useState(false);
 
@@ -159,6 +160,7 @@ export default function StatsModal({ stats, allStats, winRate, getWinRate, hasWo
                     // ─── POSTGAME VARIANT ────────────────────────────────────────
                     <PostgameSection
                         hasWon={hasWon}
+                        isSkipped={isSkipped}
                         guessCount={guessCount}
                         maxAttempts={maxAttempts}
                         milesEarned={milesEarned}
