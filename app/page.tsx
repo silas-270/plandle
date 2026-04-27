@@ -171,7 +171,7 @@ export default function HomePage() {
 
             {/* Footer tagline */}
             <p className="mt-12 text-xs text-text-dim font-medium tracking-wide uppercase">
-                Earn miles · Build streaks · Master aviation
+                Earn miles · Build streaks · Master aviation Hehehehheheheheh
             </p>
         </div>
     );
