@@ -6,11 +6,41 @@ type SyncType = 'miles' | 'stats' | 'daily' | 'difficulty' | 'name';
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        const { id, type } = body as { id: string; type: SyncType };
+        const { id, type, token } = body as { id: string; type: SyncType; token?: string };
 
         if (!id || typeof id !== 'string' || !type) {
             return NextResponse.json({ error: 'Invalid payload' }, { status: 400 });
         }
+
+        // ── Challenge token validation ─────────────────────────
+        if (!token || typeof token !== 'string') {
+            return NextResponse.json({ error: 'Missing challenge token' }, { status: 403 });
+        }
+
+        const challenge = await prisma.challengeToken.findUnique({
+            where: { token },
+        });
+
+        if (!challenge) {
+            return NextResponse.json({ error: 'Invalid challenge token' }, { status: 403 });
+        }
+
+        if (challenge.userId !== id) {
+            // Token was issued for a different user
+            await prisma.challengeToken.delete({ where: { token } });
+            return NextResponse.json({ error: 'Token mismatch' }, { status: 403 });
+        }
+
+        if (challenge.expiresAt < new Date()) {
+            // Token has expired
+            await prisma.challengeToken.delete({ where: { token } });
+            return NextResponse.json({ error: 'Challenge token expired' }, { status: 403 });
+        }
+
+        // Consume the token (one-time use)
+        await prisma.challengeToken.delete({ where: { token } });
+
+        // ── Existing logic continues ───────────────────────────
 
         // Ensure user exists
         const existingUser = await prisma.user.findUnique({ where: { id } });

@@ -48,3 +48,13 @@ model DailyLog {
 
   @@unique([userId, date]) 
 }
+
+model ChallengeToken {
+  token     String   @id
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([expiresAt])
+  @@index([userId])
+}

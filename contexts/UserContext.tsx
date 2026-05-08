@@ -65,12 +65,27 @@ const UserContext = createContext<UserContextType | null>(null);
 
 // ── Fire-and-forget sync helper ────────────────────────────
 
-function syncToServer(payload: Record<string, unknown>) {
-    fetch('/api/user/sync', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-    }).catch(err => console.warn('[Sync] Failed:', err));
+async function syncToServer(payload: Record<string, unknown>) {
+    try {
+        const userId = payload.id as string;
+
+        // 1. Get a one-time challenge token from the server
+        const challengeRes = await fetch(`/api/challenge?userId=${userId}`);
+        if (!challengeRes.ok) {
+            console.warn('[Sync] Challenge token failed:', challengeRes.status);
+            return;
+        }
+        const { token } = await challengeRes.json();
+
+        // 2. Send sync request with the token
+        await fetch('/api/user/sync', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ ...payload, token }),
+        });
+    } catch (err) {
+        console.warn('[Sync] Failed:', err);
+    }
 }
 
 // ── Provider ───────────────────────────────────────────────
